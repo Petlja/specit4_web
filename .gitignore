@@ -1,0 +1,12 @@
+__pycache__
+.vscode
+build_info
+pavement.pyc
+_intermediate
+_build
+course
+course.json
+_tmp
+override.json
+package-conf.json
+export
