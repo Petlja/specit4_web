@@ -1,6 +1,6 @@
-courseId: courseID 
+courseId: specit4_web
 lang: en
-title: Petljadoc Course
+title: Веб програмирање за четврти разред специјализованих ИТ одељења
 description:
   willLearn: 
     - Preview of Petljadoc course
@@ -19,26 +19,18 @@ description:
       href: https://github.com/RunestoneInteractive/overview
   longDescription: |
     This is an example of a long description...
-  shortDescription: Веб програмирање за четврти разред специјалних ИТ одељења
+  shortDescription: Веб програмирање за четврти разред специјализованих ИТ одељења
 
 
 lessons:
-  - title: Lesson 1
+  - title: Увод
     guid: 310bc164-2932-4276-91af-55eab5c66fbb
     description: Your first lesson. Description is not required attribute
-    folder: 1_Lesson
+    folder: 0_Uvod
     activities:
       - type: reading
-        title: Intro
-        file: intro.rst 
+        title: Увод
+        file: Uvod.rst 
         description: #Optional
         guid: 719014e7-f2e0-4643-931a-5c887eef320a
-      - type: video
-        title: Video activity for your lesson
-        decription: Nice video
-        url: https://www.youtube.com/watch?v=2KYuzJKemXw
-        guid: 8738b095-2165-4f48-bcdb-627b460b7558
-      - type: quiz
-        title: Test your students
-        file: quiz.rst
-        guid: 4938f7a5-6e37-4761-bc77-400628fc328b
+    
