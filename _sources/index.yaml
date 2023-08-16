@@ -1,5 +1,5 @@
 courseId: specit4_web
-lang: en
+lang: sr-Cyrl
 title: Веб програмирање за четврти разред специјализованих ИТ одељења
 description:
   willLearn: 
@@ -33,4 +33,235 @@ lessons:
         file: Uvod.rst 
         description: #Optional
         guid: 719014e7-f2e0-4643-931a-5c887eef320a
-    
+  - title: Рачунарске мреже
+    guid: 648b43ca-2d1b-4605-8dae-0ca9e4c6dfde
+    description: 
+    folder: 1_Računarske mreže
+    activities:
+      - type: reading
+        title: Појам и сврха рачунарске мреже
+        file: 1_1_Pojam i svrha računarske mreže.rst
+        description: 
+        guid: ee2a8300-1133-4556-8a69-61b346a1fc46
+      - type: reading
+        title: Основне класификације мрежа
+        file: 1_2_Osnovne klasifikacije mreža.rst
+        description: #Optional
+        guid: fd20048b-fb21-4730-9bc0-9896220cf5b7
+      - type: reading
+        title: Интернет сервиси
+        file: 1_3_Internet servisi.rst
+        description: #Optional
+        guid: e2a77dd0-0d25-4fe1-bd2d-a38fd25fd687
+  - title: Компоненте рачунарских мрежа
+    guid: 8c071cce-b10f-4691-a483-00ed254ce56e
+    description: 
+    folder: 2_Komponente računarskih mreža
+    activities:
+      - type: reading
+        title: Увод
+        file: 2_0_Uvod.rst
+        description: 
+        guid: 37d75618-a58e-4024-9949-b6b05a128bb9
+      - type: reading
+        title: Улоге мрежног хардвера
+        file: 2_1_Uloge mrežnog hardvera.rst
+        description: 
+        guid: 5d90e827-f8c0-49e2-849f-e767dfd663ea
+      - type: reading
+        title: Уређаји за повезивање
+        file: 2_2_Uređaji za povezivanje.rst
+        description: 
+        guid: fe4bce72-f1cd-4d60-88b5-c5b6c0398c36
+      - type: reading
+        title: Комуникациони водови
+        file: 2_3_Komunikacioni vodovi.rst
+        description: 
+        guid: e7738e73-04dd-46c7-80c2-80940a4790d6
+  - title: Архитектура рачунарских мрежа
+    guid: 79ea5ea5-da68-4a87-93a6-d26baa939639
+    description: 
+    folder: 3_Arhitektura računarskih mreža
+    activities:
+      - type: reading
+        title: Слојеви и протоколи
+        file: 3_1_Slojevi i protokoli.rst
+        description: 
+        guid: b055518a-a621-4e60-88ac-a78e59cc8ac2
+      - type: reading
+        title: Преглед модела архитектура рачунарских мрежа
+        file: 3_2_Pregled modela arhitektura računarskih mreža.rst
+        description: 
+        guid: 782944f0-24fe-4420-abc8-6de501b00cc5
+      - type: reading
+        title: Слој мрежног интерфејса
+        file: 3_3_Sloj mrežnog interfejsa.rst
+        description: 
+        guid: 6e770297-4808-4c76-a152-d5b133685cde
+      - type: reading
+        title: Интернет слој
+        file: 3_4_Internet sloj.rst
+        description: 
+        guid: 0bd4596a-e25c-48c5-82ed-1b0eca2d4e2e
+      - type: reading
+        title: Транспортни слој
+        file: 3_5_Transportni sloj.rst
+        description: 
+        guid: 97f4806b-cf90-4b22-9f9c-5906a340d475
+      - type: reading
+        title: Апликациони слој
+        file: 3_6_Aplikacioni sloj.rst
+        description: 
+        guid: e9165807-5443-41d8-9e1a-ba9009c0a204
+      - type: reading
+        title: Протокол HTTP
+        file: 3_7_Protokol HTTP.rst
+        description: 
+        guid: 7b5b761b-c82c-42dd-a39b-f7177252a8f3
+      - type: reading
+        title: Одржавање стања између HTTP захтева
+        file: 3_8_Održavanje stanja između HTTP zahteva.rst
+        description: 
+        guid: 550ee2ce-dcda-4753-b31b-0304330793ce
+      - type: reading
+        title: Коришћење HTTP протокола приликом претраживања веба
+        file: 3_9_Korišćenje HTTP protokola prilikom pretraživanja veba.rst
+        description: 
+        guid: 40abbd6a-dbab-4a49-8f4b-bf845327e464
+  - title: Описни језик HTML
+    guid: e2296111-3858-4069-9f75-54f71262f697
+    description: 
+    folder: 4_Opisni jezik HTML
+    activities:
+      - type: reading
+        title: Веб-програмирање
+        file: 4_1_Veb-programiranje.rst
+        description: 
+        guid: 868dd5a3-e985-44c0-b100-e77b3e227da4
+      - type: reading
+        title: Статички и динамички веб
+        file: 4_2_Statički i dinamički veb.rst
+        description: 
+        guid: f99007a3-b170-4a5f-85c6-18bef6ffb81a
+      - type: reading
+        title: Принципи веб-дизајна
+        file: 4_3_Principi veb-dizajna.rst
+        description: 
+        guid: 1adca9a9-72dc-478a-be1a-c01cf93f5e6a
+      - type: reading
+        title: Додатни аспекти веб-дизајна
+        file: 4_4_Dodatni aspekti veb-dizajna.rst
+        description: 
+        guid: c294db17-c460-461f-ba88-7675711736d2
+  - title: Основе језика HTML
+    guid: c2bb4b46-2d4b-4e02-ab60-273168448007
+    description: 
+    folder: 5_Osnove jezika HTML
+    activities:
+      - type: reading
+        title: Подешавање XAMPP пакета алата
+        file: 5_1_Podešavanje XAMPP paketa alata.rst
+        description: 
+        guid: 3607a7ad-bde1-4674-a7de-ee8ab3bd9827
+      - type: reading
+        title: Организација веб-странице
+        file: 5_2_Organizacija veb-stranice.rst
+        description: 
+        guid: ae6203fa-98cc-4491-a716-4958d8e5a125
+      - type: reading
+        title: Историјат језика HTML
+        file: 5_3_Istorijat jezika HTML.rst
+        description: 
+        guid: 0ab7d7f8-ca7e-46b8-96b3-b0cb377b31e8
+      - type: reading
+        title: Синтакса језика HTML
+        file: 5_4_Sintaksa jezika HTML.rst
+        description: 
+        guid: e4d5add1-f141-40c1-93f3-66b9c1a7cf98
+      - type: reading
+        title: Структура веб-страница
+        file: 5_5_Struktura veb-stranica.rst
+        description: 
+        guid: d32e5148-a994-4c84-b988-d5b045960816
+      - type: reading
+        title: Општи атрибути
+        file: 5_6_Opšti atributi.rst
+        description: 
+        guid: 236e00b7-49e5-4005-9de0-14bc461cc49a
+  - title: Основни HTML елементи
+    guid: 0f9e1c21-c593-4959-8aee-2bb944686be1
+    description: 
+    folder: 6_Osnovni HTML elementi
+    activities:
+      - type: reading
+        title: Груписање садржаја
+        file: 6_1_Grupisanje sadržaja.rst
+        description: 
+        guid: a1e4a008-12f7-4360-833e-9a0930b365f1
+      - type: reading
+        title: Обележавање текста
+        file: 6_2_Obeležavanje teksta.rst
+        description: 
+        guid: ca3ccf9d-293f-42f8-a8bd-f991f083cd91
+      - type: reading
+        title: Листе
+        file: 6_3_Liste.rst
+        description: 
+        guid: f93ece7c-ac5c-48bb-a533-79356e3c61b9
+      - type: reading
+        title: Табеле
+        file: 6_4_Tabele.rst
+        description: 
+        guid: 03a29f8d-8b83-4df1-b036-a4045686cdde
+  - title: Напредни елементи језика HTML
+    guid: e42425a8-ccf6-4610-a911-0c6c016d2efc
+    description: 
+    folder: 7_Napredni elementi jezika HTML
+    activities:
+      - type: reading
+        title: Везе и адресе
+        file: 7_1_Veze i adrese.rst
+        description: 
+        guid: 4973a834-0846-46cc-a265-4169f3ff205c
+      - type: reading
+        title: Слике
+        file: 7_2_Slike.rst
+        description: 
+        guid: 59e0b219-2756-4c56-8a7b-f3cad7530977
+      - type: reading
+        title: Видео записи
+        file: 7_3_Video zapisi.rst
+        description: 
+        guid: 2d096a2b-28ca-4c48-b881-5bffe88e3cc3
+      - type: reading
+        title: Звучни видео записи
+        file: 7_4_Zvučni zapisi.rst
+        description: 
+        guid: 04d924be-2ff7-41ea-b6b8-ab2f782d5879
+  - title: Формулари
+    guid: 90fdbb9e-48d0-48c3-b97b-dcc1f87a2b7e
+    description: 
+    folder: 8_Formulari
+    activities:
+      - type: reading
+        title: Основно о формуларима
+        file: 8_1_Osnovno o formularima.rst
+        description: 
+        guid: e0108ecf-ee90-48c6-a65b-1dba49960f58
+      - type: reading
+        title: Поља за унос текста и дугмићи
+        file: 8_2_Polja za unos teksta i dugmići.rst
+        description: 
+        guid: 91fea3aa-4f26-40d5-9b18-0472ab94aaf2
+      - type: reading
+        title: Поља за избор
+        file: 8_3_Polja za izbor.rst
+        description: 
+        guid: f96e31fc-9883-41c2-90d4-e176dcee1cda
+      - type: reading
+        title: Подношење формулара
+        file: 8_4_Podnošenje formulara.rst
+        description: 
+        guid: a575417e-99cf-4068-88e0-cd32c991e6be
+
+
