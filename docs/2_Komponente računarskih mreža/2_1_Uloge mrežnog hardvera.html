@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sr-Cyrl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Улоге мрежног хардвера</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/activecode.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/codemirror.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/qchoice.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/clickable.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pytutor.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/modal-basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/datafile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/dragndrop.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fitb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/matrixeq.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/parsons.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/lib/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/poll.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/showEval.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabbedstuff.css" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/video.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webgldemo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/webglinteractive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/karel.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/notes.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/associations.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/editor.css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-4.0.0-dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/flatly.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/petlja-course.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/nbstyle.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/runestonebase.js"></script>
+    <script src="../_static/skulpt.min.js"></script>
+    <script src="../_static/skulpt-stdlib.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/jquery.highlight.js"></script>
+    <script src="../_static/bookfuncs.js"></script>
+    <script src="../_static/codemirror.js"></script>
+    <script src="../_static/xml.js"></script>
+    <script src="../_static/css.js"></script>
+    <script src="../_static/python.js"></script>
+    <script src="../_static/htmlmixed.js"></script>
+    <script src="../_static/javascript.js"></script>
+    <script src="../_static/jquery_i18n/CLDRPluralRuleParser.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.messagestore.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.fallbacks.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.language.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.parser.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.emitter.js"></script>
+    <script src="../_static/jquery_i18n/jquery.i18n.emitter.bidi.js"></script>
+    <script src="../_static/activecode-i18n.en.js"></script>
+    <script src="../_static/activecode-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/activecode.js"></script>
+    <script src="../_static/clike.js"></script>
+    <script src="../_static/timed_activecode.js"></script>
+    <script src="../_static/animationbase.js"></script>
+    <script src="../_static/mchoice.js"></script>
+    <script src="../_static/timedmc.js"></script>
+    <script src="../_static/timed.js"></script>
+    <script src="../_static/mchoice-i18n.en.js"></script>
+    <script src="../_static/mchoice-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/clickable.js"></script>
+    <script src="../_static/timedclickable.js"></script>
+    <script src="../_static/d3.v2.min.js"></script>
+    <script src="../_static/jquery.ba-bbq.min.js"></script>
+    <script src="../_static/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script src="../_static/pytutor.js"></script>
+    <script src="../_static/codelens.js"></script>
+    <script src="../_static/skulpt.min.js"></script>
+    <script src="../_static/skulpt-stdlib.js"></script>
+    <script src="../_static/datafile.js"></script>
+    <script src="../_static/dragndrop.js"></script>
+    <script src="../_static/timeddnd.js"></script>
+    <script src="../_static/dragndrop-i18n.en.js"></script>
+    <script src="../_static/dragndrop-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/fitb.js"></script>
+    <script src="../_static/timedfitb.js"></script>
+    <script src="../_static/fitb-i18n.en.js"></script>
+    <script src="../_static/fitb-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/matrixeq.js"></script>
+    <script src="../_static/lib/prettify.js"></script>
+    <script src="../_static/lib/hammer.min.js"></script>
+    <script src="../_static/parsons.js"></script>
+    <script src="../_static/parsons-i18n.en.js"></script>
+    <script src="../_static/parsons-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/timedparsons.js"></script>
+    <script src="../_static/poll.js"></script>
+    <script src="../_static/reveal.js"></script>
+    <script src="../_static/shortanswer.js"></script>
+    <script src="../_static/timed_shortanswer.js"></script>
+    <script src="../_static/showEval.js"></script>
+    <script src="../_static/tabbedstuff.js"></script>
+    <script src="../_static/runestonevideo.js"></script>
+    <script src="../_static/webglinteractive.js"></script>
+    <script src="../_static/FileSaver.min.js"></script>
+    <script src="../_static/Blob.js"></script>
+    <script src="../_static/karelCorner.js"></script>
+    <script src="../_static/karelRobot.js"></script>
+    <script src="../_static/karelWorld.js"></script>
+    <script src="../_static/karelChat.js"></script>
+    <script src="../_static/karelRobotDrawer.js"></script>
+    <script src="../_static/karelUI.js"></script>
+    <script src="../_static/karel.js"></script>
+    <script src="../_static/karel-i18n.en.js"></script>
+    <script src="../_static/karel-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/notes.js"></script>
+    <script src="../_static/pygamelib-init.js"></script>
+    <script src="../_static/gallery.js"></script>
+    <script src="../_static/associations.js"></script>
+    <script src="../_static/associations-i18n.en.js"></script>
+    <script src="../_static/associations-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/editor.js"></script>
+    <script src="../_static/jszip.js"></script>
+    <script src="../_static/editor-i18n.en.js"></script>
+    <script src="../_static/editor-i18n.sr-Cyrl.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="../_static/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <script src="../_static/waypoints.min.js"></script>
+    <script src="../_static/rangy-core.js"></script>
+    <script src="../_static/rangy-textrange.js"></script>
+    <script src="../_static/rangy-cssclassapplier.js"></script>
+    <script src="../_static/user-highlights.js"></script>
+    <script src="../_static/jquery.idle-timer.js"></script>
+    <script src="../_static/processing-1.4.1.min.js"></script>
+    <script src="../_static/jquery.hotkey.js"></script>
+    <script src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../_static/course-errors.js"></script>
+    <script src="../_static/petlja.js"></script>
+    <script src="../_static/require.js"></script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link rel="shortcut icon" href="../_static/favicon.ico" type="image/ico" />
+    <script type="text/javascript">
+      eBookConfig = {};
+      eBookConfig.host = 'http://127.0.0.1:8000' ? 'http://127.0.0.1:8000' : 'http://127.0.0.1:8000';
+      eBookConfig.app = eBookConfig.host + '/runestone';
+      eBookConfig.ajaxURL = eBookConfig.app + '/ajax/';
+      eBookConfig.course = 'os4_dig';
+      eBookConfig.logLevel = '0';
+      eBookConfig.loginRequired = 'false';
+      eBookConfig.build_info = "";
+      eBookConfig.isLoggedIn = false;
+      eBookConfig.useRunestoneServices = false;
+      eBookConfig.python3 = true;
+      eBookConfig.basecourse = 'os4_dig';
+      eBookConfig.runestone_version = '';
+      eBookConfig.imagesDir = '../_images/';
+      eBookConfig.staticDir = '../_static/';
+      if (typeof (Sk) != "undefined")
+        Sk.imgPath = eBookConfig.imagesDir;
+    </script>
+
+  </head>
+
+  <body>
+
+
+
+<div id="navbar" class="content-header">
+  <div class="right-side-nav">
+    
+    <div id="usefulLinksToggle" class="useful-links-toggle">
+        <a class="dropdown-toggle dropdown-toggle-burger" role="button" href="#" id="usefulLinksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-bars fa-2x"></i>
+        </a>
+        <div class="dropdown-menu dropdown-nav-links shadow-lg" aria-labelledby="usefulLinksDropdown" x-placement="bottom-start" style="position: absolute; transform: translate3d(-55px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+          <div class="links-title"> Корисни линкови</div>
+          <div class="useful-link">
+            <a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" target="_blank">Sphinx Docs</a></div>
+          <div class="useful-link">
+            <a href="https://github.com/Petlja/PetljaDoc/blob/master/README.md" target="_blank">Petljadoc</a></div>
+          <div class="useful-link">
+            <a href="https://github.com/RunestoneInteractive/overview" target="_blank">Runestone Interactive</a></div>
+          
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="left-side-nav">
+  <div class="course-logo-nav">
+      <a target="_blank" href="https://petlja.org">
+          <img src="../_static/img/petlja-logo-wt.svg" alt="petlja.org" id="lightPetljaLogo">
+      </a>
+  </div>
+  <div class="course-logo-nav-kabinet">
+      <a target="_blank" href="https://petlja.org/net.kabinet">
+          <img src="../_static/img/netkabinet-logo-strelica-wt.svg" alt="petlja.org" id="lightNetKabinetLogo">
+      </a>
+  </div>
+</div>
+
+
+<div class="content-header-label" id = "content-header-label" href="../">Веб програмирање за четврти разред специјализованих ИТ одељења</div>
+
+</div>
+
+
+
+
+<div class="petljaCourseContainer">
+
+<div class="petljaCourseContent">
+  
+           <div class="tableOfContent">
+            <h5> Садржај </h5>
+            </div>
+           <div>
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-0_Uvod>
+                    <h5>Увод</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../0_Uvod/Uvod.html><div class="studioLecture" id=activity-Uvod><i class="fas fa-file-alt activity-icon"></i>Увод</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-1_Računarske%20mreže>
+                    <h5>Рачунарске мреже</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../1_Računarske%20mreže/1_1_Pojam%20i%20svrha%20računarske%20mreže.html><div class="studioLecture" id=activity-1_1_Pojam%20i%20svrha%20računarske%20mreže><i class="fas fa-file-alt activity-icon"></i>Појам и сврха рачунарске мреже</div></a>
+                <a href=../1_Računarske%20mreže/1_2_Osnovne%20klasifikacije%20mreža.html><div class="studioLecture" id=activity-1_2_Osnovne%20klasifikacije%20mreža><i class="fas fa-file-alt activity-icon"></i>Основне класификације мрежа</div></a>
+                <a href=../1_Računarske%20mreže/1_3_Internet%20servisi.html><div class="studioLecture" id=activity-1_3_Internet%20servisi><i class="fas fa-file-alt activity-icon"></i>Интернет сервиси</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-2_Komponente%20računarskih%20mreža>
+                    <h5>Компоненте рачунарских мрежа</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../2_Komponente%20računarskih%20mreža/2_0_Uvod.html><div class="studioLecture" id=activity-2_0_Uvod><i class="fas fa-file-alt activity-icon"></i>Увод</div></a>
+                <a href=../2_Komponente%20računarskih%20mreža/2_1_Uloge%20mrežnog%20hardvera.html><div class="studioLecture" id=activity-2_1_Uloge%20mrežnog%20hardvera><i class="fas fa-file-alt activity-icon"></i>Улоге мрежног хардвера</div></a>
+                <a href=../2_Komponente%20računarskih%20mreža/2_2_Uređaji%20za%20povezivanje.html><div class="studioLecture" id=activity-2_2_Uređaji%20za%20povezivanje><i class="fas fa-file-alt activity-icon"></i>Уређаји за повезивање</div></a>
+                <a href=../2_Komponente%20računarskih%20mreža/2_3_Komunikacioni%20vodovi.html><div class="studioLecture" id=activity-2_3_Komunikacioni%20vodovi><i class="fas fa-file-alt activity-icon"></i>Комуникациони водови</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-3_Arhitektura%20računarskih%20mreža>
+                    <h5>Архитектура рачунарских мрежа</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../3_Arhitektura%20računarskih%20mreža/3_1_Slojevi%20i%20protokoli.html><div class="studioLecture" id=activity-3_1_Slojevi%20i%20protokoli><i class="fas fa-file-alt activity-icon"></i>Слојеви и протоколи</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_2_Pregled%20modela%20arhitektura%20računarskih%20mreža.html><div class="studioLecture" id=activity-3_2_Pregled%20modela%20arhitektura%20računarskih%20mreža><i class="fas fa-file-alt activity-icon"></i>Преглед модела архитектура рачунарских мрежа</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_3_Sloj%20mrežnog%20interfejsa.html><div class="studioLecture" id=activity-3_3_Sloj%20mrežnog%20interfejsa><i class="fas fa-file-alt activity-icon"></i>Слој мрежног интерфејса</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_4_Internet%20sloj.html><div class="studioLecture" id=activity-3_4_Internet%20sloj><i class="fas fa-file-alt activity-icon"></i>Интернет слој</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_5_Transportni%20sloj.html><div class="studioLecture" id=activity-3_5_Transportni%20sloj><i class="fas fa-file-alt activity-icon"></i>Транспортни слој</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_6_Aplikacioni%20sloj.html><div class="studioLecture" id=activity-3_6_Aplikacioni%20sloj><i class="fas fa-file-alt activity-icon"></i>Апликациони слој</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_7_Protokol%20HTTP.html><div class="studioLecture" id=activity-3_7_Protokol%20HTTP><i class="fas fa-file-alt activity-icon"></i>Протокол HTTP</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_8_Održavanje%20stanja%20između%20HTTP%20zahteva.html><div class="studioLecture" id=activity-3_8_Održavanje%20stanja%20između%20HTTP%20zahteva><i class="fas fa-file-alt activity-icon"></i>Одржавање стања између HTTP захтева</div></a>
+                <a href=../3_Arhitektura%20računarskih%20mreža/3_9_Korišćenje%20HTTP%20protokola%20prilikom%20pretraživanja%20veba.html><div class="studioLecture" id=activity-3_9_Korišćenje%20HTTP%20protokola%20prilikom%20pretraživanja%20veba><i class="fas fa-file-alt activity-icon"></i>Коришћење HTTP протокола приликом претраживања веба</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-4_Opisni%20jezik%20HTML>
+                    <h5>Описни језик HTML</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../4_Opisni%20jezik%20HTML/4_1_Veb-programiranje.html><div class="studioLecture" id=activity-4_1_Veb-programiranje><i class="fas fa-file-alt activity-icon"></i>Веб-програмирање</div></a>
+                <a href=../4_Opisni%20jezik%20HTML/4_2_Statički%20i%20dinamički%20veb.html><div class="studioLecture" id=activity-4_2_Statički%20i%20dinamički%20veb><i class="fas fa-file-alt activity-icon"></i>Статички и динамички веб</div></a>
+                <a href=../4_Opisni%20jezik%20HTML/4_3_Principi%20veb-dizajna.html><div class="studioLecture" id=activity-4_3_Principi%20veb-dizajna><i class="fas fa-file-alt activity-icon"></i>Принципи веб-дизајна</div></a>
+                <a href=../4_Opisni%20jezik%20HTML/4_4_Dodatni%20aspekti%20veb-dizajna.html><div class="studioLecture" id=activity-4_4_Dodatni%20aspekti%20veb-dizajna><i class="fas fa-file-alt activity-icon"></i>Додатни аспекти веб-дизајна</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-5_Osnove%20jezika%20HTML>
+                    <h5>Основе језика HTML</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../5_Osnove%20jezika%20HTML/5_1_Podešavanje%20XAMPP%20paketa%20alata.html><div class="studioLecture" id=activity-5_1_Podešavanje%20XAMPP%20paketa%20alata><i class="fas fa-file-alt activity-icon"></i>Подешавање XAMPP пакета алата</div></a>
+                <a href=../5_Osnove%20jezika%20HTML/5_2_Organizacija%20veb-stranice.html><div class="studioLecture" id=activity-5_2_Organizacija%20veb-stranice><i class="fas fa-file-alt activity-icon"></i>Организација веб-странице</div></a>
+                <a href=../5_Osnove%20jezika%20HTML/5_3_Istorijat%20jezika%20HTML.html><div class="studioLecture" id=activity-5_3_Istorijat%20jezika%20HTML><i class="fas fa-file-alt activity-icon"></i>Историјат језика HTML</div></a>
+                <a href=../5_Osnove%20jezika%20HTML/5_4_Sintaksa%20jezika%20HTML.html><div class="studioLecture" id=activity-5_4_Sintaksa%20jezika%20HTML><i class="fas fa-file-alt activity-icon"></i>Синтакса језика HTML</div></a>
+                <a href=../5_Osnove%20jezika%20HTML/5_5_Struktura%20veb-stranica.html><div class="studioLecture" id=activity-5_5_Struktura%20veb-stranica><i class="fas fa-file-alt activity-icon"></i>Структура веб-страница</div></a>
+                <a href=../5_Osnove%20jezika%20HTML/5_6_Opšti%20atributi.html><div class="studioLecture" id=activity-5_6_Opšti%20atributi><i class="fas fa-file-alt activity-icon"></i>Општи атрибути</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-6_Osnovni%20HTML%20elementi>
+                    <h5>Основни HTML елементи</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../6_Osnovni%20HTML%20elementi/6_1_Grupisanje%20sadržaja.html><div class="studioLecture" id=activity-6_1_Grupisanje%20sadržaja><i class="fas fa-file-alt activity-icon"></i>Груписање садржаја</div></a>
+                <a href=../6_Osnovni%20HTML%20elementi/6_2_Obeležavanje%20teksta.html><div class="studioLecture" id=activity-6_2_Obeležavanje%20teksta><i class="fas fa-file-alt activity-icon"></i>Обележавање текста</div></a>
+                <a href=../6_Osnovni%20HTML%20elementi/6_3_Liste.html><div class="studioLecture" id=activity-6_3_Liste><i class="fas fa-file-alt activity-icon"></i>Листе</div></a>
+                <a href=../6_Osnovni%20HTML%20elementi/6_4_Tabele.html><div class="studioLecture" id=activity-6_4_Tabele><i class="fas fa-file-alt activity-icon"></i>Табеле</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-7_Napredni%20elementi%20jezika%20HTML>
+                    <h5>Напредни елементи језика HTML</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../7_Napredni%20elementi%20jezika%20HTML/7_1_Veze%20i%20adrese.html><div class="studioLecture" id=activity-7_1_Veze%20i%20adrese><i class="fas fa-file-alt activity-icon"></i>Везе и адресе</div></a>
+                <a href=../7_Napredni%20elementi%20jezika%20HTML/7_2_Slike.html><div class="studioLecture" id=activity-7_2_Slike><i class="fas fa-file-alt activity-icon"></i>Слике</div></a>
+                <a href=../7_Napredni%20elementi%20jezika%20HTML/7_3_Video%20zapisi.html><div class="studioLecture" id=activity-7_3_Video%20zapisi><i class="fas fa-file-alt activity-icon"></i>Видео записи</div></a>
+                <a href=../7_Napredni%20elementi%20jezika%20HTML/7_4_Zvučni%20zapisi.html><div class="studioLecture" id=activity-7_4_Zvučni%20zapisi><i class="fas fa-file-alt activity-icon"></i>Звучни видео записи</div></a>
+                </div>
+            </div>
+                
+                <div class="courseContentsSection">
+                <div class="lecture-div courseContentsSectionHeadline" id=lecture-8_Formulari>
+                    <h5>Формулари</h5>
+                    <i class="fas fa-angle-down caret-position "> </i>
+                    <i class="fas fa-angle-up caret-position d-none"></i>
+                </div>
+                <div class="courseContentsSubSection d-none"><a href=../8_Formulari/8_1_Osnovno%20o%20formularima.html><div class="studioLecture" id=activity-8_1_Osnovno%20o%20formularima><i class="fas fa-file-alt activity-icon"></i>Основно о формуларима</div></a>
+                <a href=../8_Formulari/8_2_Polja%20za%20unos%20teksta%20i%20dugmići.html><div class="studioLecture" id=activity-8_2_Polja%20za%20unos%20teksta%20i%20dugmići><i class="fas fa-file-alt activity-icon"></i>Поља за унос текста и дугмићи</div></a>
+                <a href=../8_Formulari/8_3_Polja%20za%20izbor.html><div class="studioLecture" id=activity-8_3_Polja%20za%20izbor><i class="fas fa-file-alt activity-icon"></i>Поља за избор</div></a>
+                <a href=../8_Formulari/8_4_Podnošenje%20formulara.html><div class="studioLecture" id=activity-8_4_Podnošenje%20formulara><i class="fas fa-file-alt activity-icon"></i>Подношење формулара</div></a>
+                </div>
+            </div>
+                </div>
+</div>
+
+
+
+<div class="lectureContent">
+
+  <div id="errors">
+  </div>
+  
+  <div class="lectureContentMaterial">
+  
+    <div id="main-content">
+    
+  <section id="id1">
+<h1>Улоге мрежног хардвера<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<p>Мрежне станице (<em>host</em>), као што смо већ рекли, представљају рачунарске уређаје између којих је неопходно успоставити комуникациону везу. У зависности од тога које су карактеристике рачунарске мреже са којом је потребно умрежити неку мрежну станицу, мрежна станица мора да садржи одговарајуће хардверске компоненте. Већина рачунара данас поседује мрежне картице за жичано (на пример, стони рачунари) или бежично повезивање (на пример, мобилни телефони и таблети). Постоје и уређаји који омогућавају оба приступа (на пример, лаптоп рачунари).</p>
+<p>За жичано повезивање рачунари имају мрежну картицу или мрежни контролер (<em>Network Interface Controller, NIC</em>), који се уграђује у рачунар или му се придодаје као спољашњи додатак (на пример, путем USB порта). Излаз из мрежне картице данас је најчешће прикључак на који се прикључује одговарајући мрежни кабл (обично је то <em>RJ45</em> прикључак на који се прикључује <em>UTP</em> кабл).</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/slika_21a.jpg"><img alt="../_images/slika_21a.jpg" src="../_images/slika_21a.jpg" style="width: 340px;" /></a>
+<figcaption>
+<p><span class="caption-text"><em>NIC</em> са <em>RJ45</em> прикључком</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/slika_21b.jpg"><img alt="../_images/slika_21b.jpg" src="../_images/slika_21b.jpg" style="width: 340px;" /></a>
+<figcaption>
+<p><span class="caption-text"><em>UTP</em> кабл</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>За бежично повезивање користи се мрежна картица за бежично повезивање (<em>Wireless Network Interface Controller, WNIC</em>) која обично долази у виду картице која се уграђује на матичну плочу рачунара или прикључује на USB улаз.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/slika_21c.jpg"><img alt="../_images/slika_21c.jpg" src="../_images/slika_21c.jpg" style="width: 340px;" /></a>
+<figcaption>
+<p><span class="caption-text"><em>WNIC</em> који се прикључује на матичну плочу</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/slika_21d.jpg"><img alt="../_images/slika_21d.jpg" src="../_images/slika_21d.jpg" style="width: 340px;" /></a>
+<figcaption>
+<p><span class="caption-text"><em>WNIC</em> са <em>USB</em> прикључком</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Постоји неколико технологија које се користе за пренос података у мрежним картицама. Обично се у мрежама „ниског нивоа“ користи технологија <em>Ethernet</em>. Због тога се данас мрежне картице некада називају Ethernet картице, прикључци <em>RJ45</em> <em>Ethernet</em> прикључци, а <em>UTP</em> каблови <em>Ethernet</em> каблови.</p>
+</section>
+
+
+    </div>
+    
+    <div>
+<div class="lecture-prev-next-toggle">
+  <a  href="2_0_Uvod.html" id="prevLectureLink" class="lecture-toggler-arrows"><i class="fas fa-arrow-left fa"></i> <span> Претходна лекција </span> </a>
+  
+  <a id="nextLectureLink" class="lecture-toggler-arrows"><span> Следећа лекција</span>  <i class="fas fa-arrow-right fa"></i> </a>
+</div>
+
+<script type="text/javascript">
+  $('#relations-prev').tooltip({'placement':'right', 'selector': '', 'delay': { show: 100, hide: 50}});
+  $('#relations-next').tooltip({'placement':'left', 'selector': '', 'delay': { show: 100, hide: 50}});
+</script>
+</div>
+
+    
+  </div>
+</div>
+
+<div class="petljadoc-resources">
+  <span class="pull-left">(Created using  <a href="https://pypi.org/project/Sphinx/">Swinx</a>, <a href="http://runestoneinteractive.org/">RunestoneComponents</a> and <a href="https://github.com/Petlja/PetljaDoc">PetljaDoc</a>) <br> © 2022 Petlja</span>
+</div>
+
+
+<div class="lectureToolbox">
+
+  <label class="font-size-toggle" id="fontSizeToggle">
+
+      <i class="fas fa-font"></i><label>Слова</label>
+  </label>
+  <div class="font-change d-none" id="fontChangeModal">
+      <span class="dec-letter-icon" id="decLetterIcon">A-</span>
+      <label id="currentFontSize">16</label>
+      <span class="inc-letter-icon" id="incLetterIcon">A+</span>
+  </div>
+</div>
+
+</div>
+
+  </body>
+</html>
