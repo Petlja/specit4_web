@@ -263,5 +263,176 @@ lessons:
         file: 8_4_Podnošenje formulara.rst
         description: 
         guid: a575417e-99cf-4068-88e0-cd32c991e6be
+  - title: Основни елементи језика CSS
+    guid: 64a4cbc8-2f98-4f8d-b11e-f93d577dcd1b
+    description: 
+    folder: 9_Osnovni elementi jezika CSS
+    activities:
+      - type: reading
+        title: Синтакса језика CSS
+        file: 9_1_Sintaksa jezika CSS.rst
+        description: 
+        guid: 2792a335-bd19-41f0-8304-eb8460417ac4
+      - type: reading
+        title: Начини за задавање правила за стилизовање
+        file: 9_2_Pravila za stilizovanje.rst
+        description: 
+        guid: faa6928f-d701-4240-84ff-6a2d0e37dfea
+      - type: reading
+        title: Селектори
+        file: 9_3_Selektori.rst
+        description: 
+        guid: cfc04c27-77e4-40d8-8cea-c7992e7f34d6
+  - title: Основна својства садржаја
+    guid: 04809759-42c5-4eff-8813-8d42cfa1655a
+    description: 
+    folder: 10_Osnovna stvojstva sadržaja
+    activities:
+      - type: reading
+        title: Рад са бојама
+        file: 10_1_Rad sa bojama.rst
+        description: 
+        guid: f5329580-6dcc-4311-9a1f-745c94baa607
+      - type: reading
+        title: Стилизовање текстуалног садржаја
+        file: 10_2_Stilizovanje tekstualnog sadržaja.rst
+        description: 
+        guid: 7dff31a6-aa9b-4629-8099-3b4f30480b7e
+  - title: Модел кутије
+    guid: 042e3a33-4173-47ed-ba00-a9838316b72f
+    description: 
+    folder: 11_Model kutije
+    activities:
+      - type: reading
+        title: Шта је модел кутије?
+        file: 3_1_Šta je model kutije.rst
+        description: 
+        guid: 4d4dae0a-c1cf-44c5-b677-31547f8e29ae
+      - type: reading
+        title: Садржај елемената
+        file: 3_2_Sadržaj elemenata.rst
+        description: 
+        guid: 49c2f6de-ff4f-408f-99ce-2c1d0bd8cd97
+      - type: reading
+        title: Унутрашњи појас елемената
+        file: 3_2_Unutrašnji pojas elemenata.rst
+        description: 
+        guid: 86a2b6c9-4580-437c-ba39-37085d6d0dda
+      - type: reading
+        title: Ивица елемената
+        file: 3_4_Ivica elemenata.rst
+        description: 
+        guid: 9b7cee9f-0057-48c5-bf43-d385269d73d3
+      - type: reading
+        title: Спољашњи појас елемената (маргина)
+        file: 3_5_Spoljašni pojas elemenata.rst
+        description: 
+        guid: 8d156890-d5a2-4029-b73d-5d42e367479a
+  - title: Позиционирање садржаја
+    guid: 58ce24f4-c79f-428d-b858-c145ee568aa3
+    description: 
+    folder: 12_Pozicioniranje sadržaja
+    activities:
+      - type: reading
+        title: Својство "position" и својства за померање елемената
+        file: 12_1_Svojstvo position.rst
+        description: 
+        guid: f60c635c-c64f-4c1c-9123-77c88fe06893
+      - type: reading
+        title: Приказивање и сакривање елемената
+        file: 12_2_Prikazivanje i sakrivanje elemenata.rst
+        description: 
+        guid: 2c1935cd-208b-43ce-896d-b1a70eb6a36e
+      - type: reading
+        title: Слагање елемената
+        file: 12_3_Slaganje elemenata.rst
+        description: 
+        guid: 186626c5-0c8d-422d-998a-3ba429f1351d
+  - title: Стилизовање осталих елемената
+    guid: 96725ef2-3e50-4df0-af5f-bfb5c93f42a1
+    description: 
+    folder: 13_Stilizovanje ostalih elemenata
+    activities:
+      - type: reading
+        title: Стилизовање листи
+        file: 13_1_Stilizovanje listi.rst
+        description: 
+        guid: 803fbdd4-9bfa-4638-9b6f-68415165fcd1
+      - type: reading
+        title: Стилизовање табела
+        file: 13_2_Stilizovanje tabela.rst
+        description: 
+        guid: cc83f176-5309-4e0e-8be6-dd3d613ded83
+  - title: Програмирање клијентских веб-апликација
+    guid: e90ce4ca-3ed8-4e56-9561-3036ed25bd96
+    description: 
+    folder: 14_Programiranje klijentskih veb-aplikacija
+    activities:
+      - type: reading
+        title: Програмски језик JavaScript
+        file: 14_1_Programski jezik JavaScript.rst
+        description: 
+        guid: f5d1735a-a65b-4b1f-8b69-27c0c226ddbe
+      - type: reading
+        title: Основни елементи програмских језика
+        file: 14_2_Osnovni elementi.rst
+        description: 
+        guid: 9d085430-4c2e-4da8-b257-8b6195468283
+      - type: reading
+        title: Грешке
+        file: 14_3_Greške.rst
+        description: 
+        guid: bb5eefbf-4705-439f-bf23-99ff2965caf4
+      - type: reading
+        title: Бројеви и ниске
+        file: 14_4_Brojevi i niske.rst
+        description: 
+        guid: a054525b-575c-4484-97d6-ded4a7fd3983
+      - type: reading
+        title: Булове вредности и изборне контроле тока
+        file: 14_5_Bulove vrednosti i izborne kontrole toka.rst
+        description: 
+        guid: e489eda5-2280-4337-8067-1c329847d3c9
+      - type: reading
+        title: Низови и понављајуће контроле тока
+        file: 14_6_Nizovi i ponavljajuće kontrole toka.rst
+        description: 
+        guid: 1273d272-faae-4fc6-8236-92954d1561f5
+      - type: reading
+        title: Објекти
+        file: 14_7_Objekti.rst
+        description: 
+        guid: e4b69112-44b2-46c5-923a-74fefc5383c5
+      - type: reading
+        title: Недостајуће вредности
+        file: 14_8_Nedostajuće vrednosti.rst
+        description: 
+        guid: 4014bd1b-4685-407d-b226-ea1fd6c6c609
+      - type: reading
+        title: Функције
+        file: 14_9_Funkcije.rst
+        description: 
+        guid: 73eff6af-a052-48f6-b1b7-4ae19d9ec518
+  - title: JavaScript и DOM API
+    guid: 78376998-1e01-400f-b728-58ac49250d07
+    description: 
+    folder: 15_Javaskript i DOM API
+    activities:
+      - type: reading
+        title: Основни елементи DOM API
+        file: 15_1_Osnovni elementi dom API.rst
+        description: 
+        guid: 54915f01-141c-440c-9095-2e85d68266e2
+      - type: reading
+        title: DOM API - измена елемената
+        file: 15_2_DOM API izmena elemenata.rst
+        description: 
+        guid: 26b36af4-4306-4d37-b2b5-ca7a4b31ade8
+      - type: reading
+        title: DOM API - рад са догађајима
+        file: 15_3_Rad sa događajima.rst
+        description: 
+        guid: 27e2a081-eec2-401e-b9b8-5ee350437b55
+  
 
-
+  
