@@ -48,3 +48,7 @@
 .. image:: ../../_images/slika_101c.jpg
     :width: 780
     :align: center
+
+.. image:: ../../_images/web_101a.jpg
+    :width: 780
+    :align: center
