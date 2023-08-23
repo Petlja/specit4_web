@@ -433,6 +433,75 @@ lessons:
         file: 15_3_Rad sa događajima.rst
         description: 
         guid: 27e2a081-eec2-401e-b9b8-5ee350437b55
-  
+  - title: Библиотека Flask
+    guid: ad59f253-0dea-4466-ac4b-3fe3587492a9
+    description: 
+    folder: 16_Biblioteka Flask
+    activities:
+      - type: reading
+        title: Основно о библиотеци Flask
+        file: 16_1_Osnovno o biblioteci.rst
+        description: 
+        guid: 62bae34d-a44b-4659-82da-3d55f682d777
+      - type: reading
+        title: Први програм
+        file: 16_2_Prvi program.rst
+        description: 
+        guid: d9acd19d-1222-4665-84e6-c7ba332603c6
+      - type: reading
+        title: Рутирање захтева
+        file: 16_3_Rutiranje zahteva.rst
+        description: 
+        guid: b652de16-849f-4c4d-b658-9a007801d4f1
+      - type: reading
+        title: Шаблони и динамички генерисан садржај
+        file: 16_4_Šabloni i dinamički generisan sadržaj.rst
+        description: 
+        guid: a06483ab-2e55-4dd9-8d65-49d42965fb99
+      - type: reading
+        title: Везе унутар веб-апликације
+        file: 16_5_Veze unutar veb-aplikacije.rst
+        description: 
+        guid: ed80a8d9-5445-4c59-bd75-681e457bebe5
+      - type: reading
+        title: Обрада података
+        file: 16_7_Obrada podataka.rst
+        description: 
+        guid: 4a378cfb-5ee6-4555-9762-ab85f5d3c32a
+      - type: reading
+        title: Колачићи
+        file: 16_8_Kolačići.rst
+        description: 
+        guid: 2a09166e-c0a4-4168-b263-f4df6c5a0081
+      - type: reading
+        title: Сесије
+        file: 16_9_Sesije.rst
+        description: 
+        guid: 9f164d9d-5aac-442b-a408-8c9da0d3f066
+  - title: Рад са MySQL системом за управљање података
+    guid: fa754be2-45e8-40a8-b9ed-a3b65a04b333
+    description: 
+    folder: 17_Rad sa MySQL sistemom
+    activities:
+      - type: reading
+        title: Релационе базе података и алат phpMyAdmin
+        file: 17_1_Relacione baze podataka i phpMyAdmin.rst
+        description: 
+        guid: f184ee55-08dc-49bd-a0de-05f8deaad82a
+      - type: reading
+        title: Остваривање конекције са MySQL SUBP у Flask апликацијама
+        file: 17_2_Ostvarivanje konekcije sa MySQL SUBP u Flasku.rst
+        description: 
+        guid: c4901350-80c5-45a4-aa2a-0ec112ff74ec
+      - type: reading
+        title: Постављање упита
+        file: 17_3_Postavljanje upita.rst
+        description: 
+        guid: 665b8e3d-0ea1-496e-aa48-1806b9100a34
+      - type: reading
+        title: Упис, ажурирање и брисање података
+        file: 17_4_Upis ažuriranje i brisanje.rst
+        description: 
+        guid: 0ac1334f-72bc-4ef8-9b8b-a15aed6026d4
 
   
