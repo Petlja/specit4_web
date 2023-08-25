@@ -11,4 +11,4 @@ or
 
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Petlja/specit4_ai?quickstart=1)  
-Use Codespaces and `petljadoc preview` in a terminal to have live preview 
+Use Codespaces and run `petljadoc preview` in a terminal to have live preview 
