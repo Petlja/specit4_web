@@ -4,7 +4,11 @@
 &nbsp;&nbsp;
 [![Open in github.dev](https://img.shields.io/badge/Open_in_github.dev-blue?logo=github&style=flat&labelColor=black)](https://github.dev/Petlja/specit4_web)
 &nbsp;&nbsp;
-[![Pages build & deploy status](https://img.shields.io/badge/Pages_build_&_deploy_status-blue?logo=github&style=flat&labelColor=black)](https://github.com/Petlja/specit4_web/actions/workflows/petljadoc.yml)
+[![Pages build & deploy status](https://img.shields.io/badge/Pages_build_&_deploy_status-blue?logo=github&style=flat&labelColor=black)](https://github.com/Petlja/specit4_web/actions/workflows/petljadoc.yml)  
+Preview on Github pages, edit in github.dev using commit&push to activate the preview rebuils, and watch the status
+
+or
 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Petlja/specit4_ai?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Petlja/specit4_ai?quickstart=1)  
+Use Codespaces and `petljadoc preview` in a terminal to have live preview 
