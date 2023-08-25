@@ -23,16 +23,16 @@ description:
 
 
 lessons:
-  - title: Увод
-    guid: 310bc164-2932-4276-91af-55eab5c66fbb
-    description: Your first lesson. Description is not required attribute
-    folder: 0_Uvod
-    activities:
-      - type: reading
-        title: Увод
-        file: Uvod.rst 
-        description: #Optional
-        guid: 719014e7-f2e0-4643-931a-5c887eef320a
+  #- title: Увод
+  #  guid: 310bc164-2932-4276-91af-55eab5c66fbb
+  #  description: Your first lesson. Description is not required attribute
+  #  folder: 0_Uvod
+  #  activities:
+  #    - type: reading
+  #      title: Увод
+  #      file: Uvod.rst 
+  #      description: #Optional
+  #      guid: 719014e7-f2e0-4643-931a-5c887eef320a
   - title: Рачунарске мреже
     guid: 648b43ca-2d1b-4605-8dae-0ca9e4c6dfde
     description: 
