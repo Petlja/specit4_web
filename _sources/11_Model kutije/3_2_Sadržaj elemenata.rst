@@ -3,10 +3,46 @@
 
 Одређеним HTML елементима је могуће променити подразумеване димензије садржаја коришћењем својстава ”width” и ”height”. Прво од њих се односи на ширину садржаја, а друго на висину. Њихове вредности могу бити било које од дужина које смо већ описали.
 
-::
+.. petlja-editor:: Poglavlje3/15
 
-    Poglavlje3/15/index.html
-    Poglavlje3/15/index.css
+    index.html
+        <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - димензије садржаја</title>
+
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <p id="pasus-1">Овај пасус има димензије 300&times;200 пиксела.</p>
+            <div>
+            <p id="pasus-2">
+                Овај пасус заузима половину ширине родитељског (div) елемента. Због тога, сав текстуални садржај у њему се
+                подразумевано прелама у нове редове.
+            </p>
+            </div>
+        </body>
+    </html>
+    ~~~
+    index.css
+    #pasus-1 {
+        width: 300px;
+        height: 200px;
+        background-color: aquamarine;
+    }
+
+    div {
+        width: 500px;
+        height: 200px;
+        background-color: cadetblue;
+    }
+
+    #pasus-2 {
+        width: 50%;
+        background-color: gold;
+    }
+
 
 .. image:: ../../_images/web_32a.jpg
     :width: 780

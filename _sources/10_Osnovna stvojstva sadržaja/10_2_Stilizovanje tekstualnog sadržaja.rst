@@ -14,10 +14,49 @@ __________________________
 - Својство ”text-align” контролише хоризонтално поравнање текста. Вредности овог својства су: ”left” (лево поравнање), ”right” (десно поравнање), ”center” (поравнање по средини) и ”justify” (поравнато уз леву и десну ивицу).
 - Својство ”text-transform” се користи за дефинисање трансформације слова. Вредности овог својства су: ”uppercase” (сва слова се трансформишу у велика), ”lowercase” (сва слова се трансформишу у мала) и ”capitalize” (прво слово свих речи се трансформише у велико).
 
-::
+.. petlja-editor:: Stilizovanje0
 
-    Poglavlje3/12/index.html
-    Poglavlje3/12/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - атрибути текста</title>
+
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <p>Овај пасус има текст подразумеване величине слова.</p>
+            <p class="tekst-20">Овај пасус има текст са величином фонта од 20px.</p>
+            <p class="tekst-iskosen">Овај пасус има искошени текст.</p>
+            <p class="tekst-podebljan">Овај пасус има подебљани текст.</p>
+            <p class="tekst-centriran">Овај пасус има текст који је поравнат по средини.</p>
+            <p class="tekst-velika-slova">Овај пасус има текст са свим великим словима.</p>
+        </body>
+    </html>
+    ~~~
+    index.css
+    .tekst-20 {
+        font-size: 20px;
+    }
+
+    .tekst-iskosen {
+        font-style: italic;
+    }
+
+    .tekst-podebljan {
+        font-weight: bold;
+    }
+
+    .tekst-centriran {
+        text-align: center;
+    }
+
+    .tekst-velika-slova {
+        text-transform: uppercase;
+    }
+
+
 
 .. image:: ../../_images/web_102a.jpg
     :width: 780
@@ -42,10 +81,59 @@ __________________
 
 Навођење фамилије фонтова се врши својством ”font-family”. Фамилија фонтова се може задати по свом називу, на пример, ”Arial” или ”DejaVu Serif”. Уколико назив фамилије фонтова садржи размаке, препоручује се коришћење наводника. Такође, уместо неке конкретне фамилије фонтова, могуће је навести и неку од генералних фамилија фонтова, која може бити једна од наредних вредности: ”serif”, ”sans-serif”, ”monospace”, ”cursive” и ”fantasy”.
 
-::
+.. petlja-editor:: Stilizovanje1
 
-    Poglavlje3/13/index.html
-    Poglavlje3/13/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - генералне фамилије фонтова</title>
+
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <h1>Наслов у фамилији фонтова Arial</h1>
+
+            <p>Овај пасус има текст подразумеване фамилије фонтова.</p>
+            <p id="pasus-1">Овај пасус има текст генералне фамилије фонтова "serif".</p>
+            <p id="pasus-2">Овај пасус има текст генералне фамилије фонтова "sans-serif".</p>
+            <p id="pasus-3">Овај пасус има текст генералне фамилије фонтова "monospace".</p>
+            <p id="pasus-4">Овај пасус има текст генералне фамилије фонтова "cursive".</p>
+            <p id="pasus-5">Овај пасус има текст генералне фамилије фонтова "fantasy".</p>
+        </body>
+    </html>
+    ~~~
+    index.css
+    h1 {
+        font-family: Arial;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    #pasus-1 {
+        font-family: serif;
+    }
+
+    #pasus-2 {
+        font-family: sans-serif;
+    }
+
+    #pasus-3 {
+        font-family: monospace;
+    }
+
+    #pasus-4 {
+        font-family: cursive;
+    }
+
+    #pasus-5 {
+        font-family: fantasy;
+    }
+
+
 
 .. image:: ../../_images/web_102c.jpg
     :width: 780
@@ -61,10 +149,42 @@ __________________
 
 Због описаног понашања, језик CSS нуди могућност да се наведе више фамилија фонтова као вредност својства ”font-family” (свака од њих је раздвојена карактером ”,”). Ова функционалност се углавном користи тако што се прво наводе пожељније фамилије фонтова, а на самом крају се наведе нека од генералних фамилија фонтова. Веб-прегледач ће покушавати да пронађе и примену једну по једну фамилију фонтова све док или не пронађе једну која је наведена или не исцрпи све опције (што резултује у примени подразумеване фамилије фонтова).
 
-::
+.. petlja-editor:: Stilizovanjelast
 
-    Poglavlje3/14/index.html
-    Poglavlje3/14/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - навођење фамилије фонтова</title>
+
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <p>Код испод ће бити приказан једном од наредних фамилија фонтова:</p>
+            <ul>
+            <li>Consolas</li>
+            <li>"Courier New"</li>
+            <li>monospace</li>
+            <li>serif</li>
+            </ul>
+
+            <p>Код:</p>
+            <pre>
+            a = 3
+            b = 5
+
+            print(a + b)
+            </pre>
+        </body>
+    </html>
+    ~~~
+    index.css
+    pre {
+        font-family: Consolas, "Courier New", monospace, serif;
+    }
+
+
 
 .. image:: ../../_images/web_102e.jpg
     :width: 780

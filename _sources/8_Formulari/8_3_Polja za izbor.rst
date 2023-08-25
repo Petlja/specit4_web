@@ -12,9 +12,50 @@
 
     *Напомена*: Дугмићи за избор немају придружени текст, тако да је пожељно да свако дугме прати по један елемент label како би корисници разумели чему то дугме служи.
 
-::
+.. petlja-editor:: Poglavlje2/23/index.html
 
-    Poglavlje2/23/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - дугмићи за избор</h1>
+
+        <p>Попуни анкету:</p>
+
+        <form>
+        <label>Од слаткиша највише волим:</label>
+        <br>
+        <input id="slatkis-kinder" type="radio" name="slatkis" value="kinder" checked>
+        <label for="slatkis-kinder">Kinder</label>
+        <input id="slatkis-bounty" type="radio" name="slatkis" value="bounty">
+        <label for="slatkis-bounty">Bounty</label>
+        <input id="slatkis-kitkat" type="radio" name="slatkis" value="kitkat">
+        <label for="slatkis-kitkat">KitKat</label>
+
+        <br>
+
+        <label>Од сланиша волим:</label>
+        <br>
+        <input id="cips-chipsy" type="checkbox" name="cips" value="chipsy">
+        <label for="cips-chipsy">Chipsy чипс</label>
+        <br>
+        <input id="cips-cacak" type="checkbox" name="cips" value="cacak">
+        <label for="cips-cacak">Чачански чипс</label>
+        <br>
+        <input id="kokice" type="checkbox" name="kokice">
+        <label for="kokice">Кокице</label>
+
+        <br>
+
+        <input type="submit" value="Заврши анкету">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_83a.jpg
     :width: 780
@@ -30,9 +71,52 @@
 
 У случају заиста великог броја ставки, корисник може бити преплављен избором. Тада можеш да користиш елемент *optgroup*, који служи за груписање ставки под једним именом. Име се наводи као вредност атрибута *label* овог елемента. (Не дозволи да те збуни то што се назив овог атрибута поклапа са називом истоименог елемента који смо раније увели – у питању су две различите синтаксне одреднице језика HTML и нису ни на који начин повезани!)
 
-::
+.. petlja-editor:: Poglavlje2/24/index.html
 
-    Poglavlje2/24/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - падајућа листа</h1>
+
+        <p>Попуни анкету:</p>
+
+        <form>
+        <label for="najbolji-jezik">Најбоље знам програмски језик:</label>
+        <br>
+        <select id="najbolji-jezik" name="programski-jezik">
+            <option value="python">Python</option>
+            <option value="csharp">C#</option>
+            <option value="cpp">C++</option>
+            <option value="js">JavaScript</option>
+        </select>
+
+        <br>
+
+        <label for="najvise-volim">Мислим да најбоље познајем:</label>
+        <br>
+        <select id="najvise-volim" name="programski-jezik">
+            <optgroup label="Теорија рачунарства">
+            <option value="алг">Алгоритме</option>
+            <option value="ос">Оперативне системе</option>
+            <option value="примена">Примену рачунара</option>
+            </optgroup>
+            <optgroup label="Наука о подацима">
+            <option value="бп">Базе података</option>
+            </optgroup>
+        </select>
+
+        <br>
+
+        <input type="submit" value="Заврши анкету">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_83b.jpg
     :width: 780
@@ -47,9 +131,38 @@
 
 - Атрибут *name* се наводи искључиво на нивоу једнолинијског текстуалног поља *input* за који је придружена листа.
 
-::
+.. petlja-editor:: Poglavlje2/25/index.html
 
-    Poglavlje2/25/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - претражујућа листа</h1>
+
+        <p>Попуни анкету:</p>
+
+        <form>
+        <label for="veb-tehnologija">Највише се радујем да научим:</label>
+        <br>
+        <input id="veb-tehnologija" name="veb" list="veb-jezici">
+        <datalist id="veb-jezici">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+            <option value="python">Python</option>
+        </datalist>
+
+        <br>
+
+        <input type="submit" value="Заврши анкету">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_83c.jpg
     :width: 780
@@ -57,9 +170,57 @@
 
 Користећи поља које сада знаш можеш правити најразличитије формуларе. Они формулари који се састоје од малог броја поља су углавном читљиви (уз адекватно постављене ознаке и друге визуалне елементе). Ипак, дужи формулари могу бити напорни за попуњавање. Један начин да корисницима олакшамо рад са формуларима јесте да групишемо сродна поља. У језику HTML ово је могуће постићи коришћењем блоковског елемента *fieldset*, који обележава једну групу поља. Овај елемент је често праћен елементом *legend* (који се наводи као његово прво дете), чији текстуални садржај служи да кориснику приближи о каквој групи података је реч.
 
-::
+.. petlja-editor:: Poglavlje2/26/index.html
 
-    Poglavlje2/26/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - груписање елемената</h1>
+
+        <p>Пријави се на систем:</p>
+
+        <form>
+        <fieldset>
+            <legend>Кориснички подаци</legend>
+
+            <label for="korisnicko-ime">Корисник:</label>
+            <input
+            id="korisnicko-ime"
+            type="text"
+            name="korisnik"
+            required
+            minlength="3"
+            maxlength="15"
+            placeholder="Овде унеси твоје корисничко име"
+            size="35"
+        >
+
+            <br>
+
+            <label for="korisnicka-lozinka">Лозинка:</label>
+            <input
+            id="korisnicka-lozinka"
+            type="password"
+            name="lozinka"
+            required
+            minlength="8"
+            maxlength="20"
+            placeholder="Овде унеси твоју лозинку"
+            size="35"
+        >
+        </fieldset>
+
+        <input type="submit" value="Пријави се">
+        <input type="reset" value="Поништи унос">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_83d.jpg
     :width: 780

@@ -7,9 +7,34 @@
 
 Наредна веб-страница садржи две везе које илуструју коришћење обе врсте адреса.
 
-::
+.. petlja-editor:: Poglavlje2/12/index.html
 
-    Poglavlje2/12/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>Везе</title>
+    </head>
+    <body>
+        <h1>Везе</h1>
+
+        <ul>
+        <li>
+            Веза са релативном путањом:
+            <a href="./2.html">Друга страна</a>
+        </li>
+        <li>
+            Веза са апсолутном путањом:
+            <a href="https://www.w3schools.com/html/default.asp">W3Schools HTML</a>
+        </li>
+        </ul>
+    </body>
+    </html>
+
+
+
+    
 
 .. image:: ../../_images/slika_71a.jpg
     :width: 780
@@ -17,9 +42,21 @@
 
 Прва веза води ка документу који се налази у истом директоријуму:
 
-::
+.. petlja-editor:: Poglavlje2/12/2.html
 
-    Poglavlje2/12/2.html
+    2.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>Везе</title>
+    </head>
+    <body>
+        <h1>Везе - Друга страна</h1>
+
+        <a href="./index.html">Прва страна</a>
+    </body>
+    </html>
 
 .. image:: ../../_images/slika_71b.jpg
     :width: 780
@@ -39,9 +76,106 @@
 
 Наредна веб-страница садржи две везе од којих једна води ка елементу у оквиру исте веб-странице (једноставно, навођењем само фрагмента), док друга води ка елементу у оквиру неке друге веб-странице (навођењем фрагмента уз путању, која је у овом случају релативна, али једнако функционише и уз апсолутне путање).
 
-::
+.. petlja-editor:: Poglavlje2/13/index.html
 
-    Poglavlje2/13/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>Везе</title>
+    </head>
+    <body>
+        <h1>Везе</h1>
+
+        <ul>
+        <li>
+            Веза ка елементу унутар странице:
+            <a href="#lista-2">Листа 2</a>
+        </li>
+        <li>
+            Веза ка елементу на другој страници:
+            <a href="./2.html#lista-2">Листа 2 (Друга страна)</a>
+        </li>
+        </ul>
+
+        <hr>
+
+        <h2 id="lista-1">Листа 1</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-2">Листа 2</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-3">Листа 3</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-4">Листа 4</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-5">Листа 5</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-6">Листа 6</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-7">Листа 7</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-8">Листа 8</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-9">Листа 9</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+
+        <h2 id="lista-10">Листа 10</h2>
+        <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        </ul>
+    </body>
+    </html>
+
+
+
+    
 
 .. image:: ../../_images/slika_71d.jpg
     :width: 780
@@ -78,9 +212,27 @@
 - Атрибут *hreflang* диктира језик увезеног веб-ресурса.
 - Атрибут *type* означава тип увезеног веб-ресурса.
 
-::
+.. petlja-editor:: Poglavlje2/14/index.html
 
-    Poglavlje2/14/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>Везе</title>
+    </head>
+    <body>
+        <h1>Везе</h1>
+
+        <ul>
+        <li>
+            Веза која се отвара у новом језичку веб-прегледача:
+            <a href="./2.html" target="_blank">Друга страна</a>
+        </li>
+        </ul>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_71g.jpg
     :width: 780

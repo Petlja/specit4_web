@@ -19,9 +19,71 @@
 
 Сада можеш погледати код прве веб-странице.
 
-::
+.. petlja-editor:: Poglavlje2/27/index.html
 
-    Poglavlje2/27/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - подношење формулара</h1>
+
+        <p>Забележи захтев:</p>
+
+        <form action="./izvestaj.html" method="post">
+        <label for="e-posta">Адреса електронске поште:</label>
+        <br>
+        <input id="e-posta" name="eposta" type="email">
+        <br>
+
+        <label for="odabrani-datum">Датум:</label>
+        <br>
+        <input id="odabrani-datum" name="datum" type="date">
+        <br>
+
+        <label for="broj-zahteva">Број захтева:</label>
+        <br>
+        <input
+            id="broj-zahteva"
+            name="zahtev"
+            type="number"
+            min="100"
+            max="999"
+        >
+        <br>
+
+        <label for="datoteka">Приложи извештај:</label>
+        <br>
+        <input id="datoteka" name="izvestaj" type="file">
+        <br>
+
+        <input type="hidden" name="skriveni-podatak" value="prisutan">
+        <br>
+
+        <label for="tip-izvestaja">Тип извештаја:</label>
+        <br>
+        <input
+            id="tip-izvestaja"
+            name="tip"
+            type="text"
+            value="dnevni"
+            readonly
+        >
+        <br>
+
+        <label for="nadredjeni">Надређени:</label>
+        <br>
+        <input id="naredjeni" name="nadredjeni" type="text" value="/" disabled>
+        <br>
+
+        <input type="submit" value="Поднеси захтев">
+        </form>
+    </body>
+    </html>
+
 
 Поред појашњених атрибута на нивоу поља формулара, новина коју можеш приметити јесте да и сам формулар (тј. елемент *form*) има постављене вредности за два атрибута. Њихова значења су следећа:
 

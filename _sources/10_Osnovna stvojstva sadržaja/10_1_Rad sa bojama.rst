@@ -10,10 +10,35 @@
 
 Већ је било прилике да видиш својство ”color” на делу. Вредности овог својства које смо навели у претходним примерима су била имена боја, као што су: ”blue”, “red”, “green”, “yellow”, “violet”, “pink”, “brown”, итд. Ових имена боја има 140 и цео списак, заједно са приказима боја, можеш пронаћи на адреси https://www.w3schools.com/colors/colors_names.asp.
 
-::
+.. petlja-editor:: Boje
 
-    Poglavlje3/9/index.html
-    Poglavlje3/9/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - рад са бојама</title>
+
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <h1>Наслов</h1>
+            <p>Пасус</p>
+        </body>
+    </html>
+    ~~~
+    index.css
+    h1 {
+        color: blueviolet;
+        background-color: aquamarine;
+    }
+
+    p {
+        color: blue;
+        background-color: violet;
+    }
+
+
 
 .. image:: ../../_images/slika_101i.jpg
     :width: 780
@@ -21,10 +46,37 @@
 
 Поред навођења имена боје, постоје и други начини за задавање боје. На пример, могуће је користити комбинацију јачине црвеног, зеленог и плавог светла, тзв. RGB формат. Овај формат се задаје користећи CSS функције ”rgb” или ”rgba”. Обе функције имају заједничка прва три параметра, а то су: удео црвене светлости (цели број из интервала 0-255), удео зелене светлости (цели број из интервала 0-255) и удео плаве светлости (цели број из интервала 0-255). Функција “rgba” има и додатни параметар, а то је степен прозирности, који се често назива и параметар алфа (број у покретном зарезу из интервала 0.0-1.0).
 
-::
+.. petlja-editor:: Boje2
+    
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - рад са бојама</title>
 
-    Poglavlje3/10/index.html
-    Poglavlje3/10/index.css
+            <link rel="stylesheet" type="text/css" href="index.css">
+        </head>
+        <body>
+            <p id="prvi-pasus">Боја текстa овог пасуса користи RGB формат за задавање вредности боје.</p>
+            <p id="drugi-pasus">Позадинска боја овог пасуса има постављен и параметар алфа за 50% прозирности...</p>
+            <p id="treci-pasus">...за разлику од позадинске боје овог пасуса који има исту боју, али није прозиран.</p>
+        </body>
+    </html>
+    ~~~
+    index.css
+    #prvi-pasus {
+        color: rgb(141, 62, 215);
+    }
+
+    #drugi-pasus {
+        background-color: rgba(115, 195, 185, 0.5);
+    }
+
+    #treci-pasus {
+        background-color: rgba(115, 195, 185, 1);
+    }
+
 
 .. image:: ../../_images/slika_101a.jpg
     :width: 780
@@ -34,10 +86,26 @@
 
 Боја у HEX формату се наводи као вредност тако што се наведе карактер ”#” за којим следи (шестоцифрен или осмоцифрен) хексадекадни број.
 
-::
+.. code-block:: html
 
-    Poglavlje3/11/index.html
-    Poglavlje3/11/index.css
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>CSS - рад са бојама</title>
+
+            <link rel="stylesheet" type="text/css" href="./index.css">
+        </head>
+        <body>
+            <p id="prvi-pasus">Боја текстa овог пасуса користи HEX формат за задавање вредности боје.</p>
+            <p id="drugi-pasus">
+            Позадинска боја овог пасуса има постављене и додатне две хексадекадне цифре (тј. параметар алфа) за 50%
+            прозирности...
+            </p>
+            <p id="treci-pasus">...за разлику од позадинске боје овог пасуса који има исту боју, али није прозиран.</p>
+        </body>
+    </html>
+
 
 .. image:: ../../_images/slika_101b.jpg
     :width: 780

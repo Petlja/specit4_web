@@ -15,9 +15,26 @@
 
 Звучни записи се укључују коришћењем елемента *audio*, који има идентично понашање као и елемент *video*, као и исте атрибуте. Наредни пример илуструје коришћење овог елемента за репродукцију звучних записа.
 
-::
+.. code-block::
 
-    Poglavlje2/20/index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Мултимедијални садржај - звучни записи</title>
+    <body>
+        <h1>Звучни записи</h1>
+
+        <p>Звучни запис за контролама</p>
+
+        <audio controls>
+        <source src="./melody.mp3" type="audio/mp3">
+        Твој веб-прегледач не подржава елемент audio”.
+        </video>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_74a.jpg
     :width: 780

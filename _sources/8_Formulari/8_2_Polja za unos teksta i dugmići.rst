@@ -28,9 +28,55 @@
 
 Наредни пример илуструје елементе о којима је било речи у сврху креирања једноставног формулара за пријављивање корисника на систем.
 
-::
+.. petlja-editor:: Poglavl2/21/index.html
 
-    Poglavlje2/21/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - једнолинијски текстуални унос и дугмићи</h1>
+
+        <p>Пријави се на систем:</p>
+
+        <form>
+        <label for="korisnicko-ime">Корисник:</label>
+        <input
+            id="korisnicko-ime"
+            type="text"
+            name="korisnik"
+            required
+            minlength="3"
+            maxlength="15"
+            placeholder="Овде унеси твоје корисничко име"
+            size="35"
+        >
+
+        <br>
+
+        <label for="korisnicka-lozinka">Лозинка:</label>
+        <input
+            id="korisnicka-lozinka"
+            type="password"
+            name="lozinka"
+            required
+            minlength="8"
+            maxlength="20"
+            placeholder="Овде унеси твоју лозинку"
+            size="35"
+        >
+
+        <br>
+
+        <input type="submit" value="Пријави се">
+        <input type="reset" value="Поништи унос">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_82a.jpg
     :width: 780
@@ -38,9 +84,33 @@
 
 Како постоје једнолинијска текстуална поља за унос једноставних информација, може се очекивати да постоји начин за унос и вишелинијског текста. Линијски елемент *textarea* служи управо тој сврси. Поред неких од атрибута које смо већ навели за елемент *input* (као што су *name, value, placeholder* и др.), елемент *textarea* садржи и атрибуте *rows* и *cols*, који дефинишу величину елемента у карактерима који стају у висини, односно дужини елемента, редом.
 
-::
+.. petlja-editor:: Poglavlje2/22/index.html
 
-    Poglavlje2/22/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <title>Формулари</title>
+    <body>
+        <h1>Формулари - вишелинијски текстуални унос</h1>
+
+        <p>Остави коментар:</p>
+
+        <form>
+        <label for="moj-komentar">Коментар:</label>
+        <br>
+        <textarea id="moj-komentar" name="komentar" placeholder="Овде унеси коментар" rows="5" cols="30"></textarea>
+
+        <br>
+
+        <input type="submit" value="Пријави се">
+        <input type="reset" value="Поништи унос">
+        </form>
+    </body>
+    </html>
+
 
 .. image:: ../../_images/slika_82b.jpg
     :width: 780
