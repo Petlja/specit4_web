@@ -17,12 +17,91 @@ _________
 
 Наредни пример илуструје коришћење GET метода за обраду података. На почетној страници се налази формулар на којем корисник уноси два податка: разред и одељење. Ове вредности се прослеђују страници *Одељење* која приказује унете податке у свом шаблону, заједно са списком ученика у том одељењу (који је, за сада, фиксиран за све разреде и сва одељења). 
 
-::
+.. code-block:: python
 
-    Poglavlje5/13/main.py
-    Poglavlje5/13/templates/оsnovni_sablon.html
-    Poglavlje5/13/templates/pocetna.html
-    Poglavlje5/13/templates/odeljenje.html
+    # Poglavlje5/13/main.py
+
+    from flask import Flask, render_template, request
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html", naslov="Почетна страница")
+
+
+    @app.route("/odeljenja")
+    def odeljenja():
+        razred = request.args.get("razred")
+        odeljenje = request.args.get("odeljenje")
+
+        return render_template(
+            "odeljenja.html",
+            naslov="Одељења",
+            razred=razred,
+            odeljenje=odeljenje,
+            ucenici=["Ивана Стаменковић", "Јован Петровић", "Растко Јовић"],
+        )
+
+.. code-block:: html
+
+    <!-- Poglavlje5/13/templates/оsnovni_sablon.html --!>
+    
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+        </head>
+        <body>
+            <header>
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+            {% block sadrzaj %}
+        {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!-- Poglavlje5/13/templates/pocetna.html --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('odeljenja')}}" method="GET">
+        <div>
+            <label for="razred">Разред:</label>
+            <br>
+            <input type="number" name="razred" id="razred">
+        </div>
+        <div>
+            <label for="odeljenje">Одељење:</label>
+            <br>
+            <input type="number" name="odeljenje" id="odeljenje">
+        </div>
+        <input type="submit" value="Прикажи ученике">
+    </form>
+    {% endblock %}
+
+.. code-block:: html
+
+    <!-- Poglavlje5/13/templates/odeljenje.html --!> 
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <p>Одељење: {{razred}}-{{odeljenje}}</p>
+    <p>Ученици:</p>
+    <ol>
+        {% for ucenik in ucenici %}
+        <li>{{ucenik}}</li>
+        {% endfor %}
+    </ol>
+    {% endblock %}
+
 
 .. image:: ../../_images/web_167a.jpg
     :width: 780
@@ -49,12 +128,131 @@ _________
 
 Прикажимо сада изворни код примера који користи описане функције за приказивање порука кориснику.
 
-::
+.. code-block:: python
 
-    Poglavlje5/14/main.py
-    Poglavlje5/14/templates/оsnovni_sablon.html
-    Poglavlje5/14/templates/pocetna.html
-    Poglavlje5/14/templates/odeljenje.html
+    # Poglavlje5/14/main.py
+
+    from flask import Flask, redirect, render_template, request, flash, url_for
+
+    app = Flask(__name__)
+
+    app.secret_key = "мој-тајни-кључ"
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html", naslov="Почетна страница")
+
+
+    @app.route("/odeljenja")
+    def odeljenja():
+        greske = False
+
+        razred = request.args.get("razred", type=int)
+        odeljenje = request.args.get("odeljenje", type=int)
+
+        if razred < 1 or razred> 4:
+            greske = True
+            flash("Разред мора бити између 1 и 4", "error")
+
+        if odeljenje < 1 or odeljenje> 8:
+            greske = True
+            flash("Одељење мора бити између 1 и 8", "error")
+
+        if greske:
+            return redirect(url_for("pocetna"))
+        else:
+            return render_template(
+                "odeljenja.html",
+                naslov="Одељења",
+                razred=razred,
+                odeljenje=odeljenje,
+                ucenici=["Ивана Стаменковић", "Јован Петровић", "Растко Јовић"],
+            )
+
+.. code-block:: html
+
+    <!-- Poglavlje5/14/templates/оsnovni_sablon.html --!>
+
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <header>
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+
+            {% with poruke = get_flashed_messages(with_categories=True) %}
+        {% for
+            kategorija, poruka in poruke %}
+            <div class="{{kategorija}}">{{poruka}}</div>
+            {% endfor %}
+    {% endwith %}
+    {% block sadrzaj %}
+    {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+    
+    <!-- Poglavlje5/14/templates/pocetna.html --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('odeljenja')}}" method="GET">
+        <div>
+            <label for="razred">Разред:</label>
+            <br>
+            <input type="number" name="razred" id="razred">
+        </div>
+        <div>
+            <label for="odeljenje">Одељење:</label>
+            <br>
+            <input type="number" name="odeljenje" id="odeljenje">
+        </div>
+        <input type="submit" value="Прикажи ученике">
+    </form>
+    {% endblock %}
+
+.. code-block:: html
+    
+    <!-- Poglavlje5/14/templates/odeljenje.html --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <p>Одељење: {{razred}}-{{odeljenje}}</p>
+    <p>Ученици:</p>
+    <ol>
+        {% for ucenik in ucenici %}
+        <li>{{ucenik}}</li>
+        {% endfor %}
+    </ol>
+    {% endblock %}
+
+.. code-block:: css
+
+    /* Poglavlje5/14/static/stil.css */
+
+    .error {
+        background-color: rgba(220, 20, 60, 0.5);
+        border: 1px solid crimson;
+        height: 25px;
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
 
 Покрени овај пример и отвори веб-прегледач на адреси http://127.0.0.1:5000/. За разред унеси вредност 5, за одељење унеси вредност 10, па затим поднеси формулар. С обзиром да су од серверске веб-апликације пристигли неисправни подаци, веб-страница ће приказати исту страницу, али овога пута са порукама, како би корисник знао које вредности треба да исправи.
 
@@ -81,23 +279,216 @@ __________
 
 Подацима који се прослеђују методом POST можеш приступити путем речника *request.form*, слично као што користиш речник *request.args* за податке који се шаљу методом GET.
 
-::
+.. code-block:: python
 
-    Poglavlje5/15/main.py
-    Poglavlje5/15/templates/оsnovni_sablon.html
-    Poglavlje5/15/templates/pocetna.html
-    Poglavlje5/15/templates/odeljenje.html
+    # Poglavlje5/15/main.py
+
+    from flask import Flask, render_template, request
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html", naslov="Почетна страница")
+
+
+    @app.route("/odeljenja", methods=["POST"])
+    def odeljenja():
+        razred = request.form.get("razred")
+        odeljenje = request.form.get("odeljenje")
+
+        return render_template(
+            "odeljenja.html",
+            naslov="Одељења",
+            razred=razred,
+            odeljenje=odeljenje,
+            ucenici=["Ивана Стаменковић", "Јован Петровић", "Растко Јовић"],
+        )
+
+.. code-block:: html
+
+    <!-- Poglavlje5/15/templates/оsnovni_sablon.html --!>
+    
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+        </head>
+        <body>
+            <header>
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+            {% block sadrzaj %}
+        {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!-- Poglavlje5/15/templates/pocetna.html --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('odeljenja')}}" method="POST">
+        <div>
+            <label for="razred">Разред:</label>
+            <br>
+            <input type="number" name="razred" id="razred">
+        </div>
+        <div>
+            <label for="odeljenje">Одељење:</label>
+            <br>
+            <input type="number" name="odeljenje" id="odeljenje">
+        </div>
+        <input type="submit" value="Прикажи ученике">
+    </form>
+    {% endblock %}
+
+.. code-block:: html
+
+    <!-- Poglavlje5/15/templates/odeljenje.html --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <p>Одељење: {{razred}}-{{odeljenje}}</p>
+    <p>Ученици:</p>
+    <ol>
+        {% for ucenik in ucenici %}
+        <li>{{ucenik}}</li>
+        {% endfor %}
+    </ol>
+    {% endblock %}
+
+
+
+    
 
 Оно што је интересантно јесте да на истој путањи можеш да региструјеш више метода. На пример, једна функција се може позвати и за метод GET и за метод POST. Ово можеш урадити навођењем оба метода у аргументу *methods* декоратора *app.route*, на пример, *@app.route*("*/putanja", methods=["GET", "POST*"]). Код оваквих функција се често проверава о којој врсти захтева је реч, како би се знало која операција треба да се изврши. Ово је могуће урадити провером вредности *request.method* која представља ниску–назив метода који је коришћен за слање захтева. 
 
 Наредни пример илуструје ову технику за обраду формулара за пријављивање на веб-продавницу. У случају да клијент пошаље GET захтев, биће приказан формулар. Формулар на исту адресу шаље POST захтев како би веб-апликација извршила одговарајуће провере унетих података и пријавила корисника на систем. С обзиром да се обе операције односе на пријављивање корисника, има смисла да оба захтева упућујемо на путању */prijava,* само са различитим методима.
 
-::
+.. code-block:: python
 
-    Poglavlje5/16/main.py
-    Poglavlje5/16/templates/оsnovni_sablon.html
-    Poglavlje5/16/templates/pocetna.html
-    Poglavlje5/16/templates/prijava.html
+    # Poglavlje5/16/main.py
+
+    from flask import Flask, redirect, render_template, request, flash, url_for
+
+    app = Flask(__name__)
+
+    app.secret_key = "мој-тајни-кључ"
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html", naslov="Почетна страница")
+
+
+    @app.route("/prijava", methods=["GET", "POST"])
+    def prijava():
+        if request.method == "GET":
+            return render_template("prijava.html", naslov="Пријављивање на систем")
+        else:
+            korisnicko_ime = request.form.get("korisnicko_ime")
+            lozinka = request.form.get("lozinka")
+
+            if korisnicko_ime == "" or lozinka == "":
+                flash("Корисничко име и лозинка не смеју бити празни", category="error")
+                return redirect(url_for("prijava"))
+
+            flash("Успешно сте се пријавили на систем!", category="success")
+            return redirect(url_for("pocetna"))
+
+.. code-block:: html
+
+    <!-- Poglavlje5/16/templates/оsnovni_sablon.html --!>
+
+    <html lang="sr">
+        <head>
+            <title>Веб-продавница</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <header>
+            <h1 id="glavni-naslov">Веб-продавница</h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+                <a href="{{url_for('prijava')}}">Пријава</a>
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+
+            {% with poruke = get_flashed_messages(with_categories=True) %}
+        {% for
+            kategorija, poruka in poruke %}
+            <div class="{{kategorija}}">{{poruka}}</div>
+            {% endfor %}
+    {% endwith %}
+    {% block sadrzaj %}
+    {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!-- Poglavlje5/16/templates/pocetna.html --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <p>Добродошли у веб-продавницу!</p>
+    {% endblock %}
+
+.. code-block:: html
+
+    <!-- Poglavlje5/16/templates/prijava.html --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('prijava')}}" method="POST">
+        <div>
+            <label for="korisnicko_ime">Корисничко име:</label>
+            <br>
+            <input type="text" name="korisnicko_ime" id="korisnicko_ime">
+        </div>
+        <div>
+            <label for="lozinka">Лозинка:</label>
+            <br>
+            <input type="password" name="lozinka" id="lozinka">
+        </div>
+        <input type="submit" value="Пријави се">
+    </form>
+    {% endblock %}
+
+.. code-block:: css
+
+    /* Poglavlje5/16/static/stil.css */
+
+    .error {
+        background-color: rgba(220, 20, 60, 0.5);
+        border: 1px solid crimson;
+        height: 25px;
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .success {
+        background-color: rgba(34, 139, 34, 0.5);
+        border: 1px solid forestgreen;
+        height: 25px;
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+    }
 
 Покрени пример и отвори веб-прегледач на адреси http://127.0.0.1:5000/prijava. Веб-прегледач шаље захтев за веб-страницу путем метода GET, што значи да ће веб-апликација приказати формулар за пријављивање.
 

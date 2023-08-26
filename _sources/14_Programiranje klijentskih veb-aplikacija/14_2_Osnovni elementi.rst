@@ -45,10 +45,33 @@ __________
 
 Програмски језик JavaScript нуди могућност програмерима да креирају променљиве које могу да мењају вредности током рада програма. Такве променљиве се дефинишу кључном речи *let*. Са друге стране, у језику JavaScript је могуће дефинисати и променљиве које садрже тачно једну вредност од тренутка њиховог креирања до краја рада програма. Ове променљиве се дефинишу кључном речи *const* и од прве врсте променљивих ћемо их разликовати називом константе (*constant*). Наредни пример илуструје дефинисање променљивих и константи.
 
-::
+.. petlja-editor:: Poglavlje4/3
 
-    Poglavlje4/3/index.html
-    Poglavlje4/3/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>JavaScript - променљиве</title>
+        </head>
+        <body>
+            <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+            <script src="index.js"></script>
+        </body>
+    </html>
+    ~~~
+    index.js
+    let x = 1;
+    console.log(x);
+
+    x = 2;
+    console.log(x);
+
+    const y = 3;
+    console.log(y);
+
+
 
 .. image:: ../../_images/web_142a.jpg
     :width: 780

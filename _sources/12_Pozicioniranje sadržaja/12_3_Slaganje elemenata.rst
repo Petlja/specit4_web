@@ -7,10 +7,38 @@
 
 Слагање елемената се врши у истој линији све док има места за те елементе. Када понестане места, преостали елементи ће прећи у наредни ред и наставити слагање на исти начин. На пример, ако се на страници налази шест елемената *div* ширине 30% (и сложени су левим током), онда ће се прва три елемента наћи у првом реду, а преостала три елемента у другом реду.
 
-::
+.. petlja-editor:: Poglavlje3/32
 
-    Poglavlje3/32/index.html
-    Poglavlje3/32/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - слагање елемената</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <h1>HTML</h1>
+
+        <img id="html" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML5" width="100">
+        <p>
+        Језик за обележавање HTML представља језик којим се дефинише структура садржаја веб докумената. Овај језик се
+        састоји од великог броја различитих елемената, од којих сваки дефинише једну најмању структуралну целину на
+        веб-страници.
+        </p>
+    </body>
+    </html>
+    ~~~
+    index.css
+    img,
+    p {
+        float: left;
+    }
+
+    p {
+        width: 70%;
+    }
 
 .. image:: ../../_images/web_123a.jpg
     :width: 780
@@ -18,10 +46,52 @@
 
 Ако желиш да прекинеш слагање елемената, потребно је да искористиш декларацију *clear: both* која ће „очистити“ ток по којем се елементи слажу један за другим. У наредном примеру смо искористити ово својство како би се насловни елемент са текстом *„CSS“* позиционирао на устаљени начин, уместо да се слаже на остале елементе.
 
-::
+.. petlja-editor:: Poglavlje3/33
 
-    Poglavlje3/33/index.html
-    Poglavlje3/33/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - слагање елемената</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <h1>HTML</h1>
+
+        <img id="html" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML5" width="100">
+        <p>
+        Језик за обележавање HTML представља језик којим се дефинише структура садржаја веб докумената. Овај језик се
+        састоји од великог броја различитих елемената, од којих сваки дефинише једну најмању структуралну целину на
+        веб-страници.
+        </p>
+
+        <h1>CSS</h1>
+
+        <img id="css" src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/css3.png" alt="Логотип језика CSS3" height="100">
+        <p>
+        Језик за обележавање CSS представља језик којим се дефинишу визуални аспекти садржаја веб докумената. Овај језик
+        се састоји од великог броја различитих својстава, од којих сваки дефинише једну карактеристику која се подешава на
+        нивоу одговарајућих елемената.
+        </p>
+    </body>
+    </html>
+    ~~~
+    index.css
+    img,
+    p {
+        float: right;
+    }
+
+    p {
+        width: 70%;
+    }
+
+    h1 {
+        clear: both;
+    }
+
 
 .. image:: ../../_images/web_123b.jpg
     :width: 780

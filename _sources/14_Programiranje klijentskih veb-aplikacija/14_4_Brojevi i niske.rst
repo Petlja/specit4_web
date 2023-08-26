@@ -20,10 +20,47 @@ ________
 
 Са друге стране, неодређена бројчана вредност *NaN* се добија као резултат невалидних математичких операција, као што је израз *0/0* или као резултат израчунавања неких нематематичких операција за које се очекује број, али сама операција се не може успешно извршити. Пример такве операције је парсирање броја из текста. Ова операција је доступна методама *Number.parseInt* за парсирање целих бројева и *Number.parseFloat* за парсирање децималних бројева. Оба метода очекују да им се проследи ниска која садржи цео број, односно, децималан број, а повратна вредност је бројчана вредност која се садржи у тој ниски. Ипак, уколико се неком од ових метода проследи ниска која не садржи број, онда ће се као резултат добити вредност *NaN*. Провера да ли је неки број неодређена вредност или не се може извршити методом *Number.isNaN*. Наредни пример илуструје коришћење ових метода.
 
-::
+.. petlja-editor:: Poglavlje4/5
 
-    Poglavlje4/5/index.html
-    Poglavlje4/5/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>JavaScript - парсирање бројева</title>
+        </head>
+        <body>
+            <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+            <script src="index.js"></script>
+        </body>
+    </html>
+    ~~~
+    index.js
+    const x = 1;
+    console.log("x:", x);
+
+    const y = "2";
+    console.log("y:", y);
+
+    console.log("Тип података променљиве x је:", typeof x);
+    console.log("Тип података променљиве y је:", typeof y);
+
+    const z = Number.parseInt(y);
+
+    console.log("z:", z);
+    console.log("Тип података променљиве z је:", typeof z);
+
+    const a = Number.parseInt("Ovo nije celi broj");
+
+    console.log("a:", a);
+    console.log("Тип података променљиве a је:", typeof a);
+
+    console.log("Да ли променљива a садржи неодређену бројчану вредност:", Number.isNaN(a));
+    console.log("Да ли променљива x садржи неодређену бројчану вредност:", Number.isNaN(x));
+
+
+
 
 .. image:: ../../_images/web_144a.jpg
     :width: 780
@@ -35,10 +72,30 @@ ________
 
     **Задатак:** Потребно је поставити ограду око фудбалског терена дужине 105 метара и ширине 68.5 метара. Напиши JavaScript програм који израчунава колико метара ограде је потребно купити?
 
-::
+.. petlja-editor:: Poglavlje4/6
 
-    Poglavlje4/6/index.html
-    Poglavlje4/6/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - фудбалски терен</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const duzina = 105;
+    const sirina = 68.5;
+
+    const obim = 2 * duzina + 2 * sirina;
+    console.log("Потребно је купити", obim, "метара жице");
+
+
 
 .. image:: ../../_images/web_144b.jpg
     :width: 780
@@ -48,10 +105,34 @@ ________
 
    **Задатак:** Пешчани сат облика пирамиде се попуњава песком. Дужина и ширина основе пешчаног сата су :math:`5cm`, а висина је :math:`12cm`. Ако се у једној секунди песком напуни :math:`2cm^3` пешчаног сата, напиши JavaScript програм који израчунава за колико секунди ће бити попуњен цео сат.
 
-::
+.. petlja-editor:: Poglavlje4/7
 
-    Poglavlje4/7/index.html
-    Poglavlje4/7/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - пешчани сат</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const duzina = 5;
+    const sirina = 5;
+    const visina = 12;
+    const protok = 2;
+
+    const zapremina = (duzina * sirina * visina) / 3;
+    const vreme = zapremina / protok;
+    console.log("Потребно је", vreme, "секунди да се напуни пешчани сат");
+
+
+
 
 .. image:: ../../_images/web_144c.jpg
     :width: 780
@@ -80,10 +161,36 @@ ________
 
     **Задатак:** Позориште жели да обезбеди бесплатне карте за позоришну представу у једној школи. Сала у којој се представа одиграва има 100 седишта. Напиши програм који од корисника захтева број одељења и број ученика по одељењу и исписује у конзоли колико најмање представа позориште мора да организује како би сви ученици видели представу.
 
-::
+.. petlja-editor:: Poglavlje4/8
 
-    Poglavlje4/8/index.html
-    Poglavlje4/8/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - позоришна представа</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const broj_sedista = 100;
+
+    const odeljenje_unos = prompt("Унеси број одељења:");
+    const broj_odeljenja = Number.parseInt(odeljenje_unos);
+
+    const ucenici_unos = prompt("Унеси број ученика по одељењу:");
+    const broj_ucenika = Number.parseInt(ucenici_unos);
+
+    const ukupno_sedista = broj_odeljenja * broj_ucenika;
+    const broj_predstava = Math.ceil(ukupno_sedista / broj_sedista);
+    console.log("Број представа који мора да се одигра је", broj_predstava);
+
+
 
 .. image:: ../../_images/web_144d.jpg
     :width: 780
@@ -106,10 +213,31 @@ ______
 
 У језику JavaScript, ниске можеш записати на три начина. Прва два се користе равноправно, а то је навођењем текста између једноструких (') или двоструких (") наводника. У оба случаја, текст који се наводи је једнолинијски, а текстови великих дужина се могу записати оператором надовезивања (*concatenation*) ниски (у питању је оператор *+*), као што наредни пример илуструје.
 
-::
+.. petlja-editor:: Poglavlje4/9
 
-    Poglavlje4/9/index.html
-    Poglavlje4/9/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript - једнолинијске ниске и надовезивање</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const prva_niska = "Ја сам ниска!";
+    const druga_niska = "И ја сам ниска!";
+
+    const zajedno = "А сад заједно: " + prva_niska + druga_niska;
+    console.log(zajedno);
+
+
+    
 
 .. image:: ../../_images/web_144g.jpg
     :width: 780
@@ -117,10 +245,35 @@ ______
 
 Поред ова два приступа, ниске се могу навести и косим наводницима (`). Ове ниске се могу наводити у више линија, при чему се сви карактери белина између наводника чувају у целости. Постоји још једна карактеристика својствена овим начином записа ниски која се назива интерполација (*string interpolation*). Ако у тексту наведеш шаблон *${}*, онда између витичастих заграда ”{” и ”}” можеш да наведеш произвољни JavaScript израз чија ће вредност, након израчунавања, бити уметнута уместо шаблона. Свака вишелинијска ниска може садржати више појављивања ових шаблона.
 
-::
+.. petlja-editor:: Poglavlje4/10
 
-    Poglavlje4/10/index.html
-    Poglavlje4/10/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript - вишелинијске ниске и интерполација</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const tekst = `Неке основне законитости сабирања су:
+
+    Асоцијативност: а + (б + ц) = (а + б) + ц
+    Комутативност: а + б = б + а
+
+    Примери:
+    1 + (2 + 3) = 1 + (${2 + 3}) = ${1 + 2 + 3} = (${1 + 2}) + 3 = (1 + 2) + 3
+    1 + 2 = ${1 + 2} = 2 + 1`;
+
+    console.log(tekst);
+
+
 
 .. image:: ../../_images/web_144h.jpg
     :width: 780
@@ -148,10 +301,36 @@ ______
 
     **Задатак:** Напиши JavaScript програм који од корисника захтева да унесе име и презиме, а затим у конзоли исписује поруку ”Здраво, {презиме име}! Твоји иницијали су {иницијали}.” (Замени текст у витичастим заградама унетим подацима од корисника.)
 
-::
+.. petlja-editor:: Poglavlje4/11
 
-    Poglavlje4/11/index.html
-    Poglavlje4/11/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - поздрав са иницијалима</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const ime = prompt("Унеси своје име:");
+    const prezime = prompt("Унеси своје презиме:");
+
+    const ime_prezime = ime + " " + prezime;
+
+    const inicijal_imena = ime.charAt(0);
+    const inicijal_prezimena = prezime.charAt(0);
+    const inicijali = inicijal_imena + "." + inicijal_prezimena + ".";
+
+    const pozdrav = "Здраво, " + ime_prezime + "! Твоји иницијали су " + inicijali;
+    console.log(pozdrav);
+
+
 
 .. image:: ../../_images/web_144i.jpg
     :width: 780
@@ -209,10 +388,32 @@ ______
 
     **Задатак:** Напиши JavaScript програм који од корисника захтева да унесе име и презиме, а затим у конзоли исписује поруке ”Твоје име је {име}” и ”Твоје презиме је {презиме}”. (Замени текст у витичастим заградама унетим подацима од корисника.)
 
-::
+.. petlja-editor:: Poglavlje4/12
 
-    Poglavlje4/12/index.html
-    Poglavlje4/12/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - издвајање имена и презимена</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const ime_prezime = prompt("Унеси твоје име и презиме:");
+
+    const indeks_razmaka = ime_prezime.indexOf(" ");
+    const ime = ime_prezime.substring(0, indeks_razmaka);
+    const prezime = ime_prezime.substring(indeks_razmaka + 1, ime_prezime.length);
+
+    console.log("Твоје име је:", ime);
+    console.log("Твоје презиме је:", prezime);
+
 
 .. image:: ../../_images/web_144l.jpg
     :width: 780
@@ -226,10 +427,32 @@ ______
 
     **Задатак:** Напиши JavaScript програм који од корисника захтева да унесе адресу електронске поште, а затим у конзоли исписује прикривену адресу. Адреса се прикрива тако што се задржавају прва два карактера корисничког имена адресе на које се дописују три тачке, а затим и остатак адресе. На пример, за адресу *john_doe@gmail.com* прикривена адреса би била *jo…@gmail.com*.
 
-::
+.. petlja-editor:: Poglavlje4/13
 
-    Poglavlje4/13/index.html
-    Poglavlje4/13/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - прикривање адресе електронске поште</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const adresa = prompt("Унеси твоју адресу електронске поше:");
+
+    const indeks_mankija = adresa.indexOf("@");
+    const prikriveni_deo = adresa.substring(adresa, 2) + "...";
+    const prikrivena_adresa = prikriveni_deo + adresa.substring(indeks_mankija + 1, adresa.length);
+
+    console.log("Твојa прикривена адреса је:", prikrivena_adresa);
+
+
 
 .. image:: ../../_images/web_144n.jpg
     :width: 780
@@ -243,10 +466,34 @@ ______
 
     **Задатак:** Напиши JavaScript који од корисника захтева да унесе текст, а затим извршава токенизацију унетог текста и исписује резултат у конзоли. На пример, токенизацијом текста ”Тиха Вода Брег Рони” добија се текст ”тиха-вода-брег-рони”.
 
-::
+.. petlja-editor:: Poglavlje4/14
 
-    Poglavlje4/14/index.html
-    Poglavlje4/14/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - токенизација текста</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const tekst = prompt("Унеси текст:");
+
+    const tekst_sa_malim_slovima = tekst.toLowerCase();
+    const parametrizovan_tekst = tekst_sa_malim_slovima.replaceAll(" ", "-");
+
+    console.log(parametrizovan_tekst);
+
+    // Могло је и овако:
+    // parametrizovan_tekst = tekst.toLowerCase().replaceAll(" ", "-");
+
+
 
 .. image:: ../../_images/web_144p.jpg
     :width: 780

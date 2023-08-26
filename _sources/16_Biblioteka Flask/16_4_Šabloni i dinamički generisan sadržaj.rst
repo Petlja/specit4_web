@@ -3,9 +3,26 @@
 
 Сви примери које си видео до сада су садржали веома једноставан HTML код. У практичним употребама, веб-странице се састоје од неколико стотина, па чак и хиљада линија кода. Писање овог кода на начин који смо то до сада радили може бити веома напорно за одржавање, поготово уколико постоји велики број функција у нашој веб-апликацији. Такође, сав HTML код који пишеш је део ниске. Због тога, већина савремених едитора (као што је *Visual Studio Code*) неће ти нудити подршку за аутоматско допуњавање садржаја (*autocomplete*). Још већи проблем је тај што на овај начин долази до мешања HTML и Python кода у истој датотеци. Пробај да самостално имплементираш наредни пример у свом омиљеном едитору. Да ли ти је деловало смислено да пишеш програмски код на овај начин?
 
-::
+.. code-block:: python
 
-    Poglavlje5/4/main.py
+    from flask import Flask
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return """
+            <html lang="sr">
+                <head>
+                    <title>Почетна страница</title>
+                </head>
+                <body>
+                    <h1>Здраво, свете!</h1>
+                </body>
+            </html>
+        """
+
 
 Како би се сви ови, али и неки други проблеми пребродили, библиотека Flask долази са још једном библиотеком која омогућава да се HTML код пише у посебним датотекама које називамо шаблони (*template*). У питању је библиотека Jinja2. Документација за ову библиотеку се налази на адреси https://flask.palletsprojects.com/templating/ и послужиће ти као одличан ресурс приликом вежбања, као и уколико желиш да се упустиш у разумевање напредних функционалности програмирања шаблона.
 
@@ -18,10 +35,17 @@
     └── templates
         └── index.html
 
-::
+.. code-block:: python
 
-    Poglavlje5/5/main.py
-    Poglavlje5/5/templates/index.html
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("index.html")
+
 
 Поред тога што шаблони омогућавају раздвајање HTML и Python кода, шаблони омогућавају једноставно писање динамичких веб-страница. На пример, шаблону можеш проследити вредност коју ће библиотека Jinja2 процесирати на одговарајући начин и приказати на страници.
 
@@ -55,10 +79,29 @@
 
 Наредни пример илуструје коришћење гранања и петље за генерисање динамичких веб-страница:
 
-::
+.. code-block:: python
 
-    Poglavlje5/7/main.py
-    Poglavlje5/7/templates/ucenici.html
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+
+    @app.route("/pozdrav/<ime>")
+    def pozdrav(ime):
+        return render_template("pozdrav.html", ime=ime)
+
+.. code-block:: html
+
+    <html lang="sr">
+        <head>
+            <title>Почетна страница</title>
+        </head>
+        <body>
+            <h1>Здраво! Ја сам {{ime}}!</h1>
+        </body>
+    </html>
+
+
 
 .. image:: ../../_images/web_164b.jpg
     :width: 780
@@ -69,11 +112,77 @@ ___________________
 
 С обзиром да свака веб-страница у оквиру веб-сајта представља HTML документ за себе, очекивано је да за сваку веб-страницу треба да направиш по један шаблон. Наредни пример илуструје веб-сајт гимназије која садржи две веб-странице.
 
-::
+.. code-block:: python
 
-    Poglavlje5/8/main.py
-    Poglavlje5/8/templates/pocetna.html
-    Poglavlje5/8/templates/odeljenja.html
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html")
+
+
+    @app.route("/odeljenja")
+    def odeljenja():
+        return render_template(
+            "odeljenja.html", razredi=["Први", "Други", "Трећи", "Четврти"]
+        )
+
+.. code-block:: html
+
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+            <link rel="stylesheet" type="text/css" href="stil.css">
+        </head>
+        <body>
+            <header>
+            <img src="logo.png" alt="Логотип гимназије">
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="pocetna.html">Почетна</a>
+                <a href="odeljenja.html">Одељења</a>
+            </nav>
+            </header>
+
+            <h2>Одељења</h2>
+            <ul>
+            {% for razred in razredi %}
+            <li>{{razred}} разред</li>
+            {% endfor %}
+            </ul>
+
+            <script src="klijentski_kod.js"></script>
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+            <link rel="stylesheet" type="text/css" href="stil.css">
+        </head>
+        <body>
+            <header>
+            <img src="logo.png" alt="Логотип гимназије">
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="pocetna.html">Почетна</a>
+                <a href="odeljenja.html">Одељења</a>
+            </nav>
+            </header>
+
+            <h2>Почетна страница</h2>
+            <p>Добродошли на веб-сајт гимназије <q>Десанка Максимовић</q>!</p>
+
+            <script src="klijentski_kod.js"></script>
+        </body>
+    </html>
+
+
 
 .. infonote::
 
@@ -89,10 +198,62 @@ ___________________
 Наредни пример илуструје технику наслеђивања шаблона.
 
 
-::
+.. code-block:: python
 
-    Poglavlje5/9/main.py
-    Poglavlje5/9/templates/osnovni_sablon.html
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return render_template("pocetna.html", naslov="Почетна страница")
+
+
+    @app.route("/odeljenja")
+    def odeljenja():
+        return render_template(
+            "odeljenja.html",
+            naslov="Одељења",
+            razredi=["Први", "Други", "Трећи", "Четврти"],
+        )
+
+.. code-block:: html
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <ul>
+        {% for razred in razredi %}
+        <li>{{razred}} разред</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+.. code-block:: html
+
+    <html lang="sr">
+        <head>
+            <title>Гимназија "Десанка Максимовић"</title>
+            <link rel="stylesheet" type="text/css" href="stil.css">
+        </head>
+        <body>
+            <header>
+            <img src="logo.png" alt="Логотип гимназије">
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="pocetna.html">Почетна</a>
+                <a href="odeljenja.html">Одељења</a>
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+            {% block sadrzaj %}
+        {% endblock %}
+
+            <script src="klijentski_kod.js"></script>
+        </body>
+    </html>
+
 
 Шаблон *osnovni_sablon.html* представља онај који садржи заједнички код. Поред тога што исписује Python вредност *naslov*, овај шаблон садржи један блок који је назван *sadrzaj*. Примети да су блокови облика:
 
@@ -103,10 +264,26 @@ ___________________
 
 Шаблон *osnovni_sablon.html* се не користи сам по себи. Уместо тога, за веб-страницу која користи овај шаблон као своју основу за генерисање садржаја треба да направиш додатни шаблон који ћеш проследити функцији *render_template*. 
 
-::
+.. code-block:: html
 
-    Poglavlje5/9/templates/pocetna.html
-    Poglavlje5/9/templates/odeljenja.html
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <p>Добродошли на веб-сајт гимназије <q>Десанка Максимовић</q>!</p>
+    {% endblock %}
+
+.. code-block:: html
+
+        {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <ul>
+        {% for razred in razredi %}
+        <li>{{razred}} разред</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+
+
+
 
 
 Шаблони *pocetna.html* и *odeljenja.html* деле исту структуру. Сваки од ових шаблона започиње навођењем команде *extends* за наслеђивање шаблона. Ову команду прати назив датотеке који садржи шаблон који се наслеђује. Након тога следи листа блокова са садржајем који ће бити замењен у наслеђеном шаблону приликом обраде. Наведимо и општу синтаксу за наслеђивање шаблона:

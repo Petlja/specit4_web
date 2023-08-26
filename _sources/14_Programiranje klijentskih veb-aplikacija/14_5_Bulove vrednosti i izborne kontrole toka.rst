@@ -47,10 +47,39 @@ ___________
 
     **Задатак:** Милена и Јован су одлучили да једног викенда беру малине. Првог дана бербе, Милена је убрала :math:`3,77kg` малина, а Петар је три пута више. Другог дана бербе, Петар је убрао :math:`8,34kg` малина, а Милена је два пута више. Напиши JavaScript програм који израчунава ко је убрао више малина.
 
-::
+.. petlja-editor:: Poglavlje4/15
 
-    Poglavlje4/15/index.html
-    Poglavlje4/15/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - брање малина</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const milenin_prvi_dan = 3.77;
+    const petrov_prvi_dan = 3 * milenin_prvi_dan;
+
+    const petrov_drugi_dan = 8.34;
+    const milenin_drugi_dan = 2 * petrov_drugi_dan;
+
+    const milena_ukupno = milenin_drugi_dan + milenin_drugi_dan;
+    const petar_ukupno = petrov_prvi_dan + petrov_drugi_dan;
+
+    if (milena_ukupno> petar_ukupno) {
+    console.log("Милена је убрала више:", milena_ukupno, "kg");
+    } else {
+    console.log("Петар је убрао више:", petar_ukupno, "kg");
+    }
+
+
 
 .. image:: ../../_images/web_145a.jpg
     :width: 780
@@ -84,10 +113,39 @@ ___________
 
     **Задатак:** Станар у згради улази у лифт у којем се налази таблет за контролу лифта. Напиши JavaScript програм за таблет за контролу лифта који од станара зграде очекује да унесе број спрата на којем се налази, а затим број спрата на који жели да га лифт одведе. У зависности од избора, исписати у конзоли једну од порука ”Идеш горе за {број} спратова”, ”Идеш доле за {број} спратова” или ”Већ се налазиш на одабраном спрату”. (Замени шаблон ”{број}” у порукама одговарајућим бројем спратова колико ће лифт одвести станара.)
 
-::
+.. petlja-editor:: Poglavlje4/16
 
-    Poglavlje4/16/index.html
-    Poglavlje4/16/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - контрола лифта</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const trenutni_sprat_niska = prompt("Унеси спрат на коме се налазиш:");
+    const zeljeni_sprat_niska = prompt("Унеси спрат до којег желиш да те лифт одведе:");
+
+    const trenutni_sprat = Number.parseInt(trenutni_sprat_niska);
+    const zeljeni_sprat = Number.parseInt(zeljeni_sprat_niska);
+
+    if (trenutni_sprat < zeljeni_sprat) {
+    const broj_spratova = zeljeni_sprat - trenutni_sprat;
+    console.log(`Идеш горе за ${broj_spratova} спратова`);
+    } else if (trenutni_sprat> zeljeni_sprat) {
+    const broj_spratova = trenutni_sprat - zeljeni_sprat;
+    console.log(`Идеш доле за ${broj_spratova} спратова`);
+    } else {
+    console.log("Већ се налазиш на одабраном спрату");
+    }
+
 
 .. image:: ../../_images/web_145b.jpg
     :width: 780
@@ -112,10 +170,32 @@ ________________
 
     **Задатак:** Преступна година је година која има 366 дана, за разлику од простих година које имају 365 дана. Преступна је свака четврта година, осим у случају да је дељива бројем 100, а није дељива бројем 400. Напиши JavaScript програм који од корисника тражи да унесе годину, а затим исписује колико дана има у тој години.
 
-::
+.. petlja-editor:: Poglavlje4/17
 
-    Poglavlje4/17/index.html
-    Poglavlje4/17/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - преступна година</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const godina_niska = prompt("Унеси годину:");
+    const godina = Number.parseInt(godina_niska);
+
+    if (godina % 4 !== 0 || (godina % 100 === 0 && godina % 400 !== 0)) {
+    console.log("Година има 365 дана (проста је година).");
+    } else {
+    console.log("Година има 366 дана (преступна је година).");
+    }
+
 
 .. image:: ../../_images/web_145c.jpg
     :width: 780
@@ -141,10 +221,42 @@ ________________
 
 Уколико се унесе било каква друга ниска, програм треба да испише у конзоли ”Унета ниска није исправна. Унеси: Ј, Д или С.”
 
-::
+.. petlja-editor:: Poglavlje4/18
 
-    Poglavlje4/18/index.html
-    Poglavlje4/18/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - троцифрени бројеви</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const broj_niska = prompt("Унеси троцифрен број");
+    const broj = Number.parseInt(broj_niska);
+
+    const karakter = prompt("Унеси: Ј, Д или С.");
+
+    if (karakter === "Ј") {
+    const cifra_jedinice = broj % 10;
+    console.log("Цифра на позицији јединице је:", cifra_jedinice);
+    } else if (karakter === "Д") {
+    const cifra_desetice = Math.floor((broj % 100) / 10);
+    console.log("Цифра на позицији десетице је:", cifra_desetice);
+    } else if (karakter === "С") {
+    const cifra_stotine = Math.floor((broj % 1000) / 100);
+    console.log("Цифра на позицији стотине је:", cifra_stotine);
+    } else {
+    console.log("Унета ниска није исправна. Унеси: Ј, Д или С.");
+    }
+
+
 
 .. image:: ../../_images/web_145e.jpg
     :width: 780
@@ -187,9 +299,48 @@ _______________
 
     **Задатак:** Напиши JavaScript програм који имплементира захтев из претходног задатка, али коришћењем наредбе *switch*.
 
-::
+.. petlja-editor:: Poglavlje4/19
 
-    Poglavlje4/19/index.html
-    Poglavlje4/19/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - троцифрени бројеви</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const broj_niska = prompt("Унеси троцифрен број");
+    const broj = Number.parseInt(broj_niska);
+
+    const karakter = prompt("Унеси: Ј, Д или С.");
+
+    switch (karakter) {
+    case "Ј": {
+        const cifra_jedinice = broj % 10;
+        console.log("Цифра на позицији јединице је:", cifra_jedinice);
+        break;
+    }
+    case "Д": {
+        const cifra_desetice = Math.floor((broj % 100) / 10);
+        console.log("Цифра на позицији десетице је:", cifra_desetice);
+        break;
+    }
+    case "С": {
+        const cifra_stotine = Math.floor((broj % 1000) / 100);
+        console.log("Цифра на позицији стотине је:", cifra_stotine);
+        break;
+    }
+    default: {
+        console.log("Унета ниска није исправна. Унеси: Ј, Д или С.");
+    }
+    }
+
 
 Булове вредности, оператори поређења и изборне контроле тока представљају окосницу развоја програма у којима ток извршавања може да пролази кроз разне путеве.

@@ -9,12 +9,159 @@
 
 Прикажимо како сесије функционишу у библиотеци Flask на наредном примеру, који је по функционалностима идентичан претходном, са разликом да овога пута користимо сесије уместо колачића (на непосредан начин) за одржавање стања.
 
-::
+.. code-block:: python
 
-    Poglavlje5/18/main.py
-    Poglavlje5/18/templates/оsnovni_sablon.html
-    Poglavlje5/18/templates/pocetna.html
-    Poglavlje5/18/templates/prijava.html
+    # Poglavlje5/18/main.py
+
+    from flask import (
+        Flask,
+        make_response,
+        redirect,
+        render_template,
+        request,
+        flash,
+        url_for,
+        session,
+    )
+
+    app = Flask(__name__)
+
+    app.secret_key = "мој-тајни-кључ"
+
+
+    @app.route("/")
+    def pocetna():
+        korisnicko_ime = session.get("korisnicko_ime")
+
+        return render_template(
+            "pocetna.html",
+            naslov="Почетна страница",
+            korisnicko_ime=korisnicko_ime,
+        )
+
+
+    @app.route("/prijava", methods=["GET", "POST"])
+    def prijava():
+        if request.method == "GET":
+            korisnicko_ime = session.get("korisnicko_ime")
+            return render_template(
+                "prijava.html",
+                naslov="Пријављивање на систем",
+                korisnicko_ime=korisnicko_ime,
+            )
+        else:
+            korisnicko_ime = request.form.get("korisnicko_ime")
+            lozinka = request.form.get("lozinka")
+
+            if korisnicko_ime == "" or lozinka == "":
+                flash("Корисничко име и лозинка не смеју бити празни", category="error")
+                return redirect(url_for("prijava"))
+
+            flash("Успешно сте се пријавили на систем!", category="success")
+
+            session["korisnicko_ime"] = korisnicko_ime
+            return redirect(url_for("pocetna"))
+
+
+    @app.route("/odjava")
+    def odjava():
+        session.pop("korisnicko_ime")
+        return redirect(url_for("pocetna"))
+
+.. code-block:: html
+
+    <!-- Poglavlje5/18/templates/оsnovni_sablon.html --!>
+
+    <html lang="sr">
+        <head>
+            <title>Веб-продавница</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <header>
+            <h1 id="glavni-naslov">Веб-продавница</h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+                {% if korisnicko_ime %}
+                <a href="{{url_for('odjava')}}">Одјава</a>
+                {% else %}
+                <a href="{{url_for('prijava')}}">Пријава</a>
+                {% endif %}
+            </nav>
+            </header>
+
+            <h2>{{naslov}}</h2>
+
+            {% with poruke = get_flashed_messages(with_categories=True) %}
+        {% for
+            kategorija, poruka in poruke %}
+            <div class="{{kategorija}}">{{poruka}}</div>
+            {% endfor %}
+    {% endwith %}
+    {% block sadrzaj %}
+    {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!--  Poglavlje5/18/templates/pocetna.html --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    {% if korisnicko_ime %}
+    <p>Добродошли, {{korisnicko_ime}}!</p>
+    {% else %}
+    <p>Добродошли у веб-продавницу!</p>
+    {% endif %}
+    {% endblock %}
+
+.. code-block:: html
+
+    <!--  Poglavlje5/18/templates/prijava.html --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('prijava')}}" method="POST">
+        <div>
+            <label for="korisnicko_ime">Корисничко име:</label>
+            <br>
+            <input type="text" name="korisnicko_ime" id="korisnicko_ime">
+        </div>
+        <div>
+            <label for="lozinka">Лозинка:</label>
+            <br>
+            <input type="password" name="lozinka" id="lozinka">
+        </div>
+        <input type="submit" value="Пријави се">
+    </form>
+    {% endblock %}
+
+.. code-block:: css
+
+    /* Poglavlje5/18/static/stil.css */
+
+    .error {
+        background-color: rgba(220, 20, 60, 0.5);
+        border: 1px solid crimson;
+        height: 25px;
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .success {
+        background-color: rgba(34, 139, 34, 0.5);
+        border: 1px solid forestgreen;
+        height: 25px;
+        width: 50%;
+        padding: 10px;
+        margin: 10px 0;
+    }
 
 Подаци из сесије су у библиотеци Flask доступни кроз речник *session*, који увозиш из модула *flask*. Почетна страна поново приказује поруку добродошлице, али овога пута се корисничко име потражује у речнику *session*. Као и у случају колачића, овај податак се прослеђује шаблону pocetna.html, која ће приказати одговарајућу поруку.
 

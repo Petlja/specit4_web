@@ -9,10 +9,48 @@
 - Декларацијом ”padding: 50px 60px” постављају се следеће ширине допуна: 50px за горњу и доњу допуну и 60px за десну и леву допуну.
 - Декларацијом ”padding: 100px” поставља се ширина од 100px за све четири стране допуне.
 
-::
+.. petlja-editor:: Poglavlje3/17
 
-    Poglavlje3/17/index.html
-    Poglavlje3/17/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS - допуна</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div>
+        Овај елемент има ширину горње допуне од 50px, десне допуне од 30px, доње допуне од 100px и леве допуне од 280px.
+        </div>
+
+        <p>Овај елемент има ширину горњее допуне, десне допуне, доње допуне и леве допуне од 50px.</p>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div,
+    p {
+        width: 200px;
+        text-align: justify;
+    }
+
+    div {
+        padding-top: 50px;
+        padding-right: 30px;
+        padding-bottom: 100px;
+        padding-left: 280px;
+        background-color: cadetblue;
+    }
+
+    p {
+        padding: 50px;
+        background-color: aquamarine;
+    }
+
+
+
 
 .. image:: ../../_images/web_33a.jpg
     :width: 780

@@ -138,13 +138,194 @@ ____________________
 
 Све заједно, код за овај пример изгледа као у наставку.
 
-::
+.. code-block:: python
 
-    Poglavlje5/23/db.py
-    Poglavlje5/23/main.py
-    Poglavlje5/23/static/osnovni_sablon.html
-    Poglavlje5/23/static/korisnici.html
-    Poglavlje5/23/static/novi_korisnik.html
+    # Poglavlje5/23/db.py
+
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+.. code-block:: python
+
+    # Poglavlje5/23/main.py
+
+    from flask import Flask, flash, redirect, render_template, request, url_for
+    from db import mydb
+    import bcrypt
+
+    app = Flask(__name__)
+
+    app.secret_key = b"\xcaO\xeb\xf3\xac\\c\x11_x\xb6\x07\nsu\xef\xe2\x98~\xfe\x08Y~h"
+
+
+    @app.route("/korisnici/novi", methods=["GET", "POST"])
+    def novi_korisnik():
+        if request.method == "GET":
+            return render_template("novi_korisnik.html", naslov="Креирање корисника")
+        else:
+            greske = False
+
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            lozinka = request.form.get("lozinka", "")
+
+            if not ime.isalpha():
+                greske = True
+                flash(
+                    "Име не сме бити празно и мора имати алфанумеричке карактере", "error"
+                )
+            if not prezime.isalpha():
+                greske = True
+                flash(
+                    "Презиме не сме бити празно и мора имати алфанумеричке карактере",
+                    "error",
+                )
+            if not korisnicko_ime.isalpha():
+                greske = True
+                flash(
+                    "Корисничко име не сме бити празно и мора имати алфанумеричке карактере",
+                    "error",
+                )
+            if len(lozinka) < 4:
+                greske = True
+                flash(
+                    "Лозинка не сме бити празна и мора имати најмање 4 карактера", "error"
+                )
+
+            if greske:
+                return redirect(url_for("novi_korisnik"))
+
+            sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), bcrypt.gensalt())
+
+            kursor = mydb.cursor()
+            sql = (
+                "INSERT INTO korisnici (ime, prezime, korisnicko_ime, lozinka) "
+                "VALUES (%(ime)s, %(prezime)s, %(korisnicko_ime)s, %(lozinka)s)"
+            )
+
+            kursor.execute(
+                sql,
+                params={
+                    "ime": ime,
+                    "prezime": prezime,
+                    "korisnicko_ime": korisnicko_ime,
+                    "lozinka": sifrovana_lozinka,
+                },
+            )
+
+            mydb.commit()
+
+            flash(
+                f"Број успешно унетих редова: {kursor.rowcount}. Идентификатор унетог реда: {kursor.lastrowid}",
+                "success",
+            )
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+
+        kursor.execute(upit)
+        korisnici = kursor.fetchall()
+
+        return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
+
+.. code-block:: html
+
+    <!-- Poglavlje5/23/static/osnovni_sablon.html --!>     
+
+    <html lang="sr">
+        <head>
+            <title>Корисници</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <h1>{{naslov}}</h1>
+
+            {% with poruke = get_flashed_messages(with_categories=True) %}
+        {% for
+            kategorija, poruka in poruke %}
+            <div class="{{kategorija}}">{{poruka}}</div>
+            {% endfor %}
+        {% endwith %}
+        {% block sadrzaj %}
+        {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!-- Poglavlje5/23/static/korisnici.html --!>  
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    {% if korisnici %}
+    <table>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Корисничко име</th>
+        </tr>
+        {% for korisnik in korisnici %}
+        <tr>
+            <td>{{korisnik["id_korisnika"]}}</td>
+            <td>{{korisnik["ime"]}}</td>
+            <td>{{korisnik["prezime"]}}</td>
+            <td>{{korisnik["korisnicko_ime"]}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+    <p>Нема корисника у систему.</p>
+    {% endif %}
+    {% endblock %}
+
+.. code-block:: html
+
+    <!-- Poglavlje5/23/static/novi_korisnik.html --!>  
+
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('novi_korisnik')}}" method="POST">
+        <div>
+            <label for="ime">Име:</label>
+            <br>
+            <input type="text" name="ime" id="ime">
+        </div>
+        <div>
+            <label for="prezime">Презиме:</label>
+            <br>
+            <input type="text" name="prezime" id="prezime">
+        </div>
+        <div>
+            <label for="korisnicko_ime">Корисничко име:</label>
+            <br>
+            <input type="text" name="korisnicko_ime" id="korisnicko_ime">
+        </div>
+        <div>
+            <label for="lozinka">Лозинка:</label>
+            <br>
+            <input type="password" name="lozinka" id="lozinka">
+        </div>
+
+    <input type="submit" value="Додај корисника">
+    </form>
+    {% endblock %}
+
+    
 
 Успешно подношење формулара резултује веб-страницом као на наредној слици.
 
@@ -200,22 +381,133 @@ ______________________________
 
 Због тога, када код имаш сложене функционалности које треба да имплементираш, а у програмирању веб-апликација то је готово увек случај, боље је да распоредиш код по функцијама тако да свака функција има једну одговорност, а да функције даље групишеш у Python модуле. На пример, уместо да датотека *main.py* буде та која имплементира операције над базом података, више има смисла да направиш нови модул који ће садржати ове операције, а да у датотеци *main.py* увозиш функције из тог модула и позиваш их по потреби. У ту сврху, сав код који се тиче управљања подацима из базе података ћемо преместити у већ постојећу датотеку *db.py*, која већ садржи један део кода који се тиче радом са базом података. Пожељно је да функције именујеш описним називима како би на основу имена брзо закључио шта је садржај те функције, без да анализираш код.
 
-::
+.. code-block:: python
 
-    Poglavlje5/24/db.py
+    # Poglavlje5/24/db.py
+
+    import mysql.connector
+    import bcrypt
+    from flask import flash
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+    def dohvati_sve_korisnike():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+
+        kursor.execute(upit)
+        korisnici = kursor.fetchall()
+
+        return korisnici
+
+
+    def unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka):
+        sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), bcrypt.gensalt())
+
+        kursor = mydb.cursor()
+        sql = (
+            "INSERT INTO korisnici (ime, prezime, korisnicko_ime, lozinka) "
+            "VALUES (%(ime)s, %(prezime)s, %(korisnicko_ime)s, %(lozinka)s)"
+        )
+
+        kursor.execute(
+            sql,
+            params={
+                "ime": ime,
+                "prezime": prezime,
+                "korisnicko_ime": korisnicko_ime,
+                "lozinka": sifrovana_lozinka,
+            },
+        )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно унетих редова: {kursor.rowcount}. Идентификатор унетог реда: {kursor.lastrowid}",
+            "success",
+        )
+
 
 
 Поред операција са базом података, и све провере вредности података је корисно издвојити у посебан модул, на пример, *validacija.py*. 
 
-::
+.. code-block:: python
 
-    Poglavlje5/24/validacija.py
+    # Poglavlje5/24/validacija.py
+
+    from flask import flash
+
+
+    def proveri_podatke_korisnika(ime, prezime, korisnicko_ime, lozinka):
+        greske = False
+
+        if not ime.isalpha():
+            greske = True
+            flash("Име не сме бити празно и мора имати алфанумеричке карактере", "error")
+        if not prezime.isalpha():
+            greske = True
+            flash(
+                "Презиме не сме бити празно и мора имати алфанумеричке карактере",
+                "error",
+            )
+        if not korisnicko_ime.isalpha():
+            greske = True
+            flash(
+                "Корисничко име не сме бити празно и мора имати алфанумеричке карактере",
+                "error",
+            )
+        if len(lozinka) < 4:
+            greske = True
+            flash("Лозинка не сме бити празна и мора имати најмање 4 карактера", "error")
+
+        return greske
+
+
 
 Сада, датотека *main.py* изгледа много чистије и лакше ју је одржавати.
 
-::
+.. code-block:: python
 
-    Poglavlje5/24/main.py
+    # Poglavlje5/24/main.py
+
+    from flask import Flask, redirect, render_template, request, url_for
+    from db import unesi_novog_korisnika, dohvati_sve_korisnike
+    from validacija import proveri_podatke_korisnika
+
+    app = Flask(__name__)
+
+    app.secret_key = b"\xcaO\xeb\xf3\xac\\c\x11_x\xb6\x07\nsu\xef\xe2\x98~\xfe\x08Y~h"
+
+
+    @app.route("/korisnici/novi", methods=["GET", "POST"])
+    def novi_korisnik():
+        if request.method == "GET":
+            return render_template("novi_korisnik.html", naslov="Креирање корисника")
+        else:
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            lozinka = request.form.get("lozinka", "")
+
+            greske = proveri_podatke_korisnika(ime, prezime, korisnicko_ime, lozinka)
+            if greske:
+                return redirect(url_for("novi_korisnik"))
+
+            unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka)
+
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        korisnici = dohvati_sve_korisnike()
+
+        return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
+
+
 
 Апликација је функционално остала непромењена. Покрени овај пример и унеси новог корисника у систем.
 
@@ -260,9 +552,43 @@ ___________________
 
 С обзиром да кориснику желимо да омогућимо измену података, на страници на путањи */korisnici* додајемо нову колону у табели која ће садржати ”дугме” за измену податка за корисника. Ово ”дугме” представља ништа друго до везу (HTML елемент а), која је стилизована да изгледа као дугме, а која води ка путањи */korisnici/izmeni/<id_korisnika>* (која ће бити регистрована као рута за функцију *izmeni_korisnika* u датотеци *main.py*). Приликом генерисања шаблона, за сваку везу је потребно припремити одговарајућу URL адресу. Присети се да за то можеш искористити функцију *url_for* тако што проследиш додатни именовани аргумент (у овом случају, то је аргумент *id_korisnika*) који ће заменити параметар *id_korisnika* у путањи.
 
-::
+.. code-block:: html
+    
+    <!-- Poglavlje5/25/templates/korisnici.html --!>
 
-    Poglavlje5/25/templates/korisnici.html
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    {% if korisnici %}
+    <table>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Корисничко име</th>
+            <th>Операције</th>
+        </tr>
+        {% for korisnik in korisnici %}
+        <tr>
+            <td>{{korisnik["id_korisnika"]}}</td>
+            <td>{{korisnik["ime"]}}</td>
+            <td>{{korisnik["prezime"]}}</td>
+            <td>{{korisnik["korisnicko_ime"]}}</td>
+            <td>
+            <a
+                class="dugme-operacija"
+                href="{{url_for('izmeni_korisnika', id_korisnika=korisnik['id_korisnika'])}}"
+            >Измени</a
+            >
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Нема корисника у систему.</p>
+    {% endif %}
+    {% endblock %}
+
+
 
 .. image:: ../../_images/web_174d.jpg
     :width: 780
@@ -270,9 +596,62 @@ ___________________
 
 Посећивањем неке од генерисаних веза шаље се GET захтев на путању */korisnici/izmeni/<id_korisnika>* која приказује шаблон са формуларом за измену података. Примети да су основни подаци о кориснику унети на основу постојећих података у бази, као и да је промена лозинке одвојена у засебну секцију. Наравно, обе секције су и даље део једног формулара, што значи да ће се сви подаци послати заједно методом POST на исту путању.
 
-::
+.. code-block:: html
+    
+    <!-- Poglavlje5/25/templates/izmeni_korisnika.html --!>
 
-    Poglavlje5/25/templates/izmeni_korisnika.html
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+        <form
+        action="{{url_for('izmeni_korisnika', id_korisnika=korisnik['id_korisnika'])}}"
+        method="POST"
+        >
+        <fieldset>
+            <legend>Основне информације</legend>
+            <div>
+            <label for="ime">Име:</label>
+            <br>
+            <input type="text" name="ime" id="ime" value="{{korisnik['ime']}}">
+            </div>
+            <div>
+            <label for="prezime">Презиме:</label>
+            <br>
+            <input
+                type="text"
+                name="prezime"
+                id="prezime"
+                value="{{korisnik['prezime']}}"
+            >
+            </div>
+            <div>
+            <label for="korisnicko_ime">Корисничко име:</label>
+            <br>
+            <input
+                type="text"
+                name="korisnicko_ime"
+                id="korisnicko_ime"
+                value="{{korisnik['korisnicko_ime']}}"
+            >
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Промена лозинке</legend>
+            <div>
+            <label for="stara_lozinka">Стара лозинка:</label>
+            <br>
+            <input type="password" name="stara_lozinka" id="stara_lozinka">
+            </div>
+            <div>
+            <label for="nova_lozinka">Нова лозинка:</label>
+            <br>
+            <input type="password" name="nova_lozinka" id="nova_lozinka">
+            </div>
+        </fieldset>
+
+        <input type="submit" value="Измени корисника">
+    </form>
+    {% endblock %}
+
 
 .. image:: ../../_images/web_174e.jpg
     :width: 780
@@ -286,10 +665,194 @@ ___________________
 
 Кораци за имплементирање ажурирања података личе на упис података, са разликом да је потребно посебно обрадити случајеве када су лозинке наведене и када нису. Додатно, потребно је да водиш рачуна о томе да провериш да ли су обе лозинке исправне – стара лозинка мора да одговара хешираној вредности из базе података, док нова лозинка мора да поштује ограничења која смо поставили приликом уписа нових корисника.
 
-::
+.. code-block:: python
 
-    Poglavlje5/25/db.py
-    Poglavlje5/25/main.py
+    # Poglavlje5/25/db.py
+
+    import mysql.connector
+    import bcrypt
+    from flask import flash
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+    def dohvati_korisnika(id_korisnika):
+        kursor = mydb.cursor(dictionary=True)
+        upit = (
+            "SELECT id_korisnika, ime, prezime, korisnicko_ime, lozinka "
+            "FROM korisnici WHERE id_korisnika = %s"
+        )
+
+        kursor.execute(upit, params=[id_korisnika])
+        korisnik = kursor.fetchone()
+
+        return korisnik
+
+
+    def izmeni_postojeceg_korisnika(
+        id_korisnika, ime, prezime, korisnicko_ime, nova_lozinka
+    ):
+        kursor = mydb.cursor()
+
+        if nova_lozinka:
+            sql = (
+                "UPDATE korisnici SET ime = %(ime)s, prezime = %(prezime)s, "
+                "korisnicko_ime = %(korisnicko_ime)s, lozinka = %(lozinka)s "
+                "WHERE id_korisnika = %(id_korisnika)s"
+            )
+
+            sifrovana_lozinka = bcrypt.hashpw(nova_lozinka.encode(), bcrypt.gensalt())
+
+            kursor.execute(
+                sql,
+                params={
+                    "id_korisnika": id_korisnika,
+                    "ime": ime,
+                    "prezime": prezime,
+                    "korisnicko_ime": korisnicko_ime,
+                    "lozinka": sifrovana_lozinka,
+                },
+            )
+        else:
+            sql = (
+                "UPDATE korisnici SET ime = %(ime)s, prezime = %(prezime)s, "
+                "korisnicko_ime = %(korisnicko_ime)s "
+                "WHERE id_korisnika = %(id_korisnika)s"
+            )
+
+            kursor.execute(
+                sql,
+                params={
+                    "id_korisnika": id_korisnika,
+                    "ime": ime,
+                    "prezime": prezime,
+                    "korisnicko_ime": korisnicko_ime,
+                },
+            )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно измењених редова: {kursor.rowcount}.",
+            "success",
+        )
+
+
+    def dohvati_sve_korisnike():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+
+        kursor.execute(upit)
+        korisnici = kursor.fetchall()
+
+        return korisnici
+
+
+    def unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka):
+        sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), bcrypt.gensalt())
+
+        kursor = mydb.cursor()
+        sql = (
+            "INSERT INTO korisnici (ime, prezime, korisnicko_ime, lozinka) "
+            "VALUES (%(ime)s, %(prezime)s, %(korisnicko_ime)s, %(lozinka)s)"
+        )
+
+        kursor.execute(
+            sql,
+            params={
+                "ime": ime,
+                "prezime": prezime,
+                "korisnicko_ime": korisnicko_ime,
+                "lozinka": sifrovana_lozinka,
+            },
+        )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно унетих редова: {kursor.rowcount}. Идентификатор унетог реда: {kursor.lastrowid}",
+            "success",
+        )
+
+.. code-block:: python
+
+    # Poglavlje5/25/main.py
+    
+    from flask import Flask, flash, redirect, render_template, request, url_for
+    from db import (
+    unesi_novog_korisnika,
+    dohvati_sve_korisnike,
+    dohvati_korisnika,
+    izmeni_postojeceg_korisnika,
+    )
+    from validacija import (
+        proveri_podatke_novog_korisnika,
+        proveri_podatke_postojeceg_korisnika,
+    )
+
+    app = Flask(__name__)
+
+    app.secret_key = b"\xcaO\xeb\xf3\xac\\c\x11_x\xb6\x07\nsu\xef\xe2\x98~\xfe\x08Y~h"
+
+
+    @app.route("/korisnici/izmeni/<id_korisnika>", methods=["GET", "POST"])
+    def izmeni_korisnika(id_korisnika):
+        korisnik = dohvati_korisnika(id_korisnika)
+        if korisnik is None:
+            flash(f"Корисник са идентификатором {id_korisnika} не постоји", "error")
+            return redirect(url_for("korisnici"))
+
+        if request.method == "GET":
+            return render_template(
+                "izmeni_korisnika.html", naslov="Измени корисника", korisnik=korisnik
+            )
+        else:
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            stara_lozinka = request.form.get("stara_lozinka", "")
+            nova_lozinka = request.form.get("nova_lozinka", "")
+
+            greske = proveri_podatke_postojeceg_korisnika(
+                ime, prezime, korisnicko_ime, stara_lozinka, nova_lozinka, korisnik
+            )
+            if greske:
+                return redirect(url_for("izmeni_korisnika", id_korisnika=id_korisnika))
+
+            izmeni_postojeceg_korisnika(
+                id_korisnika, ime, prezime, korisnicko_ime, nova_lozinka
+            )
+
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici/novi", methods=["GET", "POST"])
+    def novi_korisnik():
+        if request.method == "GET":
+            return render_template("novi_korisnik.html", naslov="Креирање корисника")
+        else:
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            lozinka = request.form.get("lozinka", "")
+
+            greske = proveri_podatke_novog_korisnika(ime, prezime, korisnicko_ime, lozinka)
+            if greske:
+                return redirect(url_for("novi_korisnik"))
+
+            unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka)
+
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        korisnici = dohvati_sve_korisnike()
+
+        return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
+
 
 .. image:: ../../_images/web_174g.jpg
     :width: 780
@@ -339,9 +902,51 @@ _________________
 
 Језик HTML не подржава могућност да се POST захтеви шаљу путем веза (тј. HTML елемента *a*). Због тога, уколико желиш да пошаљеш POST захтев са веб-странице, у обавези си да искористиш HTML елемент *form*. Ипак, чињеница да ови елементи немају посебне визуелне карактеристике омогућава ти да их користиш на нестандардне начине. На пример, у шаблону странице */korisnici* можеш додати нову колону табеле, која ће у сваком реду садржати по један формулар који шаље POST захтев на путању */korisnici/obrisi/<id_korisnika>*. Евентуално ће бити потребно да стилизујеш дугме за подношење формулара како би се визуелно уклопило са осталим елементима. У пракси, овај посао се делегира веб-дизајнерима који ће уклопити дизајн потребних елемената према теми веб-апликације.
 
-::
+.. code-block:: html
 
-    Poglavlje5/26/templates/korisnici.html
+    <!-- Poglavlje5/26/templates/korisnici.html --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    {% if korisnici %}
+    <table>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Корисничко име</th>
+            <th colspan="2">Операције</th>
+        </tr>
+        {% for korisnik in korisnici %}
+        <tr>
+            <td>{{korisnik["id_korisnika"]}}</td>
+            <td>{{korisnik["ime"]}}</td>
+            <td>{{korisnik["prezime"]}}</td>
+            <td>{{korisnik["korisnicko_ime"]}}</td>
+            <td>
+            <a
+                class="dugme-operacija"
+                href="{{url_for('izmeni_korisnika', id_korisnika=korisnik['id_korisnika'])}}"
+            >Измени</a
+            >
+            </td>
+            <td>
+            <form
+                class="forma-operacija"
+                action="{{url_for('obrisi_korisnika', id_korisnika=korisnik['id_korisnika'])}}"
+                method="POST"
+            >
+                <input type="submit" value="Обриши" class="dugme-operacija">
+            </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Нема корисника у систему.</p>
+    {% endif %}
+    {% endblock %}
+
 
 .. image:: ../../_images/web_174h.jpg
     :width: 780
@@ -349,10 +954,214 @@ _________________
 
 Одабиром дугмета Обриши, шаље се POST захтев на путању */korisnici/obrisi/<id_korisnika>* која је регистрована за функцију *obrisi_korisnika*. Функција је сама по себи једноставна – на основу параметра путање *id_korisnika* шаље се захтев за брисањем корисника са датим идентификатором из базе података. Након успешности операције, захтев се преусмерава на страницу *Korisnici*, одакле је иницијални захтев и потекао.
 
-::
+.. code-block:: python
 
-    Poglavlje5/26/db.py
-    Poglavlje5/26/main.py
+    # Poglavlje5/26/db.py
+
+    import mysql.connector
+    import bcrypt
+    from flask import flash
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+    def obrisi_korisnika_sa_id(id_korisnika):
+        kursor = mydb.cursor()
+        sql = "DELETE FROM korisnici WHERE id_korisnika = %s"
+
+        kursor.execute(
+            sql,
+            params=[id_korisnika],
+        )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно обрисаних редова: {kursor.rowcount}",
+            "success",
+        )
+
+
+    def dohvati_korisnika(id_korisnika):
+        kursor = mydb.cursor(dictionary=True)
+        upit = (
+            "SELECT id_korisnika, ime, prezime, korisnicko_ime, lozinka "
+            "FROM korisnici WHERE id_korisnika = %s"
+        )
+
+        kursor.execute(upit, params=[id_korisnika])
+        korisnik = kursor.fetchone()
+
+        return korisnik
+
+
+    def izmeni_postojeceg_korisnika(
+        id_korisnika, ime, prezime, korisnicko_ime, nova_lozinka
+    ):
+        kursor = mydb.cursor()
+
+        if nova_lozinka:
+            sql = (
+                "UPDATE korisnici SET ime = %(ime)s, prezime = %(prezime)s, "
+                "korisnicko_ime = %(korisnicko_ime)s, lozinka = %(lozinka)s "
+                "WHERE id_korisnika = %(id_korisnika)s"
+            )
+
+            sifrovana_lozinka = bcrypt.hashpw(nova_lozinka.encode(), bcrypt.gensalt())
+
+            kursor.execute(
+                sql,
+                params={
+                    "id_korisnika": id_korisnika,
+                    "ime": ime,
+                    "prezime": prezime,
+                    "korisnicko_ime": korisnicko_ime,
+                    "lozinka": sifrovana_lozinka,
+                },
+            )
+        else:
+            sql = (
+                "UPDATE korisnici SET ime = %(ime)s, prezime = %(prezime)s, "
+                "korisnicko_ime = %(korisnicko_ime)s "
+                "WHERE id_korisnika = %(id_korisnika)s"
+            )
+
+            kursor.execute(
+                sql,
+                params={
+                    "id_korisnika": id_korisnika,
+                    "ime": ime,
+                    "prezime": prezime,
+                    "korisnicko_ime": korisnicko_ime,
+                },
+            )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно измењених редова: {kursor.rowcount}.",
+            "success",
+        )
+
+
+    def dohvati_sve_korisnike():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+
+        kursor.execute(upit)
+        korisnici = kursor.fetchall()
+
+        return korisnici
+
+
+    def unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka):
+        sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), bcrypt.gensalt())
+
+        kursor = mydb.cursor()
+        sql = (
+            "INSERT INTO korisnici (ime, prezime, korisnicko_ime, lozinka) "
+            "VALUES (%(ime)s, %(prezime)s, %(korisnicko_ime)s, %(lozinka)s)"
+        )
+
+        kursor.execute(
+            sql,
+            params={
+                "ime": ime,
+                "prezime": prezime,
+                "korisnicko_ime": korisnicko_ime,
+                "lozinka": sifrovana_lozinka,
+            },
+        )
+
+        mydb.commit()
+
+        flash(
+            f"Број успешно унетих редова: {kursor.rowcount}. Идентификатор унетог реда: {kursor.lastrowid}",
+            "success",
+        )
+
+.. code-block:: python
+
+    # Poglavlje5/26/main.py
+
+    from flask import Flask, redirect, render_template, request, url_for
+    from db import (
+        unesi_novog_korisnika,
+        dohvati_sve_korisnike,
+        dohvati_korisnika,
+        izmeni_postojeceg_korisnika,
+        obrisi_korisnika_sa_id,
+    )
+    from validacija import (
+        proveri_podatke_novog_korisnika,
+        proveri_podatke_postojeceg_korisnika,
+    )
+
+    app = Flask(__name__)
+
+    app.secret_key = b"\xcaO\xeb\xf3\xac\\c\x11_x\xb6\x07\nsu\xef\xe2\x98~\xfe\x08Y~h"
+
+
+    @app.route("/korisnici/obrisi/<id_korisnika>", methods=["POST"])
+    def obrisi_korisnika(id_korisnika):
+        obrisi_korisnika_sa_id(id_korisnika)
+        return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici/izmeni/<id_korisnika>", methods=["GET", "POST"])
+    def izmeni_korisnika(id_korisnika):
+        korisnik = dohvati_korisnika(id_korisnika)
+
+        if request.method == "GET":
+            return render_template(
+                "izmeni_korisnika.html", naslov="Измени корисника", korisnik=korisnik
+            )
+        else:
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            stara_lozinka = request.form.get("stara_lozinka", "")
+            nova_lozinka = request.form.get("nova_lozinka", "")
+
+            greske = proveri_podatke_postojeceg_korisnika(
+                ime, prezime, korisnicko_ime, stara_lozinka, nova_lozinka, korisnik
+            )
+            if greske:
+                return redirect(url_for("izmeni_korisnika", id_korisnika=id_korisnika))
+
+            izmeni_postojeceg_korisnika(
+                id_korisnika, ime, prezime, korisnicko_ime, nova_lozinka
+            )
+
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici/novi", methods=["GET", "POST"])
+    def novi_korisnik():
+        if request.method == "GET":
+            return render_template("novi_korisnik.html", naslov="Креирање корисника")
+        else:
+            ime = request.form.get("ime", "")
+            prezime = request.form.get("prezime", "")
+            korisnicko_ime = request.form.get("korisnicko_ime", "")
+            lozinka = request.form.get("lozinka", "")
+
+            greske = proveri_podatke_novog_korisnika(ime, prezime, korisnicko_ime, lozinka)
+            if greske:
+                return redirect(url_for("novi_korisnik"))
+
+            unesi_novog_korisnika(ime, prezime, korisnicko_ime, lozinka)
+
+            return redirect(url_for("korisnici"))
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        korisnici = dohvati_sve_korisnike()
+
+        return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
 
 .. image:: ../../_images/web_174i.jpg
     :width: 780

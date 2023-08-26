@@ -19,10 +19,35 @@ DOM API - рад са догађајима
 
 Пример: На веб-страници се налази дугме „*Кликни ме!*“. Напиши JavaScript програм који у конзоли исписује поруку „*Клик!*“ када корисник кликне на дугме.
 
-::
+.. petlja-editor:: Poglavlje4/38
 
-    Poglavlje4/38/index.html
-    Poglavlje4/38/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - клик!</title>
+    </head>
+    <body>
+        <input id="klik" type="button" value="Кликни ме!">
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    function na_klik_dugmeta() {
+        console.log("Клик!");
+    }
+
+    const dugme = document.getElementById("klik");
+    if (dugme !== null) {
+        dugme.addEventListener("click", na_klik_dugmeta);
+    }   else {
+        console.log("Не постоји дугме са идентификатором: klik");
+    }
+
+
 
 .. image:: ../../_images/web_153а.jpg
     :width: 780
@@ -36,10 +61,45 @@ DOM API - рад са догађајима
 
     **Задатак:** На веб-страници се налази слика угашене светиљке и два дугмета: „*укључи*“ и „*искључи*“. Напиши JavaScript програм који кликом на прво дугме мења фотографију на упаљену светиљку, а кликом на друго дугме мења фотографију на угашену светиљку.
 
-::
+.. petlja-editor:: Poglavlje4/39
 
-    Poglavlje4/39/index.html
-    Poglavlje4/39/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - сијалица</title>
+    </head>
+    <body>
+        <img id="sijalica" src="./ugasena_sijalica.png" height="300">
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    let sijalica_je_ugasena = true;
+
+    function na_klik_sijalice() {
+        const sijalica = document.getElementById("sijalica");
+
+        if (sijalica_je_ugasena) {
+            sijalica.src = "./upaljena_sijalica.png";
+        } else {
+            sijalica.src = "./ugasena_sijalica.png";
+        }
+
+        sijalica_je_ugasena = !sijalica_je_ugasena;
+    }
+
+    const sijalica = document.getElementById("sijalica");
+    if (sijalica !== null) {
+        sijalica.addEventListener("click", na_klik_sijalice);
+    } else {
+        console.log("Не постоји слика са идентификатором: sijalica");
+    }
+
+
 
 .. image:: ../../_images/web_153b.jpg
     :width: 780
@@ -49,10 +109,118 @@ DOM API - рад са догађајима
 
     **Задатак:** На веб-страници се налазе два једнолинијска текстуална поља: *„први број“* и *„други број“*, четири ексклузивна дугмета са основним аритметичким операцијама: *„+“* (сабирањем), *„-“* (одузимањем), *„*“* (множењем) и *„/“* (дељењем), обично дугме „*Израчунај*“ и пасус са текстом „*Резултат*“. Напиши JavaScript програм који кликом на дугме „*Израчунај*“ чита бројевне вредности из једнолинијских текстуалних поља, а затим у пасус уписује резултат извршавања одабране аритметичке операције.
 
-::
+.. petlja-editor:: Poglavlje4/40
 
-    Poglavlje4/40/index.html
-    Poglavlje4/40/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - калкулатор</title>
+    </head>
+    <body>
+        <div>
+        <label for="prvi-broj">Први број</label>
+        <br>
+        <input id="prvi-broj" type="text">
+        </div>
+
+        <div>
+        <label for="drugi-broj">Други број</label>
+        <br>
+        <input id="drugi-broj" type="text">
+        </div>
+
+        <div>
+        <input type="radio" name="operacija" id="zbir" value="zbir"> <label for="zbir">+</label>
+        <br>
+        <input type="radio" name="operacija" id="razlika" value="razlika"> <label for="razlika">-</label>
+        <br>
+        <input type="radio" name="operacija" id="mnozenje" value="mnozenje"> <label for="mnozenje">*</label>
+        <br>
+        <input type="radio" name="operacija" id="deljenje" value="deljenje"> <label for="deljenje">/</label>
+        </div>
+
+        <input id="dugme" type="button" value="Израчунај">
+
+        <p id="rezultat">Резултат:</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    function procitaj_broj_iz_polja(id_polja) {
+        const polje = document.getElementById(id_polja);
+        if (polje !== null) {
+            const sadrzaj_polja = polje.value;
+            const broj = Number.parseFloat(sadrzaj_polja);
+            return broj;
+        } else {
+            console.log("Не постоји поље са идентификатором:", id_polja);
+            return 0;
+        }
+    }
+
+    function dohvati_oznacenu_operaciju() {
+        const operacije = ["zbir", "razlika", "mnozenje", "deljenje"];
+
+        for (let i = 0; i < operacije.length; i++) {
+            const operacija = operacije[i];
+
+            const polje = document.getElementById(operacija);
+            if (polje.checked) {
+            return operacija;
+            }
+        }
+
+        return null;
+    }
+
+    function upisi_rezultat(rezultat) {
+        const polje = document.getElementById("rezultat");
+        if (polje !== null) {
+            polje.innerText = `Резултат: ${rezultat}`;
+        } else {
+            console.log("Не постоји поље са идентификатором: rezultat");
+        }
+    }
+
+    function na_klik_dugmeta() {
+        const prvi_broj = procitaj_broj_iz_polja("prvi-broj");
+        const drugi_broj = procitaj_broj_iz_polja("drugi-broj");
+        const operacija = dohvati_oznacenu_operaciju();
+
+        switch (operacija) {
+            case "zbir": {
+                upisi_rezultat(prvi_broj + drugi_broj);
+                break;
+            }
+            case "razlika": {
+                upisi_rezultat(prvi_broj - drugi_broj);
+                break;
+            }
+            case "mnozenje": {
+                upisi_rezultat(prvi_broj * drugi_broj);
+                break;
+            }
+            case "deljenje": {
+                upisi_rezultat(prvi_broj / drugi_broj);
+                break;
+            }
+            default: {
+                console.log("Ниједна операција није означена");
+            }
+        }
+    }
+
+    const dugme = document.getElementById("dugme");
+    if (dugme !== null) {
+        dugme.addEventListener("click", na_klik_dugmeta);
+    } else {
+        console.log("Не постоји елемент са идентификатором: dugme");
+    }
+    ~~~
 
 .. image:: ../../_images/web_153c.jpg
     :width: 780
@@ -62,10 +230,52 @@ DOM API - рад са догађајима
 
     **Задатак:** На веб-страници се налази текстуални садржај величине текста :math:`10pt`. Напиши JavaScript програм који, када корисник преже курсором преко текста, увећава величину фонта тог текста на :math:`14pt`. Приликом „напуштања“ текста, програм треба да врати величину текста на претходну.
 
-::
+.. petlja-editor:: Poglavlje4/41
 
-    Poglavlje4/41/index.html
-    Poglavlje4/41/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - текст који мења величину</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <p id="tekst">
+        Пређи курсором преко мене да увећаш фонт. Када курсор напусти овај пасус, текст ће се вратити на претходну
+        величину.
+        </p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.css
+    p {
+        font-size: 10pt;
+    }
+    ~~~
+    index.js
+    function kursor_je_preko_pasusa() {
+        const tekst = document.getElementById("tekst");
+        tekst.style.fontSize = "14pt";
+    }
+
+    function kursor_je_napustio_pasus() {
+        const tekst = document.getElementById("tekst");
+        tekst.style.fontSize = "10pt";
+    }
+
+    const tekst = document.getElementById("tekst");
+    if (tekst !== null) {
+        tekst.addEventListener("mouseenter", kursor_je_preko_pasusa);
+        tekst.addEventListener("mouseleave", kursor_je_napustio_pasus);
+    } else {
+        console.log("Не постоји пасус са идентификатором: tekst");
+    }
+
+
+
 
 .. image:: ../../_images/web_153d.jpg
     :width: 780

@@ -62,10 +62,38 @@
 
 Наредни пример представља веб-апликацију која дохвата информације о свим корисницима из базе података *mysql_vezbanje* и приказује их у виду табеле.
 
-::
+.. code-block:: python
 
-    Poglavlje5/20/db.py
-    Poglavlje5/20/main.py
+    # Poglavlje5/20/db.py
+
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+.. code-block:: python
+
+    # Poglavlje5/20/main.py
+
+
+    from flask import Flask, render_template
+    from db import mydb
+
+    app = Flask(__name__)
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+
+        kursor.execute(upit)
+        korisnici = kursor.fetchall()
+
+        return render_template("korisnici.html", korisnici=korisnici)
+
+    
 
 .. image:: ../../_images/web_173a.jpg
     :width: 780
@@ -85,11 +113,80 @@
 
 Наредни пример представља допуну претходног примера у којем се, приликом дохватања података из курсора-итератора, уједно врши трансформација корисничких имена у велика слова.
 
-::
+.. code-block:: python
 
-    Poglavlje5/21/db.py
-    Poglavlje5/21/main.py
-    Poglavlje5/21/korisnici.html
+    # Poglavlje5/21/db.py
+
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+.. code-block:: python
+
+    # Poglavlje5/21/main.py
+
+    from flask import Flask, render_template
+    from db import mydb
+
+    app = Flask(__name__)
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        kursor = mydb.cursor(dictionary=True)
+        upit = "SELECT id_korisnika, ime, prezime, korisnicko_ime FROM korisnici"
+        korisnici = []
+
+        kursor.execute(upit)
+        for korisnik in kursor:
+            korisnik["korisnicko_ime"] = korisnik["korisnicko_ime"].upper()
+            korisnici.append(korisnik)
+
+        return render_template("korisnici.html", korisnici=korisnici)
+
+
+.. code-block:: html
+
+    <!-- Poglavlje5/21/korisnici.html --!>
+
+    <html lang="sr">
+        <head>
+            <title>Корисници</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <h1>Корисници</h1>
+
+            {% if korisnici %}
+            <table>
+            <tr>
+                <th>Идентификатор</th>
+                <th>Име</th>
+                <th>Презиме</th>
+                <th>Корисничко име</th>
+            </tr>
+            {% for korisnik in korisnici %}
+            <tr>
+                <td>{{korisnik["id_korisnika"]}}</td>
+                <td>{{korisnik["ime"]}}</td>
+                <td>{{korisnik["prezime"]}}</td>
+                <td>{{korisnik["korisnicko_ime"]}}</td>
+            </tr>
+            {% endfor %}
+    {% else %}
+            <p>Нема корисника у систему.</p>
+            {% endif %}
+            </table>
+        </body>
+    </html>
+
 
 .. image:: ../../_images/web_173b.jpg
     :width: 780
@@ -131,10 +228,43 @@ ________________
 
 Наредни пример илуструје коришћење параметара упита за потребе претраге корисника на основу њиховог почетног слова. Веб-апликација на страници */pretraga* приказује формулар за унос слова. 
 
-::
+.. code-block:: html
 
-    Poglavlje5/22/templates/osnovni_sablon.html
-    Poglavlje5/22/templates/pretraga.html	
+    <!-- Poglavlje5/22/templates/osnovni_sablon.html --!>
+
+    <html lang="sr">
+        <head>
+            <title>Корисници</title>
+            <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{url_for('static', filename='stil.css')}}"
+        >
+        </head>
+        <body>
+            <h1>{{naslov}}</h1>
+
+            {% block sadrzaj %}
+    {% endblock %}
+        </body>
+    </html>
+
+.. code-block:: html
+
+    <!-- Poglavlje5/22/templates/pretraga.html	 --!>
+    
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    <form action="{{url_for('korisnici')}}" method="GET">
+        <div>
+            <label for="slovo">Почетно слово:</label>
+            <br>
+            <input type="text" name="slovo" id="slovo">
+        </div>
+        <input type="submit" value="Претражи">
+    </form>
+    {% endblock %}
+
 
 .. image:: ../../_images/web_173c.jpg
     :width: 780
@@ -142,9 +272,35 @@ ________________
 
 Подношењем формулара веб-прегледач се упућује на страницу */korisnici* која извршава претрагу на основу унетог слова и приказује резултате у табели.
 
-::
+.. code-block:: html
 
-    Poglavlje5/22/templates/korisnici.html
+    <!-- Poglavlje5/22/templates/korisnici.html	 --!>
+
+    {% extends "osnovni_sablon.html" %}
+    {% block sadrzaj %}
+    {% if korisnici %}
+    <table>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Име</th>
+            <th>Презиме</th>
+            <th>Корисничко име</th>
+        </tr>
+        {% for korisnik in korisnici %}
+        <tr>
+            <td>{{korisnik["id_korisnika"]}}</td>
+            <td>{{korisnik["ime"]}}</td>
+            <td>{{korisnik["prezime"]}}</td>
+            <td>{{korisnik["korisnicko_ime"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Нема корисника у систему.</p>
+    {% endif %}
+    {% endblock %}
+
+
 
 .. image:: ../../_images/web_173d.jpg
     :width: 780
@@ -152,11 +308,47 @@ ________________
 
 Python код је дат у наставку.
 
-::
+.. code-block:: python
 
-    Poglavlje5/22/db.py
+    # Poglavlje5/22/db.py
 
-    Poglavlje5/22/main.py
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+
+    
+.. code-block:: python
+
+    # Poglavlje5/22/main.py
+    
+    from flask import Flask, render_template, request
+    from db import mydb
+
+    app = Flask(__name__)
+
+
+    @app.route("/pretraga")
+    def pretraga():
+        return render_template("pretraga.html", naslov="Претрага корисника")
+
+
+    @app.route("/korisnici")
+    def korisnici():
+        slovo = request.args.get("slovo")
+
+        kursor = mydb.cursor(dictionary=True)
+        upit = (
+            "SELECT id_korisnika, ime, prezime, korisnicko_ime "
+            "FROM korisnici WHERE substring(ime, 1, 1) = %s"
+        )
+
+        kursor.execute(upit, params=[slovo])
+        korisnici = kursor.fetchall()
+
+        return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
 
 .. infonote::
 

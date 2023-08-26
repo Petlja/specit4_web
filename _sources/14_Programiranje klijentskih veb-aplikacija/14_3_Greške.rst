@@ -5,10 +5,32 @@
 
 Међутим, друга врста грешака долази од погрешних претпоставки о функционисању самог програмског језика. У претходној лекцији је било речи о константама и томе како се њихове вредности не могу мењати. Ако ипак покушаш да доделиш нову вредности константи, као што ти то наредни пример илуструје, у конзоли можеш да приметиш поруку као на наредној слици.
 
-::
+.. petlja-editor:: Poglavlje4/4
 
-    Poglavlje4/4/index.html
-    Poglavlje4/4/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+        <head>
+            <meta charset="utf-8">
+            <title>JavaScript - грешке</title>
+        </head>
+        <body>
+            <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+            <script src="index.js"></script>
+        </body>
+    </html>
+    ~~~
+    index.js
+    const y = 1;
+    console.log(y);
+
+    // Наредна линија производи грешку!
+    y = 2;
+
+    console.log(y);
+
+
 
 .. image:: ../../_images/web_143a.jpg
     :width: 780

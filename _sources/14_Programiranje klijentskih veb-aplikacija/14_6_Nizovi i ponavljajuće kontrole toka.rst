@@ -89,10 +89,35 @@ _________________
 
     **Задатак:** Ученици једног одељења су одлучили да прикупе новац који ће уплатити на рачун дечијег свратишта у добротворне сврхе. У сваком реду је по један ученик био задужен да прикупи новац у том реду, а од њих је новац прикупљао разредни старешина. Сваки ред је укупно прикупио наредне своте новца: 4200, 6300, 5100, 4100 и 5500. Напиши JavaScript програм који израчунава укупну своту новца коју су ученици прикупили.
 
-::
+.. petlja-editor:: Poglavlje4/20
 
-    Poglavlje4/20/index.html
-    Poglavlje4/20/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - прикупљање новца</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const svote_novca = [4200, 6300, 5100, 4100, 5500];
+
+    let ukupna_svota = 0;
+
+    for (let i = 0; i < svote_novca.length; i++) {
+    const svota_u_redu = svote_novca[i];
+    ukupna_svota += svota_u_redu;
+    }
+
+    console.log(`Ученици су укупно прикупили ${ukupna_svota} динара.`);
+
+
 
 
 .. image:: ../../_images/web_146b.jpg
@@ -121,10 +146,42 @@ _________________
 
 Задатак: Допуни решење претходног задатка тако да програм рачуна и исписује у конзоли провизију која је неопходна за уплату. Провизија се рачуна тако што се за износ мањи од 5000 динара рачуна фиксна провизија од 50 динара, док за остале износе провизија износи 1%.
 
-::
+.. petlja-editor:: Poglavlje4/21
 
-    Poglavlje4/21/index.html
-    Poglavlje4/21/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - прикупљање новца</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const svote_novca = [4200, 6300, 5100, 4100, 5500];
+
+    let ukupna_svota = 0;
+    let provizija = 0;
+
+    for (let i = 0; i < svote_novca.length; i++) {
+        const svota_u_redu = svote_novca[i];
+        ukupna_svota += svota_u_redu;
+
+        if (svota_u_redu < 5000) {
+          provizija += 50;
+        } else {
+          provizija += svota_u_redu / 100;
+        }
+    }
+
+    console.log(`Ученици су укупно прикупили ${ukupna_svota} динара.`);
+    console.log(`Укупна провизија износи ${provizija} динара.`);
+
 
 .. image:: ../../_images/web_146c.jpg
     :width: 780
@@ -148,10 +205,39 @@ _______________
 
     **Задатак:** Приближава се крај полугодишта и ученици желе да провере своје просечне оцене на предметима. Напиши JavaScript програм који од ученика захтева да унесе оцене из неког предмета раздвојене запетом, а затим израчунава и у конзоли исписује просечну оцену.
 
-::
+.. petlja-editor:: Poglavlje4/22
 
-    Poglavlje4/22/index.html
-    Poglavlje4/22/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - просечна оцена</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const ocene_niska = prompt("Унеси оцене раздвојене запетом:");
+    const ocene = ocene_niska.split(",");
+
+    let zbir_ocena = 0;
+
+    for (let i = 0; i < ocene.length; i++) {
+        const ocena_niska = ocene[i];
+        const ocena = Number.parseInt(ocena_niska);
+
+        zbir_ocena += ocena;
+    }
+
+    const prosecna_ocena = zbir_ocena / ocene.length;
+
+    console.log("Просечна оцена је:", prosecna_ocena);
+
 
 .. image:: ../../_images/web_146d.jpg
     :width: 780
@@ -170,12 +256,47 @@ _______________
 
 .. questionnote::
 
-    **Задатак:** Напиши JavaScript програм који од корисника захтева да унесе два броја:math:`N` и :math:`M`, и генерише матрицу димензија :math:`N×M`. Матрицу представити као ниску која садржи табелу бројева од 1 до :math:`N⋅M`.
+    **Задатак:** Напиши JavaScript програм који од корисника захтева да унесе два броја :math:`N` и :math:`M`, и генерише матрицу димензија :math:`N×M`. Матрицу представити као ниску која садржи табелу бројева од 1 до :math:`N⋅M`.
 
-::
+.. petlja-editor:: Poglavlje4/23
 
-    Poglavlje4/23/index.html
-    Poglavlje4/23/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - матрица бројева</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const N = Number.parseInt(prompt("Унеси број N:"));
+    const M = Number.parseInt(prompt("Унеси број M:"));
+
+    let redovi = [];
+    let broj = 1;
+
+    for (let i = 0; i < N; i++) {
+        let red = [];
+
+        for (let j = 0; j < M; j++) {
+            red.push(broj.toString());
+            broj++;
+        }
+
+        red_niska = red.join(" ");
+        redovi.push(red_niska);
+    }
+
+    console.log(`Матрица бројева ${N} X ${M} је:`);
+    console.log(redovi.join("\n"));
+
+
 
 .. image:: ../../_images/web_146f.jpg
     :width: 780

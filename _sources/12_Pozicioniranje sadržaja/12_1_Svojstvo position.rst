@@ -28,10 +28,50 @@ ______________________
 
 У наредном примеру су илустрована три елемента ”div” од којих је други позициониран статички (заправо, и први и трећи су подразумевано означени као статички распоређени елементи, док смо другом експлицитно задали ово својство) и уз то су наведена два својства за померање – једно од горње ивице и једно од леве ивице. Међутим, с обзиром да је елемент статички позициониран, ова својства немају никакве ефекте. Због тога, добија се подразумевано понашање, очекивано за блоковске елементе – поређани су један испод другог.
 
-::
+.. petlja-editor:: Poglavlje3/24
 
-    Poglavlje3/24/index.html
-    Poglavlje3/24/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - статичко</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    .pozicioniranje {
+        position: static;
+        top: 50px;
+        left: 100px;
+    }
+
+
+
 
 .. image:: ../../_images/web_121a.jpg
     :width: 780
@@ -44,10 +84,48 @@ _______________________
 
 Наредни пример се разликује од следећег само по томе што смо променили вредност својства ”position” тако да се примени релативно позиционирање. Примети да други елемент изгледа као је померен за 50 пиксела на доле и за 100 пиксела удесно у односу на позицију из претходног примера.
 
-::
+.. petlja-editor:: Poglavlje3/25
 
-    Poglavlje3/25/index.html
-    Poglavlje3/25/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - релативно</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    .pozicioniranje {
+        position: relative;
+        top: 50px;
+        left: 100px;
+    }
+
 
 .. image:: ../../_images/web_121b.jpg
     :width: 780
@@ -64,10 +142,59 @@ _______________________
 
 Апсолутно позиционирање наводиш декларацијом ”position: absolute”. Померање зависи од тога да ли елемент, који се позиционира апсолутно, има неког нестатички-позиционираног претка или не. У случају да нема, као што је то у наредном примеру, онда ће елемент бити померен у односу на ивицу погледа веб-прегледача (тј. у односу на ивицу елемента ”body”). 
 
-::
+.. petlja-editor:: Poglavlje3/26
 
-    Poglavlje3/26/index.html
-    Poglavlje3/26/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - апсолутно (статички предак)</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="staticki-predak">
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+        </div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #staticki-predak {
+        /* Ову декларацију нисмо морали да наведемо јер је подразумевана */
+        position: static;
+        margin: 200px 0 0 200px;
+        border: 5px solid black;
+        height: 300px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    .pozicioniranje {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
+
+
 
 .. image:: ../../_images/web_121c.jpg
     :width: 780
@@ -77,10 +204,58 @@ _______________________
 
 Међутим, уколико апсолутно позициониран елемент има нестатички-позиционираног претка, као што је то случај са наредним примером, онда ће се елемент позиционирати у односу на ивицу тог претка. Ако елемент има више оваквих предака, онда ће се посматрати онај који му је најближи на путу ка корену DOM стабла.
 
-::
+.. petlja-editor:: Poglavlje3/27
 
-    Poglavlje3/27/index.html
-    Poglavlje3/27/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - апсолутно (нестатички предак)</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="nestaticki-predak">
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+        </div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #nestaticki-predak {
+        position: relative;
+        margin: 200px 0 0 200px;
+        border: 5px solid black;
+        height: 300px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    .pozicioniranje {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
+
+
 
 
 .. image:: ../../_images/web_121d.jpg
@@ -100,10 +275,56 @@ ____________________
 
 У наредном примеру ћеш пронаћи, поред стандардних елемената ”div”, још један елемент којем смо подесили велику висину како бисмо симулирали веб-страницу са великим бројем садржаја. Други елемент ”div” је позициониран фиксно, 50 пиксела од горње ивице и 100 пиксела од десне ивице погледа веб-прегледача. 
 
-::
+.. petlja-editor:: Poglavlje3/28
 
-    Poglavlje3/28/index.html
-    Poglavlje3/28/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - фиксно</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+
+        <div id="zeleni"></div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    #zeleni {
+        background-color: darkgreen;
+        height: 2000px;
+    }
+
+    .pozicioniranje {
+        position: fixed;
+        top: 50px;
+        right: 100px;
+    }
+
+
 
 .. image:: ../../_images/web_121e.jpg
     :width: 780
@@ -124,10 +345,49 @@ _________________________
 
 Само својство које се користи је назива ”z-index” и његове вредности су цели бројеви. Што је вредност већа, то има већи приоритет у приказивању (другим речима, то је бити више ”испред” осталих елемената). Подразумевано, сви елементи имају вредност овог својства постављену на 0.
 
-::
+.. petlja-editor:: Poglavlje3/29
 
-    Poglavlje3/29/index.html
-    Poglavlje3/29/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS позиционирање - z-позиционирање</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div id="plavi"></div>
+        <div id="crveni" class="pozicioniranje"></div>
+        <div id="zlatni"></div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        width: 300px;
+        height: 100px;
+    }
+
+    #plavi {
+        background-color: dodgerblue;
+    }
+
+    #crveni {
+        background-color: firebrick;
+        z-index: -1;
+    }
+
+    #zlatni {
+        background-color: goldenrod;
+    }
+
+    .pozicioniranje {
+        position: relative;
+        top: 50px;
+        left: 100px;
+    }
+
 
 .. image:: ../../_images/web_121g.jpg
     :width: 780

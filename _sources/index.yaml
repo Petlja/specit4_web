@@ -3,11 +3,18 @@ lang: sr-Cyrl
 title: Веб програмирање за четврти разред специјализованих ИТ одељења
 description:
   willLearn: 
-    - Preview of Petljadoc course
+    - који су елементи рачунарских мрежа и како оне функционишу
+    - који протоколи постоје на вебу и на који начин они омогућавају функционисање веб сервиса
+    - како клијенти и сервери на вебу комуницирају коришћењем протокола HTTP
+    - како се описују статички веб-сајтови коришћењем језика за обележавање HTML и CSS
+    - како се програмирају динамичке клијентске веб-апликације коришћењем програмског језика JavaScript
+    - како се помоћу библиотеке Flask у програмском језику Python програмирају серверске веб-апликације
+    - како серверске веб-апликације написане помоћу библиотеке Flask у програмском језику Python могу да користе релационе базе података
+
   requirements:
-    - Petljadoc
-    - Runestone
-    - Sphinx
+    - Инсталиран програмски језик Python
+    - Инсталиран софтверски пакет XAMPP (упутство за инсталацију је дато у склопу курса)
+    - Инсталирана библиотека Flask (упутство за инсталацију је дато у склопу курса)
   toc:
     - Intro to Petljadoc INDEX.yaml
   externalLinks:  
@@ -18,7 +25,22 @@ description:
     - text: Runestone Interactive
       href: https://github.com/RunestoneInteractive/overview
   longDescription: |
-    This is an example of a long description...
+    <p>Овај курс је намењен пре свега ученицима специјализованих ИТ одељења 4. разреда за предмет Веб програмирање. Курс прати одговарајући програм наставе и учења који обухвата наредне теме: </p>
+    
+    <p> - Рачунарске мреже и интернет </p>
+    <p> -	Описни језик HTML  </p>
+    <p> -	Стилски листови – језик CSS  </p>
+    <p> -	Скрипт језик JavaScript за клијентско програмирање  </p>
+    <p> -	Серверско програмирање  </p>
+
+    <p> Поред рада у школи, курс се може пролазити и самостално. </p>
+
+    <p>
+    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.sr_LATN">
+    <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+    <br />Овај курс Фондација Петља објавила je под лиценцом <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.sr_LATN">Creative Commons Autorstvo 4.0 Međunarodna Licenca (CC BY 4.0)</a>.
+    </p> 
+
   shortDescription: Веб програмирање за четврти разред специјализованих ИТ одељења
 
 

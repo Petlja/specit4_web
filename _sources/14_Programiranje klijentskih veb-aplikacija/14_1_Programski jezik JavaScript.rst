@@ -17,16 +17,47 @@ _____________________________________________
 
 JavaScript код у оквиру HTML датотеке наводиш помоћу HTML елемента *script*. Постоје два начина употребе овог елемента. Први је тако што JavaScript код уметнеш као садржај овог елемента. Наредни пример илуструје овај начин.
 
-::
+.. petlja-editor:: Poglavlje4/1
 
-    Poglavlje4/1/index.html
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript - елемент script</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script>
+        console.log("Конзола је успешно пронађена!");
+        </script>
+    </body>
+    </html>
+
+
 
 Други начин јесте да JavaScript код изместиш у засебну датотеку, која може имати произвољан назив, али обично се завршава екстензијом *.js* (скраћено од *JavaScript*). Да би код написан у тој датотеци био укључен у HTML документ, потребно је да елементу *script* поставиш вредност атрибута *src* на локацију датотеке која садржи JavaScript код. Као и у случају са другим веб ресурсима, локација може бити релативна путања или URL адреса. Наредни пример илуструје овај начин.
 
-::
+.. petlja-editor:: Poglavlje4/2
 
-    Poglavlje4/2/index.html
-    Poglavlje4/2/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript - елемент script</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="./index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    console.log("Конзола је успешно пронађена!");
+
 
 .. infonote::
 

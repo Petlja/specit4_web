@@ -40,10 +40,42 @@
 
     **Задатак:** За потребе апликације електронског дневника потребно је чувати следеће информације: Јелена Перић (име и презиме), 0101990123456 (ЈМБГ), 3 (година), 1 (одељење), Базе података (назив предмета), 3 (година), 4, 5, 5, 4 (оцене), 4,5 (просечна оцена). Напиши JavaScript програм који моделира ове податке помоћу објеката, а затим у конзоли испиши презиме и име ученика, назив предмета и просечну оцену.
 
-::
+.. petlja-editor:: Poglavlje4/24
 
-    Poglavlje4/24/index.html
-    Poglavlje4/24/index.js
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>JavaScript задатак - објекти</title>
+    </head>
+    <body>
+        <p>Отвори језичак ”Console” у алатима за развој.</p>
+
+        <script src="index.js"></script>
+    </body>
+    </html>
+    ~~~
+    index.js
+    const ucenik = {
+        ime: "Јелена",
+        prezime: "Перић",
+        jmbg: "0101990123456",
+        godina: 3,
+        odeljenje: 1,
+        predmet: {
+            naziv: "Базе података",
+            godina: 3,
+            ocene: [4, 5, 5, 4],
+            prosecna_ocena: 4.5,
+        },
+    };
+
+    console.log("Ученик: ", ucenik.prezime + " " + ucenik.ime);
+    console.log("Назив предмета:", ucenik.predmet.naziv);
+    console.log("Просечна оцена:", ucenik.predmet.prosecna_ocena);
+
+
 
 Вредност null
 ______________

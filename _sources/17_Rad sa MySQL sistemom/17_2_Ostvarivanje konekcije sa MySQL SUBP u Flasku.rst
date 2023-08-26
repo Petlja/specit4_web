@@ -7,10 +7,34 @@
 
 Наредни пример илуструје како се остварује конекција ка MySQL СУБП.
 
-::
+.. code-block:: python
 
-    Poglavlje5/19/main.py
-    Poglavlje5/19/db.py
+    # Poglavlje5/19/main.py
+
+    from flask import Flask
+    from db import mydb
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def pocetna():
+        return f"""
+            <h1>Остварена је конекција ка бази података!</h1>
+            <p>{mydb.database}</p>
+        """
+
+.. code-block:: python
+
+    # Poglavlje5/19/db.py
+
+    import mysql.connector
+
+    mydb = mysql.connector.connect(
+        host="localhost", user="root", password="", database="mysql_vezbanje"
+    )
+
+    
 
 Датотека *db.py* садржи код за повезивање на MySQL СУБП. Прво је потребно да увезеш модул *mysql.connector* који си инсталирао у претходној лекцији (назив библиотеке која садржи овај модул је *mysql-connector-python*). Повезивање на базу података се врши позивом функције *connect* из овог модула. Аргументи које ова функција очекује су следећи:
 

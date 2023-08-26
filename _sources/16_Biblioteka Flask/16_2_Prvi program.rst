@@ -5,9 +5,18 @@
 
 Без одуговлачења, прикажимо изворни код првог програма.
 
-::
+.. code-block:: python
 
-    Poglavlje5/1/main.py
+    from flask import Flask
+
+    app = Flask(__name__)
+
+
+    @app.route("/")
+    def zdravo_svete():
+        return "<h1>Здраво, свете!</h1>"
+
+
 
 Погледајмо од чега се састоји овај програм:
 

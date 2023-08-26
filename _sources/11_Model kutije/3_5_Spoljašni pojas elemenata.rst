@@ -5,10 +5,42 @@
 
 Постоји и својство ”margin” којим се могу навести димензије маргина за све стране одједном. Ово својство функционише на исти начин као својство ”padding”.
 
-::
+.. petlja-editor:: Poglavlje3/23
 
-    Poglavlje3/23/index.html
-    Poglavlje3/23/index.css
+    index.html
+    <!DOCTYPE html>
+    <html lang="sr">
+    <head>
+        <meta charset="utf-8">
+        <title>CSS - маргина</title>
+
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div>
+        <p>
+            Овај елемент има горњу и доњу маргину од 100px, док десна и лева маргина заузимају 20% ширине родитељског
+            елемента.
+        </p>
+        </div>
+    </body>
+    </html>
+    ~~~
+    index.css
+    div {
+        border: black solid 1px;
+        width: 50%;
+    }
+
+    p {
+        border: 1px solid black;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-right: 20%;
+        margin-left: 20%;
+        background-color: lightblue;
+    }
+
 
 
 .. image:: ../../_images/web_35a.jpg
