@@ -17,13 +17,6 @@ description:
     - Инсталирана библиотека Flask (упутство за инсталацију је дато у склопу курса)
   toc:
     - Intro to Petljadoc INDEX.yaml
-  externalLinks:  
-    - text: Sphinx Docs
-      href: https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html
-    - text: Petljadoc
-      href: https://github.com/Petlja/PetljaDoc/blob/master/README.md
-    - text: Runestone Interactive
-      href: https://github.com/RunestoneInteractive/overview
   longDescription: |
     <p>Овај курс је намењен пре свега ученицима специјализованих ИТ одељења 4. разреда за предмет Веб програмирање. Курс прати одговарајући програм наставе и учења који обухвата наредне теме: </p>
     
