@@ -25,8 +25,9 @@
 
     *WNIC* који се прикључује на матичну плочу
 
-.. figure:: ../../_images/slika_21d.jpg
-    :width: 340
+..
+    .. figure:: ../../_images/slika_21d.jpg
+    :width: 120
     :align: center
 
     *WNIC* са *USB* прикључком

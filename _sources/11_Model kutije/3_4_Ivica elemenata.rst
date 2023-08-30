@@ -257,6 +257,6 @@ ________________
     }
 
 .. image:: ../../_images/web_34e.jpg
-    :width: 780
+    :width: 645
     :align: center
 
