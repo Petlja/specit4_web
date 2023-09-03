@@ -8,6 +8,8 @@
 .. petlja-editor:: Poglavlje3/36
 
     index.html
+    <!-- Poglavlje3/36/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -52,6 +54,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/36/index.css */
+    
     table,
     th,
     td {
@@ -67,16 +71,13 @@
     }
 
 
-
-.. image:: ../../_images/web_132a.jpg
-    :width: 780
-    :align: center
-
 Својство *caption-side* користиш за подешавање позиције наслова табеле. Као што ти је познато, наслов табеле се увек наводи (ако се наводи) као први потомак елемента *table* и подразумевано се приказује изнад табеле. Овом понашању одговара вредност *top* својства *caption-side*. Са друге стране, постављањем овог својства на вредност *bottom*, омогућаваш наслову да се пребаци испод табеле. 
 
 .. petlja-editor:: Poglavlje3/37
 
     index.html
+    <!-- Poglavlje3/37/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -123,6 +124,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/37/index.css */
+    
     table,
     th,
     td {
@@ -153,9 +156,3 @@
         background-color: rgba(0, 191, 255, 0.5);
     }
 
-
-
-
-.. image:: ../../_images/web_132b.jpg
-    :width: 780
-    :align: center

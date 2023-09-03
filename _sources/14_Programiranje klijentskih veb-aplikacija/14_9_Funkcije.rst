@@ -39,6 +39,8 @@ ____________________
 .. petlja-editor:: Poglavlje4/25
 
     index.html
+    <!-- Poglavlje4/25/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -53,6 +55,8 @@ ____________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/25/index.js */
+    
     function povrsina_jednakostranicnog_trougla(a) {
         const povrsina = (a * a * Math.sqrt(3)) / 4;
 
@@ -64,10 +68,6 @@ ____________________
 
 
 
-.. image:: ../../_images/web_149b.jpg
-    :width: 780
-    :align: center
-
 Функције и низови
 __________________
 
@@ -78,6 +78,8 @@ __________________
 .. petlja-editor:: Poglavlje4/26
 
     index.html
+    <!-- Poglavlje4/26/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -92,6 +94,8 @@ __________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/26/index.js */
+    
     function obim_kruga(r) {
         const obim = 2 * r * Math.PI;
 
@@ -106,10 +110,6 @@ __________________
 
 
 
-.. image:: ../../_images/web_149c.jpg
-    :width: 780
-    :align: center
-
 Оно што је важно да запамтиш јесте да, када прослеђујеш низове као аргументе функцијама, JavaScript **неће** направити копију низа, већ ће проследити оригинални низ. То значи да су низови подложни променама у оквиру функција. Ову чињеницу можеш да искористиш уколико је потребно да измениш оригиналне вредности низова.
 
 .. infonote::
@@ -123,6 +123,8 @@ __________________
 .. petlja-editor:: Poglavlje4/27
 
     index.html
+    <!-- Poglavlje4/27/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -137,6 +139,8 @@ __________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/27/index.js */
+    
     function skrati_niske(niz_niski, najveca_duzina) {
         for (let i = 0; i < niz_niski.length; i++) {
             const niska = niz_niski[i];
@@ -158,9 +162,6 @@ __________________
 
 
 
-.. image:: ../../_images/web_149d.jpg
-    :width: 780
-    :align: center
 
 Води рачуна да некада ово понашање није пожељно, поготово уколико осталим програмерима није јасно да ће твој код изменити оригинални низ! У ту сврху, добро је да оставиш коментар који јасно наводи ову чињеницу, као што је то урађено у претходном задатку. Наредни задатак показује алтернативно решење, које враћа нови низ који испуњава жељена очекивања.
 
@@ -171,6 +172,8 @@ __________________
 .. petlja-editor:: Poglavlje4/28
 
     index.html
+    <!-- Poglavlje4/28/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -185,6 +188,8 @@ __________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/28/index.js */
+    
     function skrati_niske(niz_niski, najveca_duzina) {
     const novi_niz = [];
 
@@ -212,10 +217,6 @@ __________________
     console.log(novi_niz);
 
 
-.. image:: ../../_images/web_149e.jpg
-    :width: 780
-    :align: center
-
 Функције и објекти
 ___________________
 
@@ -240,6 +241,8 @@ ___________________
 .. petlja-editor:: Poglavlje4/29
 
     index.html
+    <!-- Poglavlje4/29/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -254,6 +257,8 @@ ___________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/29/index.js */
+    
     function izracunaj_poene(takmicar, prvi, drugi, treci) {
         const poeni_1 = (takmicar.prvi * prvi) / 100;
         const poeni_2 = (takmicar.drugi * drugi) / 100;
@@ -310,10 +315,6 @@ ___________________
 
 
 
-.. image:: ../../_images/web_149f.jpg
-    :width: 780
-    :align: center
-
 Функције као методи
 ___________________
 
@@ -330,6 +331,8 @@ ___________________
 .. petlja-editor:: Poglavlje4/30
 
     index.html
+    <!-- Poglavlje4/30/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -344,6 +347,8 @@ ___________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/30/index.js */
+    
     const ivan = {
         lektire: [
             { naslov: "Мајстор и Маргарита", broj_strana: 372 },
@@ -365,10 +370,6 @@ ___________________
 
 
 
-.. image:: ../../_images/web_149h.jpg
-    :width: 780
-    :align: center
-
 Функције као вредности
 _______________________
 
@@ -381,6 +382,8 @@ _______________________
 .. petlja-editor:: Poglavlje4/31
 
     index.html
+    <!-- Poglavlje4/31/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -395,6 +398,8 @@ _______________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/31/index.js */
+    
         function promeni_prvo_slovo_u_veliko(rec) {
         const prvo_slovo = rec.charAt(0).toUpperCase();
         const ostatak_reci = rec.substring(1);
@@ -435,11 +440,6 @@ _______________________
     // nova_recenica = obradi_recenicu_rec_po_rec(recenica, promeni_prvo_i_poslednje_slovo_u_veliko);
     // console.log("Измењена реченица:", nova_recenica);
 
-
-
-.. image:: ../../_images/web_149i.jpg
-    :width: 780
-    :align: center
 
 Примети да је функција *obradi_recenicu_rec_po_rec* имплементирана тако да се исти код може применити за најразличитије задатке обраде текста. Писање апстрактног кода је напредна техника коју програмери стичу радом на пројектима и дискутовањем са својим колегама у тиму приликом развоја апликација.
 

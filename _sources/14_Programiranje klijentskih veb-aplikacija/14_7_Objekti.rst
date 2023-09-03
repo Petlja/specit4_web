@@ -43,6 +43,8 @@
 .. petlja-editor:: Poglavlje4/24
 
     index.html
+    <!-- Poglavlje4/24/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -57,6 +59,8 @@
     </html>
     ~~~
     index.js
+    /* Poglavlje4/24/index.js */
+    
     const ucenik = {
         ime: "Јелена",
         prezime: "Перић",

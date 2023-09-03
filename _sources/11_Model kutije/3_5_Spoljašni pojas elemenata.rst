@@ -8,6 +8,8 @@
 .. petlja-editor:: Poglavlje3/23
 
     index.html
+    <!-- Poglavlje3/23/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -27,6 +29,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/23/index.css */
+    
     div {
         border: black solid 1px;
         width: 50%;
@@ -41,8 +45,3 @@
         background-color: lightblue;
     }
 
-
-
-.. image:: ../../_images/web_35a.jpg
-    :width: 780
-    :align: center

@@ -31,6 +31,8 @@
 .. petlja-editor:: Poglavl2/21/index.html
 
     index.html
+    <!-- Poglavlje2/21/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -78,15 +80,13 @@
     </html>
 
 
-.. image:: ../../_images/slika_82a.jpg
-    :width: 780
-    :align: center
-
 Како постоје једнолинијска текстуална поља за унос једноставних информација, може се очекивати да постоји начин за унос и вишелинијског текста. Линијски елемент *textarea* служи управо тој сврси. Поред неких од атрибута које смо већ навели за елемент *input* (као што су *name, value, placeholder* и др.), елемент *textarea* садржи и атрибуте *rows* и *cols*, који дефинишу величину елемента у карактерима који стају у висини, односно дужини елемента, редом.
 
 .. petlja-editor:: Poglavlje2/22/index.html
 
     index.html
+    <!-- Poglavlje2/22/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -111,7 +111,3 @@
     </body>
     </html>
 
-
-.. image:: ../../_images/slika_82b.jpg
-    :width: 780
-    :align: center

@@ -10,6 +10,8 @@
 .. petlja-editor:: Poglavlje3/32
 
     index.html
+    <!-- Poglavlje3/32/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -31,6 +33,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/32/index.css */
+    
     img,
     p {
         float: left;
@@ -40,15 +44,14 @@
         width: 70%;
     }
 
-.. image:: ../../_images/web_123a.jpg
-    :width: 780
-    :align: center
 
 Ако желиш да прекинеш слагање елемената, потребно је да искористиш декларацију *clear: both* која ће „очистити“ ток по којем се елементи слажу један за другим. У наредном примеру смо искористити ово својство како би се насловни елемент са текстом *„CSS“* позиционирао на устаљени начин, уместо да се слаже на остале елементе.
 
 .. petlja-editor:: Poglavlje3/33
 
     index.html
+    <!-- Poglavlje3/33/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -79,6 +82,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/33/index.css */
+    
     img,
     p {
         float: right;
@@ -92,7 +97,3 @@
         clear: both;
     }
 
-
-.. image:: ../../_images/web_123b.jpg
-    :width: 780
-    :align: center
