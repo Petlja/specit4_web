@@ -9,9 +9,11 @@
 
     **Напомена:** С обзиром да се ради о позиву функције, у шаблону је обавезно да тај позив наведеш између двоструких витичастих заграда, како би се резултујућа веза исписала на одговарајућем месту у шаблону. На пример, *{{ url_for("kontakt") }}*.
 
+Наредни пример илуструје како можеш креирати везе унутар веб-апликације коришћењем функције *url_for*.
+
 .. code-block:: python
 
-    #Poglavlje5/10/main.py
+    # Poglavlje5/10/main.py
 
     from flask import Flask, render_template
 
@@ -33,9 +35,9 @@
 
 .. code-block:: html
 
-   <!-- Poglavlje5/10/templates/osnovni_sablon.html -->
+    <!-- Poglavlje5/10/templates/osnovni_sablon.html -->
 
-    html lang="sr">
+    <html lang="sr">
         <head>
             <title>Гимназија "Десанка Максимовић"</title>
         </head>
@@ -56,7 +58,7 @@
 
 .. code-block:: html
 
-   <!-- Poglavlje5/10/templates/pocetna.html -->
+    <!-- Poglavlje5/10/templates/pocetna.html -->
 
     {% extends "osnovni_sablon.html" %}
     {% block sadrzaj %}
@@ -71,7 +73,7 @@
     {% block sadrzaj %}
     <ul>
         {% for razred in razredi %}
-        <li>{{razred}} разред</li>
+            <li>{{razred}} разред</li>
         {% endfor %}
     </ul>
     {% endblock %}
@@ -116,7 +118,7 @@
 
 Покрени овај пример и отвори веб-прегледач на адреси http://127.0.0.1:5000/stara-pocetna. Посматрањем језичка ”Network” увери се да ће веб-прегледач преусмерити захтев на почетну страницу. Осигурај се да је означена опција ”Preserve log” приликом посматрања језичка како би ти веб-прегледач задржао све HTTP захтеве.
 
-.. image:: ../../_images/web_165a.jpg
+.. image:: ../../_images/slika_165a.png
     :width: 600
     :align: center
 
@@ -170,6 +172,8 @@ HTML код веб-страница обично садржи и ресурсе 
             razredi=["Први", "Други", "Трећи", "Четврти"],
         )
 
+Статичке датотеке које су заједничке за све веб-странице, као што су подразумевани стилови или заједнички код који се извршава на страни клијента, можеш навести у оквиру садржаја основног шаблона који ће наследити остали шаблони. Ова техника ти омогућује да, уколико дође до неких промена у увожењу статичких датотека (на пример, једна *.css* датотека се замени двема), промене можеш да имплементираш само на једном месту, а да све веб-странице аутоматски наследе те измене.
+
 .. code-block:: html
 
     <!-- Poglavlje5/12/templates/osnovni_sablon.html -->
@@ -177,32 +181,34 @@ HTML код веб-страница обично садржи и ресурсе 
     <html lang="sr">
     <head>
         <title>Гимназија "Десанка Максимовић"</title>
-        <link
-        rel="stylesheet"
-        type="text/css"
-        href="{{url_for('static', filename='stil.css')}}"
-    >
+            <link
+                rel="stylesheet"
+                type="text/css"
+                href="{{url_for('static', filename='stil.css')}}"
+            >
     </head>
     <body>
         <header>
-        <img
-            src="{{url_for('static', filename='logo.png')}}"
-            alt="Логотип гимназије"
-        >
-        <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
-        <nav>
-            <a href="{{url_for('pocetna')}}">Почетна</a>
-            <a href="{{url_for('odeljenja')}}">Одељења</a>
-        </nav>
+            <img
+                src="{{url_for('static', filename='logo.png')}}"
+                alt="Логотип гимназије"
+            >
+            <h1 id="glavni-naslov">Гимназија <q>Десанка Максимовић</q></h1>
+            <nav>
+                <a href="{{url_for('pocetna')}}">Почетна</a>
+                <a href="{{url_for('odeljenja')}}">Одељења</a>
+            </nav>
         </header>
 
         <h2>{{naslov}}</h2>
-        {% block sadrzaj %}
-    {% endblock %}
+        {% block sadrzaj %} {% endblock %}
 
         <script src="{{url_for('static', filename='klijentski_kod.js')}}"></script>
     </body>
     </html>
+
+
+Везе ка статичким ресурсима се на исти начин могу наводити и у осталим шаблонима, уколико за тиме има потребе.
 
 .. code-block:: html
 
@@ -225,6 +231,9 @@ HTML код веб-страница обично садржи и ресурсе 
         {% endfor %}
     </ul>
     {% endblock %}
+
+
+Статичке датотеке се наводе као и у било којој другој веб-апликацији. Обрати пажњу на директоријум *static* у оквиру којег су датотеке смештене.
 
 .. code-block:: javascript
 
@@ -254,6 +263,6 @@ HTML код веб-страница обично садржи и ресурсе 
 
     
 
-.. image:: ../../_images/web_165b.jpg
+.. image:: ../../_images/slika_165b.png
     :width: 600
     :align: center

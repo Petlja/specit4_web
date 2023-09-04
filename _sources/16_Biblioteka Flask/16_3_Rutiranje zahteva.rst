@@ -9,6 +9,8 @@
 
 .. code-block:: python
 
+    # Poglavlje5/2/main.py
+    
     from flask import Flask
 
     app = Flask(__name__)
@@ -37,11 +39,11 @@ ______________________
 - Део путање који је заједнички: „dp“
 - Идентификатор производа: „1465482210“, односно „163610035X“
 
-.. |web_163a| image:: ../../_images/web_163a.jpg
+.. |web_163a| image:: ../../_images/slika_163a.png
                 :width: 600
                 :align: middle
 
-.. |web_163b| image:: ../../_images/web_163b.jpg
+.. |web_163b| image:: ../../_images/slika_163a.png
                 :width: 600
                 :align: middle
 
@@ -59,6 +61,8 @@ ______________________
 
 .. code-block:: python
 
+    # Poglavlje5/3/main.py
+    
     from flask import Flask
 
     app = Flask(__name__)
@@ -71,7 +75,7 @@ ______________________
 
 Ако посетиш адресу http://127.0.0.1:5000/pozdrav/Иван, добићеш приказ као на наредној слици.
 
-.. image:: ../../_images/web_163c.jpg
+.. image:: ../../_images/slika_163c.png
     :width: 600
     :align: center
 
