@@ -76,7 +76,6 @@
 
     # Poglavlje5/20/main.py
 
-
     from flask import Flask, render_template
     from db import mydb
 
@@ -95,7 +94,7 @@
 
     
 
-.. image:: ../../_images/web_173a.jpg
+.. image:: ../../_images/slika_173a.png
     :width: 600
     :align: center
 
@@ -156,10 +155,10 @@
         <head>
             <title>Корисници</title>
             <link
-            rel="stylesheet"
-            type="text/css"
-            href="{{url_for('static', filename='stil.css')}}"
-        >
+                rel="stylesheet"
+                type="text/css"
+                href="{{url_for('static', filename='stil.css')}}"
+            >
         </head>
         <body>
             <h1>Корисници</h1>
@@ -180,7 +179,7 @@
                 <td>{{korisnik["korisnicko_ime"]}}</td>
             </tr>
             {% endfor %}
-    {% else %}
+            {% else %}
             <p>Нема корисника у систему.</p>
             {% endif %}
             </table>
@@ -188,7 +187,7 @@
     </html>
 
 
-.. image:: ../../_images/web_173b.jpg
+.. image:: ../../_images/slika_173b.png
     :width: 600
     :align: center
 
@@ -236,16 +235,15 @@ ________________
         <head>
             <title>Корисници</title>
             <link
-            rel="stylesheet"
-            type="text/css"
-            href="{{url_for('static', filename='stil.css')}}"
-        >
+                rel="stylesheet"
+                type="text/css"
+                href="{{url_for('static', filename='stil.css')}}"
+            >
         </head>
         <body>
             <h1>{{naslov}}</h1>
 
-            {% block sadrzaj %}
-    {% endblock %}
+            {% block sadrzaj %} {% endblock %}
         </body>
     </html>
 
@@ -266,7 +264,7 @@ ________________
     {% endblock %}
 
 
-.. image:: ../../_images/web_173c.jpg
+.. image:: ../../_images/slika_173c.png
     :width: 600
     :align: center
 
@@ -302,7 +300,7 @@ ________________
 
 
 
-.. image:: ../../_images/web_173d.jpg
+.. image:: ../../_images/slika_173d.png
     :width: 600
     :align: center
 

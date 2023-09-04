@@ -10,7 +10,7 @@ ____________________
 
 .. code-block:: python3
 
-        kursor = mydb.cursor()
+    kursor = mydb.cursor()
     sql = (
         "INSERT INTO zaposleni (drzava, zarada) "
         "VALUES (%(dr)s, %(za)s)"
@@ -36,7 +36,7 @@ ____________________
 
 Са овим знањем и једноставном веб-апликацијом из претходног примера која ти нуди преглед корисника на располагању, можеш приступити допуњавају веб-апликације тако да омогућиш упис нових корисника. У ту сврху, креирај нови шаблон *novi_korisnik.html* који ће садржати формулар за унос података о новом кориснику.
 
-.. image:: ../../_images/web_174a.jpg
+.. image:: ../../_images/slika_174a.png
     :width: 600
     :align: center
 
@@ -245,22 +245,21 @@ ____________________
         <head>
             <title>Корисници</title>
             <link
-            rel="stylesheet"
-            type="text/css"
-            href="{{url_for('static', filename='stil.css')}}"
-        >
+                rel="stylesheet"
+                type="text/css"
+                href="{{url_for('static', filename='stil.css')}}"
+            >
         </head>
         <body>
             <h1>{{naslov}}</h1>
 
             {% with poruke = get_flashed_messages(with_categories=True) %}
-        {% for
-            kategorija, poruka in poruke %}
-            <div class="{{kategorija}}">{{poruka}}</div>
-            {% endfor %}
-        {% endwith %}
-        {% block sadrzaj %}
-        {% endblock %}
+                {% for kategorija, poruka in poruke %}
+                    <div class="{{kategorija}}">{{poruka}}</div>
+                {% endfor %}
+            {% endwith %}
+            
+            {% block sadrzaj %} {% endblock %}
         </body>
     </html>
 
@@ -296,7 +295,6 @@ ____________________
 
     <!-- Poglavlje5/23/static/novi_korisnik.html --!>  
 
-    
     {% extends "osnovni_sablon.html" %}
     {% block sadrzaj %}
     <form action="{{url_for('novi_korisnik')}}" method="POST">
@@ -329,7 +327,7 @@ ____________________
 
 Успешно подношење формулара резултује веб-страницом као на наредној слици.
 
-.. image:: ../../_images/web_174b.jpg
+.. image:: ../../_images/slika_174b.png
     :width: 600
     :align: center
 
@@ -363,8 +361,7 @@ ______________________________________
 .. code-block:: python3
 
     lozinka = "..."
-    sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), 
-    bcrypt.gensalt())
+    sifrovana_lozinka = bcrypt.hashpw(lozinka.encode(), bcrypt.gensalt())
 
 Приликом пријављивања корисника на систем потребно је проверити да ли се унета вредност поклапа са лозинком коју је корисник унео приликом регистрације. Ово се може проверити позивом функције *bcrypt.checkpw* чији су аргументи лозинка коју треба проверити (као низ бајтова) и хеширана вредност из базе података. Повратна вредност функције је Булова вредност – да ли се лозинке поклапају или не.
 
@@ -511,7 +508,7 @@ ______________________________
 
 Апликација је функционално остала непромењена. Покрени овај пример и унеси новог корисника у систем.
 
-.. image:: ../../_images/web_174c.jpg
+.. image:: ../../_images/slika_174c.png
     :width: 600
     :align: center
 
@@ -577,8 +574,9 @@ ___________________
             <a
                 class="dugme-operacija"
                 href="{{url_for('izmeni_korisnika', id_korisnika=korisnik['id_korisnika'])}}"
-            >Измени</a
             >
+                Измени
+            </a>
             </td>
         </tr>
         {% endfor %}
@@ -590,7 +588,7 @@ ___________________
 
 
 
-.. image:: ../../_images/web_174d.jpg
+.. image:: ../../_images/slika_174d.png
     :width: 600
     :align: center
 
@@ -653,13 +651,13 @@ ___________________
     {% endblock %}
 
 
-.. image:: ../../_images/web_174e.jpg
+.. image:: ../../_images/slika_174e.png
     :width: 600
     :align: center
 
 На серверској страни, приликом обраде захтева, потребно је прво проверити да ли корисник постоји у систему. Ово радимо у случају било код метода, с обзиром да не желимо да прикажемо формулар, а такође, не желимо ни да обрађујемо измењене податке уколико корисник којег покушавамо да изменимо ни не постоји у систему. На пример, посећивањем странице http://127.0.0.1:5000/korisnici/izmeni/abcd добијамо поруку као на наредној слици (након преусмеравања захтева на страницу са корисницима).
 
-.. image:: ../../_images/web_174f.jpg
+.. image:: ../../_images/slika_174f.png
     :width: 600
     :align: center
 
@@ -854,7 +852,7 @@ ___________________
         return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
 
 
-.. image:: ../../_images/web_174g.jpg
+.. image:: ../../_images/slika_174g.png
     :width: 600
     :align: center
 
@@ -948,7 +946,7 @@ _________________
     {% endblock %}
 
 
-.. image:: ../../_images/web_174h.jpg
+.. image:: ../../_images/slika_174h.png
     :width: 600
     :align: center
 
@@ -1163,7 +1161,7 @@ _________________
 
         return render_template("korisnici.html", naslov="Корисници", korisnici=korisnici)
 
-.. image:: ../../_images/web_174i.jpg
+.. image:: ../../_images/slika_174i.png
     :width: 600
     :align: center
     
