@@ -12,6 +12,8 @@
 .. petlja-editor:: Poglavlje3/17
 
     index.html
+    <!-- Poglavlje3/17/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -30,6 +32,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/17/index.css */
+    
     div,
     p {
         width: 200px;
@@ -49,9 +53,3 @@
         background-color: aquamarine;
     }
 
-
-
-
-.. image:: ../../_images/web_33a.jpg
-    :width: 780
-    :align: center

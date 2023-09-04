@@ -10,6 +10,8 @@
 .. petlja-editor:: Poglavlje3/34
 
     index.html
+    <!-- Poglavlje3/34/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -46,6 +48,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/34/index.css */
+    
     ol {
         list-style-type: katakana;
     }
@@ -55,16 +59,12 @@
     }
 
 
-
-.. image:: ../../_images/web_131a.jpg
-    :width: 780
-    :align: center
-
 Није реткост да дизајн веб-странице подразумева посебан стил за неуређене листе, те да опције које су доступне језиком CSS нису довољне. Уколико ти је потребно да поставиш специјалне ознаке за ставке неуређених листи, на располагању ти је својство *list-style-image*, која за вредност узима локацију слике-ресурса (која се наводи позивом уграђене CSS функције *url*), a која ће бити коришћена на месту ознаке ставке. Води рачуна о томе да ће слика бити искоришћена у димензијама са диска, те се препоручује коришћење слика чије се димензије визуелно уклапају са текстом.
 
-.. petlja-editor:: Poglavlje3/35
+.. code-block:: html
 
-    index.html
+    <!-- Poglavlje3/35/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -84,12 +84,15 @@
         </ul>
     </body>
     </html>
-    ~~~
-    index.css
+
+.. code-block:: css
+
+    /* Poglavlje3/35/index.css */
+    
     ul {
         list-style-image: url("./laptop.png");
     }
 
-.. image:: ../../_images/web_131b.jpg
+.. image:: ../../_images/slika_131a.png
     :width: 780
     :align: center

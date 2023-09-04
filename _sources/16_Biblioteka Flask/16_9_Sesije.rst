@@ -97,13 +97,12 @@
             <h2>{{naslov}}</h2>
 
             {% with poruke = get_flashed_messages(with_categories=True) %}
-        {% for
-            kategorija, poruka in poruke %}
-            <div class="{{kategorija}}">{{poruka}}</div>
-            {% endfor %}
-    {% endwith %}
-    {% block sadrzaj %}
-    {% endblock %}
+                {% for kategorija, poruka in poruke %}
+                    <div class="{{kategorija}}">{{poruka}}</div>
+                {% endfor %}
+            {% endwith %}
+            
+            {% block sadrzaj %} {% endblock %}
         </body>
     </html>
 
@@ -167,13 +166,13 @@
 
 Пријављивање корисника на систем се врши у функцији *prijava* и, овога пута, како бисмо запамтили корисничко име у сесији, додајемо нови кључ "*korisnicko_ime*" у речник *session*, а његову вредност постављамо на корисничко име које је корисник проследио путем формулара. Након успешног пријављивања, у језичку ”Application” можеш да осмотриш колачић сесије који је серверска веб-апликација послала веб-прегледачу.
 
-.. image:: ../../_images/web_169a.jpg
+.. image:: ../../_images/slika_169a.png
     :width: 600
     :align: center
 
 Функција *odjava* чисти сесију тако што брише кључ "*korisnicko_ime*" из речника *session* позивом функције *pop* и након тога се захтев преусмерава на почетну страну. Након успешног одјављивања, колачић сесије је обрисан из веб-прегледача.
 
-.. image:: ../../_images/web_169b.jpg
+.. image:: ../../_images/slika_169b.png
     :width: 600
     :align: center
 

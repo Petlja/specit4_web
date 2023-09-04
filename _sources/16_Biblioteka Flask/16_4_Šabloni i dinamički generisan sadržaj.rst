@@ -5,6 +5,8 @@
 
 .. code-block:: python
 
+    # Poglavlje5/4/main.py
+    
     from flask import Flask
 
     app = Flask(__name__)
@@ -37,6 +39,8 @@
 
 .. code-block:: python
 
+    # Poglavlje5/5/main.py
+    
     from flask import Flask, render_template
 
     app = Flask(__name__)
@@ -46,10 +50,51 @@
     def pocetna():
         return render_template("index.html")
 
+.. code-block:: html
+
+    <!-- Poglavlje5/5/templates/index.html -->
+
+    <html lang="sr">
+    <head>
+        <title>Почетна страница</title>
+    </head>
+    <body>
+        <h1>Здраво, свете!</h1>
+    </body>
+    </html>
+
+
 
 Поред тога што шаблони омогућавају раздвајање HTML и Python кода, шаблони омогућавају једноставно писање динамичких веб-страница. На пример, шаблону можеш проследити вредност коју ће библиотека Jinja2 процесирати на одговарајући начин и приказати на страници.
 
-.. image:: ../../_images/web_164a.jpg
+.. code-block:: python
+
+    # Poglavlje5/6/main.py
+    from flask import Flask, render_template
+
+    app = Flask(__name__)
+
+
+    @app.route("/pozdrav/<ime>")
+    def pozdrav(ime):
+        return render_template("pozdrav.html", ime=ime)
+
+
+.. code-block:: html
+
+    <!-- Poglavlje5/6/templates/pozdrav.html -->
+
+    <html lang="sr">
+    <head>
+        <title>Почетна страница</title>
+    </head>
+    <body>
+        <h1>Здраво! Ја сам {{ime}}!</h1>
+    </body>
+    </html>
+
+
+.. image:: ../../_images/slika_164a.png
     :width: 600
     :align: center
 
@@ -81,29 +126,49 @@
 
 .. code-block:: python
 
+    # Poglavlje5/7/main.py
+    
     from flask import Flask, render_template
 
     app = Flask(__name__)
 
 
-    @app.route("/pozdrav/<ime>")
-    def pozdrav(ime):
-        return render_template("pozdrav.html", ime=ime)
+    @app.route("/ucenici/<odeljenje>")
+    def pozdrav(odeljenje):
+        return render_template(
+            "ucenici.html",
+            odeljenje=odeljenje,
+            ucenici=["Ивана Стаменковић", "Јован Петровић", "Растко Јовић"],
+        )
+
 
 .. code-block:: html
 
+    <!-- Poglavlje5/7/templates/ucenici.html -->
+
     <html lang="sr">
-        <head>
-            <title>Почетна страница</title>
-        </head>
-        <body>
-            <h1>Здраво! Ја сам {{ime}}!</h1>
-        </body>
+    <head>
+        <title>Ученици у одељењу</title>
+    </head>
+    <body>
+        {% if odeljenje %}
+            <h1>Одељење: {{odeljenje}}</h1>
+        {% endif %} 
+        {% if ucenici %}
+            <p>Ученици:</p>
+            <ul>
+            {% for ucenik in ucenici %}
+                <li>{{ucenik}}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </body>
     </html>
 
 
 
-.. image:: ../../_images/web_164b.jpg
+
+.. image:: ../../_images/slika_164b.png
     :width: 600
     :align: center
 
@@ -114,6 +179,8 @@ ___________________
 
 .. code-block:: python
 
+    # Poglavlje5/8/main.py
+    
     from flask import Flask, render_template
 
     app = Flask(__name__)
@@ -131,6 +198,8 @@ ___________________
         )
 
 .. code-block:: html
+
+    <!-- Poglavlje5/8/templates/pocetna.html -->
 
     <html lang="sr">
         <head>
@@ -159,6 +228,8 @@ ___________________
     </html>
 
 .. code-block:: html
+
+    <!-- Poglavlje5/8/templates/odeljenja.html -->
 
     <html lang="sr">
         <head>
@@ -200,6 +271,8 @@ ___________________
 
 .. code-block:: python
 
+    # Poglavlje5/9/main.py
+    
     from flask import Flask, render_template
 
     app = Flask(__name__)
@@ -218,18 +291,10 @@ ___________________
             razredi=["Први", "Други", "Трећи", "Четврти"],
         )
 
-.. code-block:: html
-
-    {% extends "osnovni_sablon.html" %}
-    {% block sadrzaj %}
-    <ul>
-        {% for razred in razredi %}
-        <li>{{razred}} разред</li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
 
 .. code-block:: html
+
+    <!-- Poglavlje5/9/templates/osnovni_sablon.html -->
 
     <html lang="sr">
         <head>
@@ -248,7 +313,7 @@ ___________________
 
             <h2>{{naslov}}</h2>
             {% block sadrzaj %}
-        {% endblock %}
+            {% endblock %}
 
             <script src="klijentski_kod.js"></script>
         </body>
@@ -266,20 +331,24 @@ ___________________
 
 .. code-block:: html
 
+    <!-- Poglavlje5/9/templates/pocetna.html -->
+
     {% extends "osnovni_sablon.html" %}
     {% block sadrzaj %}
-    <p>Добродошли на веб-сајт гимназије <q>Десанка Максимовић</q>!</p>
+        <p>Добродошли на веб-сајт гимназије <q>Десанка Максимовић</q>!</p>
     {% endblock %}
 
 .. code-block:: html
 
-        {% extends "osnovni_sablon.html" %}
+    <!-- Poglavlje5/9/templates/odeljenja.html -->
+
+    {% extends "osnovni_sablon.html" %}
     {% block sadrzaj %}
-    <ul>
-        {% for razred in razredi %}
-        <li>{{razred}} разред</li>
-        {% endfor %}
-    </ul>
+        <ul>
+            {% for razred in razredi %}
+                <li>{{razred}} разред</li>
+            {% endfor %}
+        </ul>
     {% endblock %}
 
 

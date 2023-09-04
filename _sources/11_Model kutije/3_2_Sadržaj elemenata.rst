@@ -6,7 +6,9 @@
 .. petlja-editor:: Poglavlje3/15
 
     index.html
-        <!DOCTYPE html>
+    <!-- Poglavlje3/15/index.html -->
+    
+    <!DOCTYPE html>
     <html lang="sr">
         <head>
             <meta charset="utf-8">
@@ -26,6 +28,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/15/index.css */
+    
     #pasus-1 {
         width: 300px;
         height: 200px;
@@ -44,15 +48,12 @@
     }
 
 
-.. image:: ../../_images/web_32a.jpg
-    :width: 780
-    :align: center
-
 Међутим, то не важи за све елементе. На пример, већина линијских елемената за обележавање текста (”span”, ”i”, “strong”, и др.) и елемент за обележавање веза (”а”) неће променити димензије садржаја. За ове елементе важи да ће увек заузимати онолику површину колико заузима њихов садржај. Наведени елементи су сви линијски елементи, и заиста, за већину линијских елемената ово правило важи. Међутим, на линијски елемент ”img” је ипак могуће применити својства ”width” и “height”. Штавише, ако на тај елемент применимо само једно својство, оно друго ће бити аутоматски подешено тако да размер слике остане непромењен.
 
-.. petlja-editor:: Poglavlje3/16
+.. code-block:: html
 
-    index.html
+    <!-- Poglavlje3/16/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -74,8 +75,12 @@
         </div>
     </body>
     </html>
-    ~~~
-    index.css
+
+
+.. code-block:: css
+
+    /* Poglavlje3/16/index.css */
+    
     span {
         width: 300px;
         height: 200px;
@@ -97,9 +102,6 @@
         height: 50%;
     }
 
-
-
-
-.. image:: ../../_images/web_32b.jpg
+.. image:: ../../_images/slika_112a.png
     :width: 780
     :align: center

@@ -92,6 +92,8 @@ _________________
 .. petlja-editor:: Poglavlje4/20
 
     index.html
+    <!-- Poglavlje4/20/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -106,6 +108,8 @@ _________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/20/index.js */
+    
     const svote_novca = [4200, 6300, 5100, 4100, 5500];
 
     let ukupna_svota = 0;
@@ -117,12 +121,6 @@ _________________
 
     console.log(`Ученици су укупно прикупили ${ukupna_svota} динара.`);
 
-
-
-
-.. image:: ../../_images/web_146b.jpg
-    :width: 780
-    :align: center
 
 Примети да претходни задатак можеш да имплементираш коришћењем пет променљивих за складиштење података (за сваку своту новца по једну), а затим сабирањем тих вредности. Део програма који се имплементира може изгледати као:
 
@@ -149,6 +147,8 @@ _________________
 .. petlja-editor:: Poglavlje4/21
 
     index.html
+    <!-- Poglavlje4/21/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -163,6 +163,8 @@ _________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/21/index.js */
+    
     const svote_novca = [4200, 6300, 5100, 4100, 5500];
 
     let ukupna_svota = 0;
@@ -182,10 +184,6 @@ _________________
     console.log(`Ученици су укупно прикупили ${ukupna_svota} динара.`);
     console.log(`Укупна провизија износи ${provizija} динара.`);
 
-
-.. image:: ../../_images/web_146c.jpg
-    :width: 780
-    :align: center
 
 Покушај да измениш пример кода без употребе циклуса и упореди приступе. Који ти се чини смисленијим?
 
@@ -208,6 +206,8 @@ _______________
 .. petlja-editor:: Poglavlje4/22
 
     index.html
+    <!-- Poglavlje4/22/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -222,6 +222,8 @@ _______________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/22/index.js */
+    
     const ocene_niska = prompt("Унеси оцене раздвојене запетом:");
     const ocene = ocene_niska.split(",");
 
@@ -239,14 +241,6 @@ _______________
     console.log("Просечна оцена је:", prosecna_ocena);
 
 
-.. image:: ../../_images/web_146d.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_146e.jpg
-    :width: 780
-    :align: center
-
 Друга операција се користи када желиш да елементе низа спојиш у једну ниску. Ова операција је у језику JavaScript имплементирана помоћу метода *join* који се позива над низом. Овај метод очекује један аргумент, а то је ниска која ће бити уметнута између свака два суседна елемента низа приликом надовезивања ниски. С обзиром да низови могу имати вредности различитих типова, све вредности које нису ниске се прво имплицитно конвертују у ниске, а затим се врши надовезивање тих ниски.
 
 .. code-block:: javascript
@@ -261,6 +255,8 @@ _______________
 .. petlja-editor:: Poglavlje4/23
 
     index.html
+    <!-- Poglavlje4/23/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -275,6 +271,8 @@ _______________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/23/index.js */
+    
     const N = Number.parseInt(prompt("Унеси број N:"));
     const M = Number.parseInt(prompt("Унеси број M:"));
 
@@ -297,9 +295,5 @@ _______________
     console.log(redovi.join("\n"));
 
 
-
-.. image:: ../../_images/web_146f.jpg
-    :width: 780
-    :align: center
 
 Низови представљају моћан алат за обраду великог броја података. Програмски језик JavaScript нуди велики број других метода који имплементирају честе операције над низовима. Неке од њих, заједно са примерима, можеш пронаћи на адреси https://www.w3schools.com/js/js_array_methods.asp. 

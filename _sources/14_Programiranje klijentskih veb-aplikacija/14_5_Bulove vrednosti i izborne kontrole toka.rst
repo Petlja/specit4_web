@@ -50,6 +50,8 @@ ___________
 .. petlja-editor:: Poglavlje4/15
 
     index.html
+    <!-- Poglavlje4/15/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -64,6 +66,8 @@ ___________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/15/index.js */
+
     const milenin_prvi_dan = 3.77;
     const petrov_prvi_dan = 3 * milenin_prvi_dan;
 
@@ -73,17 +77,13 @@ ___________
     const milena_ukupno = milenin_drugi_dan + milenin_drugi_dan;
     const petar_ukupno = petrov_prvi_dan + petrov_drugi_dan;
 
-    if (milena_ukupno> petar_ukupno) {
-    console.log("Милена је убрала више:", milena_ukupno, "kg");
+    if (milena_ukupno > petar_ukupno) {
+        console.log("Милена је убрала више:", milena_ukupno, "kg");
     } else {
-    console.log("Петар је убрао више:", petar_ukupno, "kg");
+        console.log("Петар је убрао више:", petar_ukupno, "kg");
     }
 
 
-
-.. image:: ../../_images/web_145a.jpg
-    :width: 780
-    :align: center
 
 Налик другим програмским језицима, грана if је обавезна да се наведе, а грана else се може изоставити у случају да не постоји код који треба извршити у случају да услов није тачан.
 
@@ -116,6 +116,8 @@ ___________
 .. petlja-editor:: Poglavlje4/16
 
     index.html
+    <!-- Poglavlje4/16/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -130,6 +132,8 @@ ___________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/16/index.js */
+
     const trenutni_sprat_niska = prompt("Унеси спрат на коме се налазиш:");
     const zeljeni_sprat_niska = prompt("Унеси спрат до којег желиш да те лифт одведе:");
 
@@ -146,10 +150,6 @@ ___________
     console.log("Већ се налазиш на одабраном спрату");
     }
 
-
-.. image:: ../../_images/web_145b.jpg
-    :width: 780
-    :align: center
 
 Булови оператори
 ________________
@@ -173,6 +173,8 @@ ________________
 .. petlja-editor:: Poglavlje4/17
 
     index.html
+    <!-- Poglavlje4/17/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -187,6 +189,8 @@ ________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/17/index.js */
+
     const godina_niska = prompt("Унеси годину:");
     const godina = Number.parseInt(godina_niska);
 
@@ -197,15 +201,8 @@ ________________
     }
 
 
-.. image:: ../../_images/web_145c.jpg
-    :width: 780
-    :align: center
 
-.. image:: ../../_images/web_145d.jpg
-    :width: 780
-    :align: center
-
-Посебну пажњу треба посветити операторима* === *и *!==*. Први од њих проверава једнакост две вредности, а други од њих проверава да ли су две вредности различите. У случају провере (не)једнакости две вредности истог типа (за бројеве, ниске и Булове вредности), резултат ће бити *true* само ако се обе вредности исте. У случају провере вредности различитих типова, оператор *===* ће увек резултовати у *false*, док ће оператор *!==* увек резултовати у *true*. Другим речима, две вредности различитог типа нису никада једнаке, односно, увек су различите.
+Посебну пажњу треба посветити операторима *===* и *!==*. Први од њих проверава једнакост две вредности, а други од њих проверава да ли су две вредности различите. У случају провере (не)једнакости две вредности истог типа (за бројеве, ниске и Булове вредности), резултат ће бити *true* само ако се обе вредности исте. У случају провере вредности различитих типова, оператор *===* ће увек резултовати у *false*, док ће оператор *!==* увек резултовати у *true*. Другим речима, две вредности различитог типа нису никада једнаке, односно, увек су различите.
 
 .. infonote::
 
@@ -224,6 +221,8 @@ ________________
 .. petlja-editor:: Poglavlje4/18
 
     index.html
+    <!-- Poglavlje4/18/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -238,6 +237,8 @@ ________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/18/index.js */
+
     const broj_niska = prompt("Унеси троцифрен број");
     const broj = Number.parseInt(broj_niska);
 
@@ -257,18 +258,6 @@ ________________
     }
 
 
-
-.. image:: ../../_images/web_145e.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_145f.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_145g.jpg
-    :width: 780
-    :align: center
 
 Наредба switch
 _______________
@@ -302,6 +291,8 @@ _______________
 .. petlja-editor:: Poglavlje4/19
 
     index.html
+    <!-- Poglavlje4/19/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -316,6 +307,8 @@ _______________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/19/index.js */
+    
     const broj_niska = prompt("Унеси троцифрен број");
     const broj = Number.parseInt(broj_niska);
 

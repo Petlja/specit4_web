@@ -8,6 +8,8 @@
 .. petlja-editor:: Poglavlje4/4
 
     index.html
+    <!-- Poglavlje4/4/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
         <head>
@@ -22,6 +24,8 @@
     </html>
     ~~~
     index.js
+    /* Poglavlje4/4/index.js */
+    
     const y = 1;
     console.log(y);
 
@@ -30,11 +34,6 @@
 
     console.log(y);
 
-
-
-.. image:: ../../_images/web_143a.jpg
-    :width: 780
-    :align: center
 
 *TypeError* је једна врста грешака која се може јавити приликом извршавања неисправног JavaScript програма. Ова врста грешака се углавном односи на неисправно коришћење конструкција језика везаних за типове података и њихове вредности. Постоје и друге врсте грешака, а неке од њих су:
 

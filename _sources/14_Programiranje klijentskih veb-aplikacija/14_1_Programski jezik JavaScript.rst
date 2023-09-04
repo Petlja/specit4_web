@@ -20,6 +20,8 @@ JavaScript код у оквиру HTML датотеке наводиш помо�
 .. petlja-editor:: Poglavlje4/1
 
     index.html
+    <!-- Poglavlje4/1/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -42,6 +44,8 @@ JavaScript код у оквиру HTML датотеке наводиш помо�
 .. petlja-editor:: Poglavlje4/2
 
     index.html
+    <!-- Poglavlje4/2/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -56,6 +60,8 @@ JavaScript код у оквиру HTML датотеке наводиш помо�
     </html>
     ~~~
     index.js
+    /* Poglavlje4/2/index.js */
+    
     console.log("Конзола је успешно пронађена!");
 
 

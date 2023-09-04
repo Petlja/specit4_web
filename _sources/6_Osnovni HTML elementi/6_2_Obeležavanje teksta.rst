@@ -13,6 +13,8 @@
 .. petlja-editor:: Poglavlje2/2/index.html
 
     index.html
+    <!-- Poglavlje2/2/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -30,13 +32,6 @@
     </html>
 
 
-
-
-
-.. image:: ../../_images/slika_62a.jpg
-    :width: 780
-    :align: center
-
 За обележавање текстуалног садржаја првобитно се користе елементи *p* и *span*. Елемент *p* представља блоковски елемент за обележавање пасуса, односно једне текстуалне целине. За разлику од њега, елемент *span* представља линијски елемент за обележавање произвољног дела неког текста, обично једне речи, синтагме или дела реченице. Оба елемента се користе и за означавање функционалних целина на које ће деловати неки програмски код.
 
 Већ знаш да веб-прегледач приликом процесирања HTML документа узастопне групе белина сматра тачно једним карактером размака. Међутим, некада је корисно да текстуални садржај приказује баш онако како је написан у односу на белине. У те сврхе се може користити елемент pre, који ће очувати значење белина у HTML садржају који се наведе под тим елементом.
@@ -44,6 +39,8 @@
 .. petlja-editor:: Poglavlje2/3/index.html
 
     index.html
+    <!-- Poglavlje2/3/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -77,10 +74,6 @@
     </html>
 
 
-.. image:: ../../_images/slika_62b.jpg
-    :width: 780
-    :align: center
-
 Зарад форматирања текста, могуће је користити и наредне HTML елементе:
 
 - Елемент *br* користи се за преламање текста у наредни ред.
@@ -95,6 +88,8 @@
 .. petlja-editor:: Poglavlje2/4/index.html
 
     index.html
+    <!-- Poglavlje2/4/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -123,10 +118,6 @@
     </html>
 
 
-.. image:: ../../_images/slika_62c.jpg
-    :width: 780
-    :align: center
-    
 Посебно од интереса могу бити наредни елементи за цитирање:
 
 - Елемент *blockquote* служи за навођење блоковских цитата.
@@ -137,6 +128,8 @@
 .. petlja-editor:: Poglavlje2/5/index.html
 
     index.html
+    <!-- Poglavlje2/5/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -158,9 +151,4 @@
         <p>А да је <abbr>RAFA</abbr> скраћеница за <q>Read And Find Out</q> (<q>прочитај и сазнај</q>)?</p> 
     </body>
     </html>
-
-
-.. image:: ../../_images/slika_62d.jpg
-    :width: 780
-    :align: center
 

@@ -23,6 +23,8 @@ ________
 .. petlja-editor:: Poglavlje4/5
 
     index.html
+    <!-- Poglavlje4/5/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
         <head>
@@ -37,6 +39,8 @@ ________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/5/index.js */
+    
     const x = 1;
     console.log("x:", x);
 
@@ -62,10 +66,6 @@ ________
 
 
 
-.. image:: ../../_images/web_144a.jpg
-    :width: 780
-    :align: center
-
 Пређимо сада на задатке у којима ћеш видети примере програма који користе бројевне вредности. Као што очекујеш, језик JavaScript подржава разне математичке операције, што наредни задаци демонстрирају.
 
 .. questionnote::
@@ -75,6 +75,8 @@ ________
 .. petlja-editor:: Poglavlje4/6
 
     index.html
+    <!-- Poglavlje4/6/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -89,6 +91,8 @@ ________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/6/index.js */
+    
     const duzina = 105;
     const sirina = 68.5;
 
@@ -97,10 +101,6 @@ ________
 
 
 
-.. image:: ../../_images/web_144b.jpg
-    :width: 780
-    :align: center
-
 .. questionnote::
 
    **Задатак:** Пешчани сат облика пирамиде се попуњава песком. Дужина и ширина основе пешчаног сата су :math:`5cm`, а висина је :math:`12cm`. Ако се у једној секунди песком напуни :math:`2cm^3` пешчаног сата, напиши JavaScript програм који израчунава за колико секунди ће бити попуњен цео сат.
@@ -108,6 +108,8 @@ ________
 .. petlja-editor:: Poglavlje4/7
 
     index.html
+    <!-- Poglavlje4/7/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -122,6 +124,8 @@ ________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/7/index.js */
+    
     const duzina = 5;
     const sirina = 5;
     const visina = 12;
@@ -133,10 +137,6 @@ ________
 
 
 
-
-.. image:: ../../_images/web_144c.jpg
-    :width: 780
-    :align: center
 
 За наредни задатак се поред математичких операција користи и метод *Math.ceil* за заокругљивање бројева на већи цели број. У наредној табели можеш да пронађеш неке сличне корисне функције.
 
@@ -164,6 +164,8 @@ ________
 .. petlja-editor:: Poglavlje4/8
 
     index.html
+    <!-- Poglavlje4/8/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -178,6 +180,8 @@ ________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/8/index.js */
+    
     const broj_sedista = 100;
 
     const odeljenje_unos = prompt("Унеси број одељења:");
@@ -192,17 +196,6 @@ ________
 
 
 
-.. image:: ../../_images/web_144d.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144e.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144f.jpg
-    :width: 780
-    :align: center
 
 Ниске
 ______
@@ -216,6 +209,8 @@ ______
 .. petlja-editor:: Poglavlje4/9
 
     index.html
+    <!-- Poglavlje4/9/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -230,6 +225,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/9/index.js */
+    
     const prva_niska = "Ја сам ниска!";
     const druga_niska = "И ја сам ниска!";
 
@@ -239,15 +236,13 @@ ______
 
     
 
-.. image:: ../../_images/web_144g.jpg
-    :width: 780
-    :align: center
-
 Поред ова два приступа, ниске се могу навести и косим наводницима (`). Ове ниске се могу наводити у више линија, при чему се сви карактери белина између наводника чувају у целости. Постоји још једна карактеристика својствена овим начином записа ниски која се назива интерполација (*string interpolation*). Ако у тексту наведеш шаблон *${}*, онда између витичастих заграда ”{” и ”}” можеш да наведеш произвољни JavaScript израз чија ће вредност, након израчунавања, бити уметнута уместо шаблона. Свака вишелинијска ниска може садржати више појављивања ових шаблона.
 
 .. petlja-editor:: Poglavlje4/10
 
     index.html
+    <!-- Poglavlje4/10/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -262,6 +257,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/10/index.js */
+    
     const tekst = `Неке основне законитости сабирања су:
 
     Асоцијативност: а + (б + ц) = (а + б) + ц
@@ -274,10 +271,6 @@ ______
     console.log(tekst);
 
 
-
-.. image:: ../../_images/web_144h.jpg
-    :width: 780
-    :align: center
 
 Поред операције надовезивања ниски, важно је да знаш како се одређује дужина неке ниске и како да приступиш карактерима. Свака ниска има своју дужину која одговара броју карактера у тој ниски. Да одредиш дужину неке ниске, користиш својство *length* којем се, попут метода, приступа помоћу нотације са тачком. На пример:
 
@@ -304,6 +297,8 @@ ______
 .. petlja-editor:: Poglavlje4/11
 
     index.html
+    <!-- Poglavlje4/11/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -318,6 +313,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/11/index.js */
+    
     const ime = prompt("Унеси своје име:");
     const prezime = prompt("Унеси своје презиме:");
 
@@ -331,18 +328,6 @@ ______
     console.log(pozdrav);
 
 
-
-.. image:: ../../_images/web_144i.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144j.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144k.jpg
-    :width: 780
-    :align: center
 
 Разни методи су доступни над нискама који имплементирају операције за конструкцију нових ниски од постојећих. Неки од тих метода су наведени у наредној табели. Поред саме дефиниције и описа метода, у табели можеш да пронађеш пример позива метода и резултат примене. Сви описи се односе на ниску над којом се метод позива.
 
@@ -391,6 +376,8 @@ ______
 .. petlja-editor:: Poglavlje4/12
 
     index.html
+    <!-- Poglavlje4/12/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -405,6 +392,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/12/index.js */
+    
     const ime_prezime = prompt("Унеси твоје име и презиме:");
 
     const indeks_razmaka = ime_prezime.indexOf(" ");
@@ -415,13 +404,6 @@ ______
     console.log("Твоје презиме је:", prezime);
 
 
-.. image:: ../../_images/web_144l.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144m.jpg
-    :width: 780
-    :align: center
 
 .. questionnote::
 
@@ -430,6 +412,8 @@ ______
 .. petlja-editor:: Poglavlje4/13
 
     index.html
+    <!-- Poglavlje4/13/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -444,6 +428,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/13/index.js */
+    
     const adresa = prompt("Унеси твоју адресу електронске поше:");
 
     const indeks_mankija = adresa.indexOf("@");
@@ -454,13 +440,6 @@ ______
 
 
 
-.. image:: ../../_images/web_144n.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144o.jpg
-    :width: 780
-    :align: center
 
 .. questionnote::
 
@@ -469,6 +448,8 @@ ______
 .. petlja-editor:: Poglavlje4/14
 
     index.html
+    <!-- Poglavlje4/14/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -483,6 +464,8 @@ ______
     </html>
     ~~~
     index.js
+    /* Poglavlje4/14/index.js */
+    
     const tekst = prompt("Унеси текст:");
 
     const tekst_sa_malim_slovima = tekst.toLowerCase();
@@ -493,12 +476,3 @@ ______
     // Могло је и овако:
     // parametrizovan_tekst = tekst.toLowerCase().replaceAll(" ", "-");
 
-
-
-.. image:: ../../_images/web_144p.jpg
-    :width: 780
-    :align: center
-
-.. image:: ../../_images/web_144q.jpg
-    :width: 780
-    :align: center

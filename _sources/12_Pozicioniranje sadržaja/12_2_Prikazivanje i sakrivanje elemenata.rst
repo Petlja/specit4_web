@@ -8,6 +8,8 @@
 .. petlja-editor:: Poglavlje3/30
 
     index.html
+    <!-- Poglavlje3/30/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -41,6 +43,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/30/index.css */
+    
     div {
         width: 50px;
         height: 50px;
@@ -81,10 +85,6 @@
     }
 
 
-.. image:: ../../_images/web_122a.jpg
-    :width: 780
-    :align: center
-
 Поред ових вредности, својство *display* може имати и вредност *none*. Ову вредност користиш када је потребно да уклониш HTML елемент са веб-странице.
 
 У ту сврху можеш да користиш још једно својство језика CSS. У питању је својство *visibility*, које има могуће вредности *hidden* и *visible*. Вредност *hidden* користиш ради прикривања HTML елемената на веб-страници, док се вредношћу *visible* приказују претходно прикривени елементи.
@@ -94,6 +94,8 @@
 .. petlja-editor:: Poglavlje3/31
 
     index.html
+    <!-- Poglavlje3/31/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -119,6 +121,8 @@
     </html>
     ~~~
     index.css
+    /* Poglavlje3/31/index.css */
+    
     div {
         width: 300px;
         height: 100px;
@@ -167,8 +171,3 @@
         display: none;
     }
 
-
-
-.. image:: ../../_images/web_122b.jpg
-    :width: 780
-    :align: center

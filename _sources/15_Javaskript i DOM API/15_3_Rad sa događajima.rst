@@ -22,6 +22,8 @@ DOM API - рад са догађајима
 .. petlja-editor:: Poglavlje4/38
 
     index.html
+    <!-- Poglavlje4/38/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -36,6 +38,8 @@ DOM API - рад са догађајима
     </html>
     ~~~
     index.js
+    /* Poglavlje4/38/index.js */
+    
     function na_klik_dugmeta() {
         console.log("Клик!");
     }
@@ -48,11 +52,6 @@ DOM API - рад са догађајима
     }
 
 
-
-.. image:: ../../_images/web_153а.jpg
-    :width: 780
-    :align: center
-
 Веома је важно да разумеш како JavaScript интерпретер извршава код из претходног примера. Примети да се, одмах по отварању веб-странице, у конзоли исписује порука „*Крај кода!*“, а да се порука „*Клик!*“ из функције *klikni_me* не исписује. Тек када кликнеш на дугме „*Кликни ме!*“, функција *klikni_me* се извршава и исписује се жељена порука. Другим речима, JavaScript интерпретер неће извршити код из прослеђене функције у тренутку позива метода *addEventListener* (за разлику од тога да позовеш функцију), већ само онда када се наведени догађај (у овом задатку, "*click*") окине над елементом над којим је овај метод позван. Ово можеш да разумеш као да позив метода *addEventListener* само каже JavaScript интерпретеру да запамти функцију која му се прослеђује (уз одговарајући догађај), а да ће њено позивање доћи тек касније (када се тај догађај окине).
 
 Провежбај ово понашање кроз наредне задатке.
@@ -61,9 +60,10 @@ DOM API - рад са догађајима
 
     **Задатак:** На веб-страници се налази слика угашене светиљке и два дугмета: „*укључи*“ и „*искључи*“. Напиши JavaScript програм који кликом на прво дугме мења фотографију на упаљену светиљку, а кликом на друго дугме мења фотографију на угашену светиљку.
 
-.. petlja-editor:: Poglavlje4/39
+.. code-block:: html
 
-    index.html
+    <!-- Poglavlje4/39/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -76,8 +76,11 @@ DOM API - рад са догађајима
         <script src="index.js"></script>
     </body>
     </html>
-    ~~~
-    index.js
+
+.. code-block:: javascript
+
+    /* Poglavlje4/39/index.js */
+    
     let sijalica_je_ugasena = true;
 
     function na_klik_sijalice() {
@@ -112,6 +115,8 @@ DOM API - рад са догађајима
 .. petlja-editor:: Poglavlje4/40
 
     index.html
+    <!-- Poglavlje4/40/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -150,6 +155,8 @@ DOM API - рад са догађајима
     </html>
     ~~~
     index.js
+    /* Poglavlje4/40/index.js */
+    
     function procitaj_broj_iz_polja(id_polja) {
         const polje = document.getElementById(id_polja);
         if (polje !== null) {
@@ -222,9 +229,6 @@ DOM API - рад са догађајима
     }
     ~~~
 
-.. image:: ../../_images/web_153c.jpg
-    :width: 780
-    :align: center
 
 .. questionnote::
 
@@ -233,6 +237,8 @@ DOM API - рад са догађајима
 .. petlja-editor:: Poglavlje4/41
 
     index.html
+    <!-- Poglavlje4/41/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -256,6 +262,8 @@ DOM API - рад са догађајима
     }
     ~~~
     index.js
+    /* Poglavlje4/41/index.js */
+    
     function kursor_je_preko_pasusa() {
         const tekst = document.getElementById("tekst");
         tekst.style.fontSize = "14pt";
@@ -276,10 +284,6 @@ DOM API - рад са догађајима
 
 
 
-
-.. image:: ../../_images/web_153d.jpg
-    :width: 780
-    :align: center
 
 .. infonote::
 

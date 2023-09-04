@@ -17,6 +17,8 @@ __________
 .. petlja-editor:: Poglavlje3/18
 
     index.html
+    <!-- Poglavlje3/18/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -33,6 +35,8 @@ __________
     </html>
     ~~~
     index.css
+    /* Poglavlje3/18/index.css */
+    
     div,
     p {
         width: 300px;
@@ -49,10 +53,6 @@ __________
     }
 
 
-.. image:: ../../_images/web_34a.jpg
-    :width: 780
-    :align: center
-
 Уколико желиш да подесиш било коју од наредних карактеристика ивице, обавезно мораш да прво подесиш стил ивице. У супротном, те карактеристике неће бити примењене.
 Ширина ивице
 Када поставиш стил ивице, она добија подразумевану ширину од ”1px”. Ово можеш да промениш коришћењем својства ”border-width”, односно неког од својстава ”border-top-width”, ”border-right-width”, ”border-bottom-width” и ”border-left-width”. Ширина ивице се може задати у разним дужинама. 
@@ -60,6 +60,8 @@ __________
 .. petlja-editor:: Poglavlje3/19
 
     index.html
+    <!-- Poglavlje3/19/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -79,6 +81,8 @@ __________
     </html>
     ~~~
     index.css
+    /* Poglavlje3/19/index.css */
+    
     div,
     p {
         width: 300px;
@@ -97,9 +101,6 @@ __________
         border-bottom-width: 30px;
     }
 
-.. image:: ../../_images/web_34b.jpg
-    :width: 780
-    :align: center
 
 Боја ивице
 __________
@@ -109,6 +110,8 @@ __________
 .. petlja-editor:: Poglavlje3/20
 
     index.html
+    <!-- Poglavlje3/20/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -128,6 +131,8 @@ __________
     </html>
     ~~~
     index.css
+    /* Poglavlje3/20/index.css */
+    
     div,
     p {
         width: 300px;
@@ -150,10 +155,6 @@ __________
     }
 
 
-.. image:: ../../_images/web_34c.jpg
-    :width: 780
-    :align: center
-
 Својство ”border”
 _________________
 
@@ -164,6 +165,8 @@ _________________
 .. petlja-editor:: Poglavlje3/21
 
     index.html
+    <!-- Poglavlje3/21/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -183,6 +186,8 @@ _________________
     </html>
     ~~~
     index.css
+    /* Poglavlje3/21/index.css */
+    
     div,
     p {
         width: 300px;
@@ -199,13 +204,6 @@ _________________
     }
 
 
-
-
-
-.. image:: ../../_images/web_34d.jpg
-    :width: 780
-    :align: center
-
 Закривљење ивице
 ________________
 
@@ -218,6 +216,8 @@ ________________
 .. petlja-editor:: Poglavlje3/22
 
     index.html
+    <!-- Poglavlje3/22/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -236,6 +236,8 @@ ________________
     </html>
     ~~~
     index.css
+    /* Poglavlje3/22/index.css */
+    
     div {
         width: 300px;
         height: 100px;
@@ -255,8 +257,4 @@ ________________
     #div-3 {
         border-radius: 20px;
     }
-
-.. image:: ../../_images/web_34e.jpg
-    :width: 645
-    :align: center
 

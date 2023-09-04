@@ -11,9 +11,12 @@
 
     HTML стандард заговара приступачност (*accessibility*) садржаја и на друге начине. Неке главне смернице можеш пронаћи на адреси https://www.w3schools.com/html/html_accessibility.asp.
 
+Следи пример који илуструје увожење слика у веб-страницу.
+
 .. code-block:: html
 
-    index.html
+    <!-- Poglavlje2/15/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -28,7 +31,7 @@
     </html>
 
 
-.. image:: ../../_images/slika_72a.jpg
+.. image:: ../../_images/slika_72a.png
     :width: 780
     :align: center
 
@@ -38,7 +41,8 @@
 
 .. code-block:: html
 
-    index.html
+    <!-- Poglavlje2/16/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -64,7 +68,7 @@
 
 
 
-.. image:: ../../_images/slika_72b.jpg
+.. image:: ../../_images/slika_72b.png
     :width: 780
     :align: center
 
@@ -72,7 +76,8 @@
 
 .. code-block:: html
 
-    index.html
+    <!-- Poglavlje2/17/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -109,6 +114,6 @@
     </html>
 
 
-.. image:: ../../_images/slika_72c.jpg
+.. image:: ../../_images/slika_72c.png
     :width: 780
     :align: center

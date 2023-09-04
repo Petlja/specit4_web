@@ -21,6 +21,8 @@ ____________
 .. petlja-editor:: Poglavlje4/32
 
     index.html
+    <!-- Poglavlje4/32/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -36,6 +38,8 @@ ____________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/32/index.js */
+    
     const zuto_zeleni_pasus = document.getElementById("zuto-zeleni");
     if (zuto_zeleni_pasus !== null) {
         zuto_zeleni_pasus.style.backgroundColor = "green";
@@ -54,11 +58,6 @@ ____________
 
 
 
-
-.. image:: ../../_images/web_152a.jpg
-    :width: 780
-    :align: center
-
 .. questionnote::
 
     **Задатак:** На веб-страници се налази пет кутија (елемената *div*) са бројевима од један до пет. Напиши JavaScript програм који од корисника захтева да унесе број од 1 до 5, а затим сакрива кутију са датим бројем на веб-страници. 
@@ -66,6 +65,8 @@ ____________
 .. petlja-editor:: Poglavlje4/33
 
     index.html
+    <!-- Poglavlje4/33/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -85,6 +86,8 @@ ____________
     </html>
     ~~~
     index.css
+    /* Poglavlje4/33/index.css */
+    
     div {
         width: 50px;
         height: 50px;
@@ -95,6 +98,8 @@ ____________
     }
     ~~~
     index.js
+    /* Poglavlje4/33/index.js */
+    
     const broj_kutije = prompt("Унеси број кутије од 1 до 5:");
     const id_kutije = `kutija-${broj_kutije}`;
 
@@ -107,10 +112,6 @@ ____________
 
 
 
-.. image:: ../../_images/web_152b.jpg
-    :width: 780
-    :align: center
-
 .. questionnote::
 
     **Задатак:** На веб-страници је дат елемент div који представља линију прогреса текуће године. Напиши JavaScript програм који од корисника учитава број месеца (1-12), а затим ажурира приказ линије прогреса на веб-страници. 
@@ -118,6 +119,8 @@ ____________
 .. petlja-editor:: Poglavlje4/34
 
     index.html
+    <!-- Poglavlje4/34/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -134,12 +137,16 @@ ____________
     </html>
     ~~~
     index.css
+    /* Poglavlje4/34/index.css */
+    
     div {
         height: 50px;
         background-color: firebrick;
     }
     ~~~
     index.js
+    /* Poglavlje4/34/index.js */
+    
     const mesec = Number.parseInt(prompt("Унеси број месеца од 1 до 12:"));
 
     const linija = document.getElementById("progresna-linija");
@@ -152,11 +159,6 @@ ____________
 
 
 
-
-
-.. image:: ../../_images/web_152c.jpg
-    :width: 780
-    :align: center
 
 Измена вредности атрибута
 __________________________
@@ -174,9 +176,10 @@ __________________________
 
     **Задатак:** На веб-страници се налази фотографија плаже. Напиши JavaScript програм који са 50% вероватноће мења фотографију плаже у фотографију планине. За задатке у којима се јављају случајне величине можеш користити метод *Math.random*, који враћа псеудо случајан децимални број из интервала :math:`[0, 1)`.
 
-.. petlja-editor:: Poglavlje4/35
+.. code-block:: html
 
-    index.html
+    <!-- Poglavlje4/35/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -190,8 +193,11 @@ __________________________
         <script src="index.js"></script>
     </body>
     </html>
-    ~~~
-    index.js
+    
+.. code-block:: javascript
+
+    /* Poglavlje4/35/index.js */
+    
     const verovatnoca = Math.random();
 
     if (verovatnoca < 0.5) {
@@ -206,7 +212,7 @@ __________________________
 
 
 
-.. image:: ../../_images/web_152d.jpg
+.. image:: ../../_images/slika_152a.png
     :width: 780
     :align: center
 
@@ -217,6 +223,8 @@ __________________________
 .. petlja-editor:: Poglavlje4/36
 
     index.html
+    <!-- Poglavlje4/36/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -247,6 +255,8 @@ __________________________
     </html>
     ~~~
     index.js
+    /* Poglavlje4/36/index.js */
+    
     function procitaj_sabirak_iz_polja(id_polja) {
     const polje = document.getElementById(id_polja);
     if (polje !== null) {
@@ -277,10 +287,6 @@ __________________________
 
 
 
-.. image:: ../../_images/web_152e.jpg
-    :width: 780
-    :align: center
-
 Измена садржаја
 ________________
 
@@ -293,9 +299,10 @@ ________________
 
     **Задатак:** На веб-страници се налази празна ненумерисана листа „Слике”. Напиши JavaScript програм који од корисника захтева да унесе број од 1 до 5, а затим у листи приказује онолико слика колико је корисник унео. (Називи датотека које садрже слике које треба приказати су *1.png*, *2.png*, итд.)
 
-.. petlja-editor:: Poglavlje4/37
-
-    index.html
+.. code-block:: html
+    
+    <!-- Poglavlje4/37/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -309,8 +316,11 @@ ________________
         <script src="index.js"></script>
     </body>
     </html>
-    ~~~
-    index.js
+    
+.. code-block:: javascript
+
+    /* Poglavlje4/37/index.js */
+    
     const broj_slika = Number.parseInt(prompt("Унеси број слика од 1 до 5:"));
 
     const lista_slika = document.getElementById("lista-slika");
@@ -334,6 +344,6 @@ ________________
 
 
 
-.. image:: ../../_images/web_152f.jpg
+.. image:: ../../_images/slika_152b.png
     :width: 780
     :align: center

@@ -10,6 +10,8 @@
 .. petlja-editor:: Poglavlje2/6/index.html
 
     index.html
+    <!-- Poglavlje2/6/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -59,10 +61,6 @@
     </html>
 
 
-.. image:: ../../_images/slika_63a.jpg
-    :width: 780
-    :align: center
-
 Уређене листе подразумевано почињу са набрајањем од 1. Међутим, ово понашање је могуће изменити тако што се елементу *ol* промени вредност атрибута *start* на број од кога се започиње набрајање.
 
 Такође, уређене листе подразумевано користе арапске бројеве за набрајање. Могуће је користити и неке друге нумерације променом вредности атрибута type елемента ol на неку од наредних вредности:
@@ -78,6 +76,8 @@
 .. petlja-editor:: Poglavlje2/7/index.html
 
     index.html
+    <!-- Poglavlje2/7/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -114,15 +114,13 @@
     </html>
 
 
-.. image:: ../../_images/slika_63b.jpg
-    :width: 780
-    :align: center
-
 С обзиром на то да су ставке листе блоковски елементи (као и саме листе), садржај неке ставке могу бити разни други елементи, па и саме листе. Дакле, листе је могуће угнежђавати једне у друге.
 
 .. petlja-editor:: Poglavlje2/8/index.html
 
     index.html
+    <!-- Poglavlje2/8/index.html -->
+    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -190,7 +188,3 @@
     </body>
     </html>
 
-
-.. image:: ../../_images/slika_63c.jpg
-    :width: 780
-    :align: center
