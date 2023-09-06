@@ -96,7 +96,7 @@
             <meta charset="utf-8">
             <title>CSS - рад са бојама</title>
 
-            <link rel="stylesheet" type="text/css" href="./index.css">
+            <link rel="stylesheet" type="text/css" href="index.css">
         </head>
         <body>
             <p id="prvi-pasus">Боја текстa овог пасуса користи HEX формат за задавање вредности боје.</p>

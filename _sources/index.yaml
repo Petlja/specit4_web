@@ -99,7 +99,7 @@ lessons:
         description: 
         guid: e7738e73-04dd-46c7-80c2-80940a4790d6
       - type: quiz
-        title: 2.4 Компоненте рачунарских мрежа - квиз
+        title: 2.5 Компоненте рачунарских мрежа - квиз
         file: 2_4_Komponente računarskih mreža - kviz.rst
         description: #Optional
         guid: 9a62b7a6-ce76-493d-886e-6a3b87390cc9
