@@ -153,6 +153,11 @@ lessons:
         file: 3_9_Korišćenje HTTP protokola prilikom pretraživanja veba.rst
         description: 
         guid: 40abbd6a-dbab-4a49-8f4b-bf845327e464
+      - type: quiz
+        title: 3.10 Архитектура рачунарских мрежа - квиз
+        file: 3_10_Arhitektura racunarskih mreza - kviz.rst
+        description: #Optional
+        guid: f663d19b-d6c3-4e04-9f31-0f7990917a4d
   - title: 4 Описни језик HTML
     guid: e2296111-3858-4069-9f75-54f71262f697
     description: 
