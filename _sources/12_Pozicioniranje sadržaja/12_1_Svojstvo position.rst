@@ -330,7 +330,7 @@ ____________________
 .. raw:: html
 
     <video width="780" controls>
-        <source src="../../_static/staticko-pozicioniranje.mov">
+        <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/staticko-pozicioniranje.mov">
     </video>
 
 Фиксно позиционирање се углавном користи за приказивање важних елемената, као што су навигација највишег нивоа, заглавље или подножје веб-странице. Избегавај коришћење овог типа позиционирања за приказивање рекламног садржаја или другог сличног садржаја јер ово води ка изузетно лошем корисничком доживљају.

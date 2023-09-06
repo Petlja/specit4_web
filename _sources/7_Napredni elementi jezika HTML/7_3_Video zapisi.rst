@@ -19,10 +19,10 @@
 
 Приметићеш у наредном примеру да је могуће навести више елемената *source* за један елемент video. То је због тога што, ако први видео-запис није подржан од стране веб-прегледача, онда ће веб-прегледач покушати да прикаже други видео-запис. Ако ни њега није могуће приказати, биће покушано са трећим, итд. Због тога, пракса је да се након свих *source* елемената наведе неки HTML садржај који ће бити приказан у случају да није могуће приказати ниједан од видео-записа.
 
-.. code-block:: html
+.. petlja-editor:: video_zapis
 
+    index.html
     <!-- Poglavlje2/18/index.html -->
-    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -35,27 +35,22 @@
         <p>Једноставан видео запис са контролама</p>
 
         <video width="320" height="240" controls>
-        <source src="./city-park.mp4" type="video/mp4">
-        <source src="./city-park.webm" type="video/vebm">
+        <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/city-park.mp4" type="video/mp4">
+        <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/city-park.webm" type="video/vebm">
         Твој веб-прегледач не подржава елемент ”video”.
         </video>
     </body>
     </html>
-
-
-.. image:: ../../_images/slika_73a.jpg
-    :width: 780
-    :align: center
 
 Додатни (Булови) атрибути које можеш да наведеш за елемент *video* су:
 
 - Атрибут *autoplay*, којим се наводи веб-прегледачу да видео-запис буде аутоматски пуштен након што се учита. Ипак, на ово не треба да се ослањаш јер ће већина савремених веб-прегледача игнорисати ово понашање због лошег корисничког доживљаја (осим, евентуално, уколико звук на видео-запису није утишан). 
 - Атрибутом *muted* се наводи веб-прегледачу да звук на видео-запису подразумевано треба да буде угашен.
 
-.. code-block:: html
+.. petlja-editor:: video_zapis1
 
+    index.html
     <!-- Poglavlje2/19/index.html -->
-    
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -68,14 +63,9 @@
         <p>Видео запис који се пушта аутоматски и утишан</p>
 
         <video width="320" height="240" controls autoplay muted>
-        <source src="./city-park.mp4" type="video/mp4">
-        <source src="./city-park.webm" type="video/vebm">
+        <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/city-park.mp4" type="video/mp4">
+        <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/city-park.webm" type="video/vebm">
         Твој веб-прегледач не подржава елемент ”video”.
         </video>
     </body>
     </html>
-
-
-.. image:: ../../_images/slika_73b.jpg
-    :width: 780
-    :align: center
