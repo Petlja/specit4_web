@@ -13,10 +13,9 @@
 
 Следи пример који илуструје увожење слика у веб-страницу.
 
-.. code-block:: html
+.. petlja-editor:: html_slika
 
-    <!-- Poglavlje2/15/index.html -->
-    
+    index.html
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -26,24 +25,19 @@
     <body>
         <h1>Слике</h1>
 
-        <img src="./html5.png" alt="Логотип језика HTML">
+        <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML">
     </body>
     </html>
 
-
-.. image:: ../../_images/slika_72a.png
-    :width: 780
-    :align: center
 
 Слика коју укључиш у документ ће се приказати у димензијама које би та слика имала на диску. Ако желиш да промениш величину слике, то можеш урадити атрибутима *width* и *height*, чије су вредности бројеви који представљају димензије за ширину и висину, редом. Уколико наведеш само једну од тих димензија, другу димензију ће аутоматски израчунати веб-прегледач тако да размер слике (*аspect ratio*) остане непромењен. Са друге стране, ако наведеш димензије тако да размер слике буде промењен, слика може одати утисак као да је „развучена“.
 
 Ипак, сматра се добром праксом навођење оба атрибута зато што слика може бити довучена са закашњењем. Наиме, веб-прегледач по дохватању HTML документа и његовом обрађивању одмах започиње приказивање елемената, без обзира на то да ли су садржаји тих елемената доступни или не (на пример, да ли је слика преузета са веб-сервера). Ово се ради због тога што, ако би се првобитно чекало на добављање свих ресурса, приказивање веб-странице би започело тек неколико секунди (или, чак, минута) након што корисник унесе адресу веб-странице коју жели да посети. У том случају, корисник би имао утисак да веб-страница не може да се учита и могао би одустати од посете. Примере овог понашања у пракси можеш видети на веб-страницама које имају велики број ресурса или уколико твоја конекција ка серверу има ниску пропусност.
 
-.. code-block:: html
+.. petlja-editor:: html_slika_1
 
-    <!-- Poglavlje2/16/index.html -->
-    
-    <!DOCTYPE html>
+    index.html
+    DOCTYPE html>
     <html lang="sr">
     <head>
         <meta charset="utf-8">
@@ -53,31 +47,25 @@
         <h1>Навођење димензија слика</h1>
 
         <p>Слика оригиналних димензија</p>
-        <img src="./html5.png" alt="Логотип језика HTML" width="225" height="225">
+        <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML" width="225" height="225">
 
         <p>Слика повећаних димензија</p>
-        <img src="./html5.png" alt="Логотип језика HTML" width="290" height="290">
+        <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML" width="290" height="290">
 
         <p>Слика са једном умањеном димензијом</p>
-        <img src="./html5.png" alt="Логотип језика HTML" width="50">
+        <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML" width="50">
 
         <p>Слика са промењеним размером</p>
-        <img src="./html5.png" alt="Логотип језика HTML" width="400" height="80">
+        <img src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png" alt="Логотип језика HTML" width="400" height="80">
     </body>
     </html>
 
 
-
-.. image:: ../../_images/slika_72b.png
-    :width: 780
-    :align: center
-
 Слике су често праћене описима. Уколико желиш да придружиш некој слици одређени опис, то можеш урадити коришћењем блоковских елемената *figure* и *figcaption*. Први елемент служи да дефинише простор за слику која ће бити описана, а други елемент садржи сам опис. У зависности од редоследа навођења, опис може доћи пре или након слике.
 
-.. code-block:: html
+.. petlja-editor:: html_slika2
 
-    <!-- Poglavlje2/17/index.html -->
-    
+    index.html
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -92,7 +80,7 @@
         <figure>
         <figcaption>Слика 1: Логотип језика HTML</figcaption>
         <img
-            src="./html5.png"
+            src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png"
             alt="Логотип језика HTML"
             width="225"
             height="225"
@@ -103,7 +91,7 @@
 
         <figure>
         <img
-            src="./html5.png"
+            src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/html5.png"
             alt="Логотип језика HTML"
             width="225"
             height="225"
@@ -112,8 +100,3 @@
         </figure>
     </body>
     </html>
-
-
-.. image:: ../../_images/slika_72c.png
-    :width: 780
-    :align: center

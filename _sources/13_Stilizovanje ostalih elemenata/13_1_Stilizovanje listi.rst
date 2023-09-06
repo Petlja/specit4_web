@@ -61,10 +61,9 @@
 
 Није реткост да дизајн веб-странице подразумева посебан стил за неуређене листе, те да опције које су доступне језиком CSS нису довољне. Уколико ти је потребно да поставиш специјалне ознаке за ставке неуређених листи, на располагању ти је својство *list-style-image*, која за вредност узима локацију слике-ресурса (која се наводи позивом уграђене CSS функције *url*), a која ће бити коришћена на месту ознаке ставке. Води рачуна о томе да ће слика бити искоришћена у димензијама са диска, те се препоручује коришћење слика чије се димензије визуелно уклапају са текстом.
 
-.. code-block:: html
+.. petlja-editor:: laptop_lista
 
-    <!-- Poglavlje3/35/index.html -->
-    
+    index.html
     <!DOCTYPE html>
     <html lang="sr">
     <head>
@@ -84,15 +83,8 @@
         </ul>
     </body>
     </html>
-
-.. code-block:: css
-
-    /* Poglavlje3/35/index.css */
-    
+    ~~~
+    index.css
     ul {
-        list-style-image: url("./laptop.png");
+        list-style-image: url("https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/laptop.png");
     }
-
-.. image:: ../../_images/slika_131a.png
-    :width: 780
-    :align: center
