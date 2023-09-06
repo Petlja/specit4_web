@@ -68,6 +68,11 @@ lessons:
         file: 1_3_Internet servisi.rst
         description: #Optional
         guid: e2a77dd0-0d25-4fe1-bd2d-a38fd25fd687
+      - type: quiz
+        title: 1.4 Рачунарске мреже - квиз
+        file: 1_4_Računarske mreže - kviz.rst
+        description: #Optional
+        guid: 4734a919-27c2-4e88-913e-e9948917fac5
   - title: 2 Компоненте рачунарских мрежа
     guid: 8c071cce-b10f-4691-a483-00ed254ce56e
     description: 
@@ -93,6 +98,11 @@ lessons:
         file: 2_3_Komunikacioni vodovi.rst
         description: 
         guid: e7738e73-04dd-46c7-80c2-80940a4790d6
+      - type: quiz
+        title: 2.4 Компоненте рачунарских мрежа - квиз
+        file: 2_4_Komponente računarskih mreža - kviz.rst
+        description: #Optional
+        guid: 9a62b7a6-ce76-493d-886e-6a3b87390cc9
   - title: 3 Архитектура рачунарских мрежа
     guid: 79ea5ea5-da68-4a87-93a6-d26baa939639
     description: 
@@ -143,6 +153,11 @@ lessons:
         file: 3_9_Korišćenje HTTP protokola prilikom pretraživanja veba.rst
         description: 
         guid: 40abbd6a-dbab-4a49-8f4b-bf845327e464
+      - type: quiz
+        title: 3.10 Архитектура рачунарских мрежа - квиз
+        file: 3_10_Arhitektura racunarskih mreza - kviz.rst
+        description: #Optional
+        guid: f663d19b-d6c3-4e04-9f31-0f7990917a4d
   - title: 4 Описни језик HTML
     guid: e2296111-3858-4069-9f75-54f71262f697
     description: 
