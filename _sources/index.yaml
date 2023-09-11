@@ -183,6 +183,11 @@ lessons:
         file: 4_4_Dodatni aspekti veb-dizajna.rst
         description: 
         guid: c294db17-c460-461f-ba88-7675711736d2
+      - type: quiz
+        title: 4.5 Описни језик HTML - квиз
+        file: 4_4_Opisni jezik HTML - kviz.rst
+        description: # Optional
+        guid: a7a41efe-45e5-4ce1-8c8d-bba3ad4bc411
   - title: 5 Основе језика HTML
     guid: c2bb4b46-2d4b-4e02-ab60-273168448007
     description: 
@@ -218,6 +223,11 @@ lessons:
         file: 5_6_Opšti atributi.rst
         description: 
         guid: 236e00b7-49e5-4005-9de0-14bc461cc49a
+      - type: quiz
+        title: 5.7 Основе језика HTML - квиз
+        file: 5_7_Osnove jezika HTML - kviz.rst
+        description: # Optional
+        guid: 579f82dd-17e0-49fb-8158-dbde410e9bf8
   - title: 6 Основни HTML елементи
     guid: 0f9e1c21-c593-4959-8aee-2bb944686be1
     description: 
