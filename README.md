@@ -4,7 +4,7 @@ Ovaj repozitorijum posvećen je kursu za Veb programiranje za četvrti razred sp
 
 Kurs je na Petljom portalu dotupan ovde: [https://petlja.org/kurs/11205/0](https://petlja.org/kurs/112050)
 
-Kurs možete itegrisati u svoj LMS koristeći SCORM pakete koji se mogu preuzeti sa: https://github.com/Petlja/specit4_web/releases
+Kurs možete integrisati u svoj LMS koristeći SCORM pakete koji se mogu preuzeti sa: https://github.com/Petlja/specit4_web/releases
 
 ## Konverzija u *HTML*
 
