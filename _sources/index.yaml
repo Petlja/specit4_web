@@ -253,6 +253,11 @@ lessons:
         file: 6_4_Tabele.rst
         description: 
         guid: 03a29f8d-8b83-4df1-b036-a4045686cdde
+      - type: quiz
+        title: 6.5 Основни HTML елементи - квиз  
+        file: 6_5_Osnovni HTML elementi - kviz.rst
+        description: # Optional
+        guid: 3a66aa7a-71eb-4444-9667-cfd021b38c71
   - title: 7 Напредни елементи језика HTML
     guid: e42425a8-ccf6-4610-a911-0c6c016d2efc
     description: 
