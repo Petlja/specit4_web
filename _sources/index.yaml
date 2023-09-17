@@ -283,6 +283,11 @@ lessons:
         file: 7_4_Zvučni zapisi.rst
         description: 
         guid: 04d924be-2ff7-41ea-b6b8-ab2f782d5879
+      - type: quiz
+        title: 7.5 Напредни елементи језика HTML - квиз
+        file: 7_5_Napredni elementi jezika HTML - kviz.rst
+        description: # Optional
+        guid: 6c606c38-0a2f-464c-abcb-5d2ae3b13714
   - title: 8 Формулари
     guid: 90fdbb9e-48d0-48c3-b97b-dcc1f87a2b7e
     description: 
@@ -308,6 +313,10 @@ lessons:
         file: 8_4_Podnošenje formulara.rst
         description: 
         guid: a575417e-99cf-4068-88e0-cd32c991e6be
+      - type: quiz
+        title: 8.5 Формулари - квиз
+        file: 8_5_Formulari - kviz.rst
+        guid: 2c5d3865-36ad-47af-8307-d9431287206f
   - title: 9 Основни елементи језика CSS
     guid: 64a4cbc8-2f98-4f8d-b11e-f93d577dcd1b
     description: 
