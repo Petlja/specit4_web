@@ -337,6 +337,10 @@ lessons:
         file: 9_3_Selektori.rst
         description: 
         guid: cfc04c27-77e4-40d8-8cea-c7992e7f34d6
+      - type: quiz
+        title: 9.4 Основни елементи језика CSS - квиз
+        file: 9_4_Osnovni elementi jezika CSS - kviz.rst
+        guid: 3debdb6a-ca1b-4de0-b683-fe7850b31ccc
   - title: 10 Основна својства садржаја
     guid: 04809759-42c5-4eff-8813-8d42cfa1655a
     description: 
