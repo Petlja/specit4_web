@@ -356,6 +356,10 @@ lessons:
         file: 10_2_Stilizovanje tekstualnog sadržaja.rst
         description: 
         guid: 7dff31a6-aa9b-4629-8099-3b4f30480b7e
+      - type: quiz
+        title: 10.3 Основна својства садржаја - квиз
+        file: 10_3_Osnovna stvojstva sadržaja - kviz.rst
+        guid: d551460d-6eca-4524-b993-bf196f04c73c
   - title: 11 Модел кутије
     guid: 042e3a33-4173-47ed-ba00-a9838316b72f
     description: 
