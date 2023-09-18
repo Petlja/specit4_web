@@ -1,14 +1,23 @@
-# spectit4_web
+# Veb programiranje za četvrti razred specijalizovanih IT odeljenja
 
-[![Preview on Pages](https://img.shields.io/badge/Preview_on_Pages-blue?logo=github&style=flat&labelColor=black)](https://petlja.github.io/specit4_web)
-&nbsp;
-[![Open in github.dev](https://img.shields.io/badge/Open_in_github.dev-blue?logo=github&style=flat&labelColor=black)](https://github.dev/Petlja/specit4_web)
-&nbsp;
-[![Pages build & deploy status](https://img.shields.io/badge/Pages_build_&_deploy_status-blue?logo=github&style=flat&labelColor=black)](https://github.com/Petlja/specit4_web/actions/workflows/petljadoc.yml)  
-Preview on Github pages, edit in github.dev, don't forget to Commit & Push, and watch the status
+Ovaj repozitorijum posvećen je kursu za Veb programiranje za četvrti razred specijalizovanih IT odeljenja. 
 
-or
+Kurs je na Petljinom portalu dotupan ovde: [https://petlja.org/kurs/11205/0](https://petlja.org/kurs/11205/0)
 
+Kurs možete integrisati u svoj LMS koristeći SCORM pakete koji se mogu preuzeti sa: https://github.com/Petlja/specit4_web/releases
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Petlja/specit4_ai?quickstart=1)  
-Use Codespaces and run `petljadoc preview` in a terminal to have live preview 
+## Konverzija u *HTML*
+
+U ovom repozitorijumu se nalazi izvorna forma sadržaja koju pomoću alata [PetljaDoc](https://github.com/Petlja/PetljaDoc) možete konvertovati u skup *HTML* strana.
+
+Na https://petlja.github.io/specit4_web možete pregledati na taj način dobijene *HTML* strane.
+
+## License
+
+This work by Fondacija Petlja is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
