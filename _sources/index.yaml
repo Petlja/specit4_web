@@ -390,6 +390,10 @@ lessons:
         file: 3_5_Spoljašni pojas elemenata.rst
         description: 
         guid: 8d156890-d5a2-4029-b73d-5d42e367479a
+      - type: quiz
+        title: 11.6 Модел кутије - квиз
+        file: 11_6_Model kutije - kviz.rst
+        guid: 0450c7d8-66fc-47d0-905a-a2656c75611d
   - title: 12 Позиционирање садржаја
     guid: 58ce24f4-c79f-428d-b858-c145ee568aa3
     description: 
