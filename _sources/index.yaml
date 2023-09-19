@@ -414,6 +414,10 @@ lessons:
         file: 12_3_Slaganje elemenata.rst
         description: 
         guid: 186626c5-0c8d-422d-998a-3ba429f1351d
+      - type: quiz
+        title: 12.4 Позиционирање садржаја - квиз
+        file: 12_4_Pozicioniranje sadržaja - kviz.rst
+        guid: eae77af8-d2f5-4f4b-b126-9641f8843546
   - title: 13 Стилизовање осталих елемената
     guid: 96725ef2-3e50-4df0-af5f-bfb5c93f42a1
     description: 
@@ -429,6 +433,10 @@ lessons:
         file: 13_2_Stilizovanje tabela.rst
         description: 
         guid: cc83f176-5309-4e0e-8be6-dd3d613ded83
+      - type: quiz
+        title: 13.3 Стилизовање осталих елемената - квиз
+        file: 13_3_Stilizovanje ostalih elemenata - kviz.rst
+        guid: 48f6a46b-b3c6-4d35-9d8e-f8bf55adff13
   - title: 14 Програмирање клијентских веб-апликација
     guid: e90ce4ca-3ed8-4e56-9561-3036ed25bd96
     description: 
