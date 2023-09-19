@@ -13,8 +13,8 @@
         :answer_a: text-color
         :answer_b: background-color
         :answer_c: color
-        :answer_d: font-color
-        :answer_e: backdrop-color
+        :answer_d: backdrop-color
+        :answer_e: ниједно од понуђених
         :correct: c
 
         Које од наредних CSS својстава се користи тако да се постави љубичаста боја као на датој слици?
@@ -31,8 +31,8 @@
         :answer_a: text-color
         :answer_b: background-color
         :answer_c: color
-        :answer_d: font-color
-        :answer_e: backdrop-color
+        :answer_d: backdrop-color
+        :answer_e: ниједно од понуђених
         :correct: b
 
         Које од наредних CSS својстава се користи тако да се постави љубичаста боја као на датој слици?
