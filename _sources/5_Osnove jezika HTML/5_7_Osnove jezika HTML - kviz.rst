@@ -143,6 +143,7 @@
     .. mchoice:: osnove_jezika_html_kviz_9
         :answer_a: блоковским
         :answer_b: линијским
+        :answer_c: ниједно од понуђених
         :correct: a
 
         Којој категорији HTML елемената припадају елементи означени бројевима 1 и 4?
