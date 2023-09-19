@@ -337,6 +337,10 @@ lessons:
         file: 9_3_Selektori.rst
         description: 
         guid: cfc04c27-77e4-40d8-8cea-c7992e7f34d6
+      - type: quiz
+        title: 9.4 Основни елементи језика CSS - квиз
+        file: 9_4_Osnovni elementi jezika CSS - kviz.rst
+        guid: 3debdb6a-ca1b-4de0-b683-fe7850b31ccc
   - title: 10 Основна својства садржаја
     guid: 04809759-42c5-4eff-8813-8d42cfa1655a
     description: 
@@ -352,6 +356,10 @@ lessons:
         file: 10_2_Stilizovanje tekstualnog sadržaja.rst
         description: 
         guid: 7dff31a6-aa9b-4629-8099-3b4f30480b7e
+      - type: quiz
+        title: 10.3 Основна својства садржаја - квиз
+        file: 10_3_Osnovna stvojstva sadržaja - kviz.rst
+        guid: d551460d-6eca-4524-b993-bf196f04c73c
   - title: 11 Модел кутије
     guid: 042e3a33-4173-47ed-ba00-a9838316b72f
     description: 
@@ -382,6 +390,10 @@ lessons:
         file: 3_5_Spoljašni pojas elemenata.rst
         description: 
         guid: 8d156890-d5a2-4029-b73d-5d42e367479a
+      - type: quiz
+        title: 11.6 Модел кутије - квиз
+        file: 11_6_Model kutije - kviz.rst
+        guid: 0450c7d8-66fc-47d0-905a-a2656c75611d
   - title: 12 Позиционирање садржаја
     guid: 58ce24f4-c79f-428d-b858-c145ee568aa3
     description: 
@@ -402,6 +414,10 @@ lessons:
         file: 12_3_Slaganje elemenata.rst
         description: 
         guid: 186626c5-0c8d-422d-998a-3ba429f1351d
+      - type: quiz
+        title: 12.4 Позиционирање садржаја - квиз
+        file: 12_4_Pozicioniranje sadržaja - kviz.rst
+        guid: eae77af8-d2f5-4f4b-b126-9641f8843546
   - title: 13 Стилизовање осталих елемената
     guid: 96725ef2-3e50-4df0-af5f-bfb5c93f42a1
     description: 
@@ -417,6 +433,10 @@ lessons:
         file: 13_2_Stilizovanje tabela.rst
         description: 
         guid: cc83f176-5309-4e0e-8be6-dd3d613ded83
+      - type: quiz
+        title: 13.3 Стилизовање осталих елемената - квиз
+        file: 13_3_Stilizovanje ostalih elemenata - kviz.rst
+        guid: 48f6a46b-b3c6-4d35-9d8e-f8bf55adff13
   - title: 14 Програмирање клијентских веб-апликација
     guid: e90ce4ca-3ed8-4e56-9561-3036ed25bd96
     description: 
