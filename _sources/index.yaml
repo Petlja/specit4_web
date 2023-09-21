@@ -560,7 +560,11 @@ lessons:
         file: 16_9_Sesije.rst
         description: 
         guid: 9f164d9d-5aac-442b-a408-8c9da0d3f066
-  - title: 17 Рад са MySQL системом за управљање података
+      - type: quiz
+        title: 16.9 Библиотека Flask - квиз
+        file: 16_10_Biblioteka Flask - kviz.rst
+        guid: d0443fe1-7fde-4193-8679-75d68025926f
+  - title: 17 Рад са MySQL системом за управљање базама података
     guid: fa754be2-45e8-40a8-b9ed-a3b65a04b333
     description: 
     folder: 17_Rad sa MySQL sistemom
@@ -585,5 +589,9 @@ lessons:
         file: 17_4_Upis ažuriranje i brisanje.rst
         description: 
         guid: 0ac1334f-72bc-4ef8-9b8b-a15aed6026d4
+      - type: quiz
+        title: 17.5 Рад са MySQL системом за управљање базама података - квиз
+        file: 17_5_Rad sa MYSQL sistemom.rst
+        guid: 4a71e067-556f-4091-8141-6abca55c9fa2
 
   
