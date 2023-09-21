@@ -33,6 +33,6 @@
         <audio controls>
         <source src="https://petljamediastorage.blob.core.windows.net/root/Media/Default/Kursevi/OnlineNastava/specit4_web/_static/melody.mp3" type="audio/mp3">
         Твој веб-прегледач не подржава елемент audio”.
-        </video>
+        </audio>
     </body>
     </html>
