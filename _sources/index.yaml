@@ -487,6 +487,10 @@ lessons:
         file: 14_9_Funkcije.rst
         description: 
         guid: 73eff6af-a052-48f6-b1b7-4ae19d9ec518
+      - type: quiz
+        title: 14.10 Програмирање клијентских веб-апликација - квиз
+        file: 14_10_Programiranje klijentskih veb-aplikacija - kviz.rst
+        guid: 0f71e217-3237-401e-b194-495bee5b8e8e
   - title: 15 JavaScript и DOM API
     guid: 78376998-1e01-400f-b728-58ac49250d07
     description: 
@@ -507,6 +511,10 @@ lessons:
         file: 15_3_Rad sa događajima.rst
         description: 
         guid: 27e2a081-eec2-401e-b9b8-5ee350437b55
+      - type: quiz
+        title: 15.4 JavaScript и DOM API - квиз
+        file: 15_4_JavaScript i DOM API.rst
+        guid: 3b055777-032b-496f-b0f6-2f96b2a7cd00
   - title: 16 Библиотека Flask
     guid: ad59f253-0dea-4466-ac4b-3fe3587492a9
     description: 
